@@ -1,0 +1,215 @@
+<div class="createLocker">
+    <form>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-lable">LP address</label>
+            <div class="col-sm-9">
+                <input class="lpAddress w-100" type="text" placeholder="" required name="lpAddress" ethAddress="true" />
+                <p class="hint">Enter LP address to lock.</p>
+            </div>
+        </div>
+
+        <div class="pairInfo form-group row mb-3" style="display: none;">
+            <label class="col-sm-3 col-form-lable text-danger">LP Pair</label>
+            <div class="col-sm-9">
+                <input class="lpPair w-100" type="text" placeholder="Token0/Token1" required disabled />
+            </div>
+
+            <label class="col-sm-3 col-form-lable token0 text-success">Token0</label>
+            <div class="col-sm-9">
+                <input class="tokenAmount0 w-100" type="text" placeholder="0" required disabled />
+            </div>
+
+            <label class="col-sm-3 col-form-lable token1 text-info">Token1</label>
+            <div class="col-sm-9">
+                <input class="tokenAmount1 w-100" type="text" placeholder="0" required disabled />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-lable">Locking duration</label>
+            <div class="col-sm-9">
+                <input class="lockDuration w-100" type="number" placeholder="" required name="lockDuration"
+                    integer="true" />
+
+
+                <div class="quickValue">
+                    <button type="button" class="btn btn-light btn-sm" id="1_day">1 day</button>
+                    <button type="button" class="btn btn-light btn-sm" id="7_days">7 days</button>
+                    <button type="button" class="btn btn-light btn-sm" id="1_month">1 month</button>
+                    <button type="button" class="btn btn-light btn-sm" id="1_year">1 year</button>
+                    <button type="button" class="btn btn-light btn-sm" id="100_years">100 years</button>
+                </div>
+
+                <p class="hint">Enter locking duration in seconds.</p>
+
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-lable">Amount</label>
+            <div class="col-sm-9">
+                <input class="lpAmount w-100" type="number" placeholder="" required id="lpAmount" name="lockAmount"
+                    integer="true" />
+
+
+                <div class="quickValue">
+                    <button type="button" class="btn btn-light btn-sm" id="10_percent">10%</button>
+                    <button type="button" class="btn btn-light btn-sm" id="25_percent">25%</button>
+                    <button type="button" class="btn btn-light btn-sm" id="50_percent">50%</button>
+                    <button type="button" class="btn btn-light btn-sm" id="75_percent">75%</button>
+                    <button type="button" class="btn btn-light btn-sm" id="100_percent">Max</button>
+                </div>
+
+                <p class="hint">Enter LP amount to lock. Consider the decimals.</p>
+
+            </div>
+        </div>
+
+
+        <script type="module">
+            import { newContract, number, getLpAddress, getLockDuration, getLpAmount, hasLockerAddress, hasLockCert } from "./static/misc.js";
+
+            $("#1_day").on("click", () => {
+                $(".lockDuration").val(1 * 24 * 60 * 60)
+            })
+            $("#7_days").on("click", () => {
+                $(".lockDuration").val(7 * 24 * 60 * 60)
+            })
+            $("#1_month").on("click", () => {
+                $(".lockDuration").val(30 * 24 * 60 * 60)
+            })
+            $("#1_year").on("click", () => {
+                $(".lockDuration").val(365 * 24 * 60 * 60)
+            })
+            $("#100_years").on("click", () => {
+                $(".lockDuration").val(100 * 365 * 24 * 60 * 60)
+            })
+
+            $("#10_percent").on("click", async () => {
+                try {
+                    var lpTokenAddress = getLpAddress()
+                    var lpToken = await newContract("standard", lpTokenAddress);
+                    var userBalance = await lpToken.methods.balanceOf(selectedAccount).call();
+                    $(".lpAmount").val(
+                        number(userBalance).mul(number(10)).div(number(100))
+                    );
+                } catch (error) {
+
+                }
+
+            });
+
+            $("#25_percent").on("click", async () => {
+                try {
+                    var lpTokenAddress = getLpAddress()
+                    var lpToken = await newContract("standard", lpTokenAddress);
+                    var userBalance = await lpToken.methods.balanceOf(selectedAccount).call();
+                    $(".lpAmount").val(
+                        number(userBalance).mul(number(25)).div(number(100))
+                    );
+                } catch (error) {
+
+                }
+            });
+
+            $("#50_percent").on("click", async () => {
+                try {
+                    var lpTokenAddress = getLpAddress()
+                    var lpToken = await newContract("standard", lpTokenAddress);
+                    var userBalance = await lpToken.methods.balanceOf(selectedAccount).call();
+                    $(".lpAmount").val(
+                        number(userBalance).mul(number(50)).div(number(100))
+                    );
+                } catch (error) {
+
+                }
+            });
+
+            $("#75_percent").on("click", async () => {
+                try {
+                    var lpTokenAddress = getLpAddress()
+                    var lpToken = await newContract("standard", lpTokenAddress);
+                    var userBalance = await lpToken.methods.balanceOf(selectedAccount).call();
+                    $(".lpAmount").val(
+                        number(userBalance).mul(number(75)).div(number(100))
+                    );
+                } catch (error) {
+
+                }
+            });
+
+            $("#100_percent").on("click", async () => {
+                try {
+                    var lpTokenAddress = getLpAddress()
+                    var lpToken = await newContract("standard", lpTokenAddress);
+                    var userBalance = await lpToken.methods.balanceOf(selectedAccount).call();
+                    $(".lpAmount").val(
+                        userBalance
+                    );
+                } catch (error) {
+
+                }
+            });
+
+            $(".lpAddress").on("keyup", () => {
+
+                retrieveInfo();
+            });
+
+
+
+            function retrieveInfo() {
+
+                var lpAddress = getLpAddress()
+
+                if (hasLockerAddress()) {
+                    $("#btnCreateLocker").hide();
+
+                    if (hasLockCert()) {
+                        $("#btnLockLP").hide();
+                        $("#btnUnlockLP").show();
+                        $("#btnViewLocker").show();
+
+                        $(".lockDuration").prop("disabled", "disabled");
+                        $(".lpAmount").prop("disabled", "disabled");
+                        $(".quickValue").hide()
+                        $("label.error").hide()
+                    } else {
+                        $("#btnLockLP").show();
+                        $("#btnUnlockLP").hide();
+                        $("#btnViewLocker").hide();
+
+                        $(".lockDuration").prop("disabled", "");
+                        $(".lpAmount").prop("disabled", "");
+                        $(".quickValue").show()
+
+                    }
+
+                } else {
+
+                    $(".lockDuration").val("");
+                    $(".lpAmount").val("");
+
+                    $(".lockDuration").prop("disabled", "");
+                    $(".lpAmount").prop("disabled", "");
+                    $(".quickValue").show()
+
+                    $("#btnCreateLocker").show();
+                    $("#btnLockLP").hide();
+                    $("#btnUnlockLP").hide();
+                    $("#btnViewLocker").hide();
+
+                }
+
+                if (hasLockerAddress()) {
+                    $(".lockDuration").val(window.localStorage.getItem("lockDuration"));
+                    $(".lpAmount").val(window.localStorage.getItem("lpAmount"));
+                }
+            }
+
+
+
+        </script>
+    </form>
+
+
+</div>
