@@ -652,3 +652,8 @@ input {
   align-items: center;
   margin-bottom: 10px;
 }
+
+.reward_token {
+  font-size: small;
+  width: 330px;
+}
