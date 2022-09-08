@@ -258,6 +258,12 @@
         "static/views/" + view_folder + "/cronos.html"
       );
     }
+
+    if (network == 2000) {
+      $("." + token_type + " .rewardContainer").load(
+        "static/views/" + view_folder + "/doge.html"
+      );
+    }
   }
   setReward();
 
