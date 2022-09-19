@@ -1,0 +1,135 @@
+<div class="createLocker">
+  <form>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-lable">Token or LP Token address</label>
+      <div class="col-sm-9">
+        <input
+          class="address w-100"
+          type="text"
+          placeholder=""
+          required
+          name="address"
+          ethAddress="true"
+        />
+        <p class="hint">Enter LP address or token address.</p>
+      </div>
+    </div>
+
+    <div class="pairInfo form-group row mb-3" style="display: none">
+      <label class="col-sm-3 col-form-lable text-danger">LP Pair</label>
+      <div class="col-sm-9">
+        <input
+          class="lpPair w-100"
+          type="text"
+          placeholder="Token0/Token1"
+          required
+          disabled
+        />
+      </div>
+
+      <label class="col-sm-3 col-form-lable token0 text-success">Token0</label>
+      <div class="col-sm-9">
+        <input
+          class="tokenAmount0 w-100"
+          type="text"
+          placeholder="0"
+          required
+          disabled
+        />
+      </div>
+
+      <label class="col-sm-3 col-form-lable token1 text-info">Token1</label>
+      <div class="col-sm-9">
+        <input
+          class="tokenAmount1 w-100"
+          type="text"
+          placeholder="0"
+          required
+          disabled
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-lable">Locking duration</label>
+      <div class="col-sm-9">
+        <input
+          class="lockDuration w-100"
+          type="number"
+          placeholder=""
+          required
+          name="lockDuration"
+          integer="true"
+        />
+
+        <div class="quickValue">
+          <button type="button" class="btn btn-light btn-sm" id="1_day">
+            1 day
+          </button>
+          <button type="button" class="btn btn-light btn-sm" id="7_days">
+            7 days
+          </button>
+          <button type="button" class="btn btn-light btn-sm" id="1_month">
+            1 month
+          </button>
+          <button type="button" class="btn btn-light btn-sm" id="1_year">
+            1 year
+          </button>
+          <button type="button" class="btn btn-light btn-sm" id="100_years">
+            100 years
+          </button>
+        </div>
+
+        <p class="hint">Enter locking duration in seconds.</p>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-lable">Amount</label>
+      <div class="col-sm-9">
+        <input
+          class="amount w-100"
+          type="number"
+          placeholder=""
+          required
+          id="amount"
+          name="lockAmount"
+          integer="true"
+        />
+
+        <div class="quickValue">
+          <button type="button" class="btn btn-light btn-sm" id="10_percent">
+            10%
+          </button>
+          <button type="button" class="btn btn-light btn-sm" id="25_percent">
+            25%
+          </button>
+          <button type="button" class="btn btn-light btn-sm" id="50_percent">
+            50%
+          </button>
+          <button type="button" class="btn btn-light btn-sm" id="75_percent">
+            75%
+          </button>
+          <button type="button" class="btn btn-light btn-sm" id="100_percent">
+            Max
+          </button>
+        </div>
+
+        <p class="hint">Enter amount. Consider the decimals.</p>
+      </div>
+    </div>
+  </form>
+
+  <div
+    class="alert alert-warning excludeAddrWarning"
+    role="alert"
+    style="display: none"
+  >
+    Please exclude the lockup address
+    <span id="lockAddress" class="fw-bold">0x123</span>
+    <button type="button" class="btn btn-info bg-light" id="btnCopy">
+      <i class="fa-solid fa-copy text-info"></i>
+    </button>
+    from fees, rewards, max tx amount. We don't support rebase tokens.
+  </div>
+</div>
+
+<script type="module" src="./static/create-lock.js"></script>

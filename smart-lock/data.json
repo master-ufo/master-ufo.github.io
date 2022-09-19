@@ -1,0 +1,379 @@
+{
+  "_firestore": {
+    "_delegate": {
+      "app": {
+        "name": "[DEFAULT]",
+        "automaticDataCollectionEnabled": false,
+        "options": {
+          "apiKey": "AIzaSyBORQn85sf2LhSmI4Wrsurh_uYYZVIjO8Y",
+          "authDomain": "create-lock.firebaseapp.com",
+          "projectId": "create-lock",
+          "storageBucket": "create-lock.appspot.com",
+          "messagingSenderId": "187550577381",
+          "appId": "1:187550577381:web:7f68a2e2d926285d0b9a0c",
+          "measurementId": "G-KXTLSQJLFC"
+        }
+      },
+      "databaseId": { "projectId": "create-lock", "database": "(default)" },
+      "settings": {
+        "host": "firestore.googleapis.com",
+        "ssl": true,
+        "ignoreUndefinedProperties": false,
+        "cacheSizeBytes": 41943040,
+        "experimentalForceLongPolling": false,
+        "experimentalAutoDetectLongPolling": false,
+        "useFetchStreams": false
+      }
+    },
+    "Zc": {},
+    "INTERNAL": {},
+    "tu": {
+      "name": "[DEFAULT]",
+      "automaticDataCollectionEnabled": false,
+      "options": {
+        "apiKey": "AIzaSyBORQn85sf2LhSmI4Wrsurh_uYYZVIjO8Y",
+        "authDomain": "create-lock.firebaseapp.com",
+        "projectId": "create-lock",
+        "storageBucket": "create-lock.appspot.com",
+        "messagingSenderId": "187550577381",
+        "appId": "1:187550577381:web:7f68a2e2d926285d0b9a0c",
+        "measurementId": "G-KXTLSQJLFC"
+      }
+    }
+  },
+  "_delegate": {
+    "_firestore": {
+      "app": {
+        "name": "[DEFAULT]",
+        "automaticDataCollectionEnabled": false,
+        "options": {
+          "apiKey": "AIzaSyBORQn85sf2LhSmI4Wrsurh_uYYZVIjO8Y",
+          "authDomain": "create-lock.firebaseapp.com",
+          "projectId": "create-lock",
+          "storageBucket": "create-lock.appspot.com",
+          "messagingSenderId": "187550577381",
+          "appId": "1:187550577381:web:7f68a2e2d926285d0b9a0c",
+          "measurementId": "G-KXTLSQJLFC"
+        }
+      },
+      "databaseId": { "projectId": "create-lock", "database": "(default)" },
+      "settings": {
+        "host": "firestore.googleapis.com",
+        "ssl": true,
+        "ignoreUndefinedProperties": false,
+        "cacheSizeBytes": 41943040,
+        "experimentalForceLongPolling": false,
+        "experimentalAutoDetectLongPolling": false,
+        "useFetchStreams": false
+      }
+    },
+    "_userDataWriter": {
+      "firestore": {
+        "_delegate": {
+          "app": {
+            "name": "[DEFAULT]",
+            "automaticDataCollectionEnabled": false,
+            "options": {
+              "apiKey": "AIzaSyBORQn85sf2LhSmI4Wrsurh_uYYZVIjO8Y",
+              "authDomain": "create-lock.firebaseapp.com",
+              "projectId": "create-lock",
+              "storageBucket": "create-lock.appspot.com",
+              "messagingSenderId": "187550577381",
+              "appId": "1:187550577381:web:7f68a2e2d926285d0b9a0c",
+              "measurementId": "G-KXTLSQJLFC"
+            }
+          },
+          "databaseId": { "projectId": "create-lock", "database": "(default)" },
+          "settings": {
+            "host": "firestore.googleapis.com",
+            "ssl": true,
+            "ignoreUndefinedProperties": false,
+            "cacheSizeBytes": 41943040,
+            "experimentalForceLongPolling": false,
+            "experimentalAutoDetectLongPolling": false,
+            "useFetchStreams": false
+          }
+        },
+        "Zc": {},
+        "INTERNAL": {},
+        "tu": {
+          "name": "[DEFAULT]",
+          "automaticDataCollectionEnabled": false,
+          "options": {
+            "apiKey": "AIzaSyBORQn85sf2LhSmI4Wrsurh_uYYZVIjO8Y",
+            "authDomain": "create-lock.firebaseapp.com",
+            "projectId": "create-lock",
+            "storageBucket": "create-lock.appspot.com",
+            "messagingSenderId": "187550577381",
+            "appId": "1:187550577381:web:7f68a2e2d926285d0b9a0c",
+            "measurementId": "G-KXTLSQJLFC"
+          }
+        }
+      }
+    },
+    "_snapshot": {
+      "query": {
+        "path": { "segments": ["users"], "offset": 0, "len": 1 },
+        "collectionGroup": null,
+        "explicitOrderBy": [],
+        "filters": [
+          {
+            "field": { "segments": ["first"], "offset": 0, "len": 1 },
+            "op": "==",
+            "value": { "stringValue": "test123" }
+          }
+        ],
+        "limit": null,
+        "limitType": "F",
+        "startAt": null,
+        "endAt": null,
+        "p": [
+          {
+            "field": { "segments": ["__name__"], "offset": 0, "len": 1 },
+            "dir": "asc"
+          }
+        ],
+        "T": {
+          "path": { "segments": ["users"], "offset": 0, "len": 1 },
+          "collectionGroup": null,
+          "orderBy": [
+            {
+              "field": { "segments": ["__name__"], "offset": 0, "len": 1 },
+              "dir": "asc"
+            }
+          ],
+          "filters": [
+            {
+              "field": { "segments": ["first"], "offset": 0, "len": 1 },
+              "op": "==",
+              "value": { "stringValue": "test123" }
+            }
+          ],
+          "limit": null,
+          "startAt": null,
+          "endAt": null,
+          "h": "users|f:first==test123|ob:__name__asc"
+        }
+      },
+      "docs": {
+        "keyedMap": {
+          "root": {
+            "key": {
+              "path": {
+                "segments": [
+                  "projects",
+                  "create-lock",
+                  "databases",
+                  "(default)",
+                  "documents",
+                  "users",
+                  "wcOQqyyuNGYR0TIRO1Y6"
+                ],
+                "offset": 5,
+                "len": 2
+              }
+            },
+            "value": {
+              "key": {
+                "path": {
+                  "segments": [
+                    "projects",
+                    "create-lock",
+                    "databases",
+                    "(default)",
+                    "documents",
+                    "users",
+                    "wcOQqyyuNGYR0TIRO1Y6"
+                  ],
+                  "offset": 5,
+                  "len": 2
+                }
+              },
+              "documentType": 1,
+              "version": {
+                "timestamp": { "seconds": 1662285126, "nanoseconds": 926125000 }
+              },
+              "data": {
+                "value": {
+                  "mapValue": {
+                    "fields": {
+                      "last": { "stringValue": "testcode" },
+                      "born": { "integerValue": "12345" },
+                      "first": { "stringValue": "test123" }
+                    }
+                  }
+                }
+              },
+              "documentState": 0
+            },
+            "color": false,
+            "left": { "size": 0 },
+            "right": { "size": 0 },
+            "size": 1
+          }
+        },
+        "sortedSet": {
+          "root": {
+            "key": {
+              "key": {
+                "path": {
+                  "segments": [
+                    "projects",
+                    "create-lock",
+                    "databases",
+                    "(default)",
+                    "documents",
+                    "users",
+                    "wcOQqyyuNGYR0TIRO1Y6"
+                  ],
+                  "offset": 5,
+                  "len": 2
+                }
+              },
+              "documentType": 1,
+              "version": {
+                "timestamp": { "seconds": 1662285126, "nanoseconds": 926125000 }
+              },
+              "data": {
+                "value": {
+                  "mapValue": {
+                    "fields": {
+                      "last": { "stringValue": "testcode" },
+                      "born": { "integerValue": "12345" },
+                      "first": { "stringValue": "test123" }
+                    }
+                  }
+                }
+              },
+              "documentState": 0
+            },
+            "value": null,
+            "color": false,
+            "left": { "size": 0 },
+            "right": { "size": 0 },
+            "size": 1
+          }
+        }
+      },
+      "oldDocs": {
+        "keyedMap": { "root": { "size": 0 } },
+        "sortedSet": { "root": { "size": 0 } }
+      },
+      "docChanges": [
+        {
+          "type": 0,
+          "doc": {
+            "key": {
+              "path": {
+                "segments": [
+                  "projects",
+                  "create-lock",
+                  "databases",
+                  "(default)",
+                  "documents",
+                  "users",
+                  "wcOQqyyuNGYR0TIRO1Y6"
+                ],
+                "offset": 5,
+                "len": 2
+              }
+            },
+            "documentType": 1,
+            "version": {
+              "timestamp": { "seconds": 1662285126, "nanoseconds": 926125000 }
+            },
+            "data": {
+              "value": {
+                "mapValue": {
+                  "fields": {
+                    "last": { "stringValue": "testcode" },
+                    "born": { "integerValue": "12345" },
+                    "first": { "stringValue": "test123" }
+                  }
+                }
+              }
+            },
+            "documentState": 0
+          }
+        }
+      ],
+      "mutatedKeys": { "data": { "root": { "size": 0 } } },
+      "fromCache": false,
+      "syncStateChanged": true,
+      "excludesMetadataChanges": false
+    },
+    "metadata": { "hasPendingWrites": false, "fromCache": false },
+    "query": {
+      "converter": null,
+      "_query": {
+        "path": { "segments": ["users"], "offset": 0, "len": 1 },
+        "collectionGroup": null,
+        "explicitOrderBy": [],
+        "filters": [
+          {
+            "field": { "segments": ["first"], "offset": 0, "len": 1 },
+            "op": "==",
+            "value": { "stringValue": "test123" }
+          }
+        ],
+        "limit": null,
+        "limitType": "F",
+        "startAt": null,
+        "endAt": null,
+        "p": [
+          {
+            "field": { "segments": ["__name__"], "offset": 0, "len": 1 },
+            "dir": "asc"
+          }
+        ],
+        "T": {
+          "path": { "segments": ["users"], "offset": 0, "len": 1 },
+          "collectionGroup": null,
+          "orderBy": [
+            {
+              "field": { "segments": ["__name__"], "offset": 0, "len": 1 },
+              "dir": "asc"
+            }
+          ],
+          "filters": [
+            {
+              "field": { "segments": ["first"], "offset": 0, "len": 1 },
+              "op": "==",
+              "value": { "stringValue": "test123" }
+            }
+          ],
+          "limit": null,
+          "startAt": null,
+          "endAt": null,
+          "h": "users|f:first==test123|ob:__name__asc"
+        }
+      },
+      "type": "query",
+      "firestore": {
+        "app": {
+          "name": "[DEFAULT]",
+          "automaticDataCollectionEnabled": false,
+          "options": {
+            "apiKey": "AIzaSyBORQn85sf2LhSmI4Wrsurh_uYYZVIjO8Y",
+            "authDomain": "create-lock.firebaseapp.com",
+            "projectId": "create-lock",
+            "storageBucket": "create-lock.appspot.com",
+            "messagingSenderId": "187550577381",
+            "appId": "1:187550577381:web:7f68a2e2d926285d0b9a0c",
+            "measurementId": "G-KXTLSQJLFC"
+          }
+        },
+        "databaseId": { "projectId": "create-lock", "database": "(default)" },
+        "settings": {
+          "host": "firestore.googleapis.com",
+          "ssl": true,
+          "ignoreUndefinedProperties": false,
+          "cacheSizeBytes": 41943040,
+          "experimentalForceLongPolling": false,
+          "experimentalAutoDetectLongPolling": false,
+          "useFetchStreams": false
+        }
+      }
+    }
+  }
+}
