@@ -1,481 +1,1118 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs - Frequently Asked Questions</title>
+    <link rel="icon" href="/static/media/icon.png" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-    FAQs - Frequently Asked Questions 
-  </title>
-  <link rel="icon" href="/static/media/icon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link rel="stylesheet" href="./static/styles.css" />
 
-  <link rel="stylesheet" href="../static/styles.css" />
-  <link rel="stylesheet" href="./static/styles.css" />
+    <meta name="description" content="MoonDeploy Frequently Asked Questions" />
+    <meta
+      property="twitter:title"
+      content="MoonDeploy FAQs - Frequently Asked Questions"
+    />
+    <meta
+      property="og:title"
+      content="MoonDeploy FAQs - Frequently Asked Questions"
+    />
+    <meta
+      property="twitter:description"
+      content="MoonDeploy FAQs - Frequently Asked Questions"
+    />
+    <meta
+      property="og:description"
+      content="MoonDeploy FAQs - Frequently Asked Questions"
+    />
+    <meta property="og:url" content="https://moondeploy.com/faq/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://moondeploy.com/static/media/moon-deploy.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:image"
+      content="https://moondeploy.com/static/media/moon-deploy.png"
+    />
+    <meta
+      name="google-site-verification"
+      content="ao9hS7yDUw-d4m80i6qtmkMRx7pAaSxWapAfEZ-dpqY"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7KB79ESXBB"
+    ></script>
+    <script>
+      if (
+        !window.location.toString().includes("127.0.0.1") &&
+        !window.location.toString().includes("localhost") &&
+        !window.location.toString().includes("192.168.") &&
+        !window.location.toString().includes("10.0.2.2")
+      ) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-  <meta name="description"
-    content="MoonDeploy Frequently Asked Questions" />
-  <meta property="twitter:title" content="MoonDeploy FAQs - Frequently Asked Questions" />
-  <meta property="og:title" content="MoonDeploy FAQs - Frequently Asked Questions" />
-  <meta property="twitter:description"
-    content="MoonDeploy FAQs - Frequently Asked Questions" />
-  <meta property="og:description"
-    content="MoonDeploy FAQs - Frequently Asked Questions" />
-  <meta property="og:url" content="https://moondeploy.com/faq/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://moondeploy.com/static/media/moon-deploy.png" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:image" content="https://moondeploy.com/static/media/moon-deploy.png" />
-  <meta name="google-site-verification" content="ao9hS7yDUw-d4m80i6qtmkMRx7pAaSxWapAfEZ-dpqY" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7KB79ESXBB"></script>
-  <script>
-    if (!window.location.toString().includes("127.0.0.1") && !window.location.toString().includes("localhost") && !window.location.toString().includes("192.168.") && !window.location.toString().includes("10.0.2.2")) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-
-      gtag('config', 'G-7KB79ESXBB');
-    }
-    else {
-      console.log("development mode")
-      function gtag(event, event_name) {
-        console.log(event, event_name)
+        gtag("config", "G-7KB79ESXBB");
+      } else {
+        console.log("development mode");
+        function gtag(event, event_name) {
+          console.log(event, event_name);
+        }
       }
-    }
+    </script>
+  </head>
 
-  </script>
-
-</head>
-
-<body onmousedown="return false" onselectstart="return false">
-
-  <nav class="navbar navbar-light bg-light" style="position: fixed; top:0px; right:0px; left:0px; z-index: 99;">
-    
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="/static/media/moon-deploy.png" alt="" height="30" class="top-logo-1" />
-        <img src="/static/media/icon.png" alt="" height="30" class="top-logo-2" />
-      </a>
-      <div class="d-flex justify-content-end text-center align-items-center">
- 
-   
-              <div class="mx-2">
-
-          <button type="button" onclick="gtag('event','open_builder');location.href='/create-token';"
-            class="btn btn-primary btn-md px-4 me-md-2">Create Token</button>
-
-     
-        </div>
-
-      </div>
-
-    </div>
-  </nav>
-
-
-
-  <div class="container col-xxl-8 px-4 py-0" style="margin-top: 60px; margin-bottom: 10px;">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-0">
-
-      <div class="col">
-        <h1 class="display-5 fw-bold lh-1 mb-3 mt-2">
-
-          MoonDeploy FAQs
-        </h1>
-
-      <p class="lead">
-        Frequently Asked Questions
-      </p>
-      </div>
-    </div>
-  </div>
-  <div class="accordion p-3" id="faqSection">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          How to have value for my token?
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          You need to add liquidity to your token. After that, your token will be listed
-          on PancakeSwap or another swap platform, it will have price, and people can 
-          trade it.      
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          How to create a price for my token?
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          You can decide the initial price of your token depending on how many tokens and
-           BNB. Ex: you add liquidity with 1000 tokens and 1 BNB. Now the price of your 
-          token is 0.001 BNB.        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How to add liquidity or list my token for trading?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          Check out this article: 
-          <a href="https://docs.pancakeswap.finance/products/pancakeswap-exchange/liquidity-guide">
-            https://docs.pancakeswap.finance/products/pancakeswap-exchange/liquidity-guide
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Can I add more functions to my token?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          No, after deployment, you can't add more functions or features. You can only 
-          edit some values of your contract, such as taxes, and interact with functions 
-          of your contract.      </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How to edit/change marketing tax?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          If you go to BscScan or EtherScan, you'll find the write contract section.
-          Go to the update/set marketing tax function and enter the value you want to 
-          change. Ex: enter 5 to set marketing tax to 5%.       </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How to edit/change liquidity fee?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          You go to BscScan or EtherScan, and you'll find the write contract section.
-          Go to the update/set liquidity fee function and enter the value you want to 
-          change. Ex: enter 5 to set liquidity fee to 5%.     </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Do you create an ICO website?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          Yes, you can contact our dev and send details about your project.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How do I verify my contract?
+  <body onmousedown="return false" onselectstart="return false">
+    <nav
+      class="navbar navbar-light bg-light"
+      style="position: fixed; top: 0px; right: 0px; left: 0px; z-index: 99"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="/static/media/moon-deploy.png"
+            alt=""
+            height="30"
+            class="top-logo-1"
+          />
+          <img
+            src="/static/media/icon.png"
+            alt=""
+            height="30"
+            class="top-logo-2"
+          />
+        </a>
+        <div class="d-flex justify-content-end text-center align-items-center">
+          <div class="mx-2">
+            <button
+              type="button"
+              onclick="gtag('event','open_builder');location.href='/create-token';"
+              class="btn btn-primary btn-md px-4 me-md-2"
+            >
+              Create Token
             </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          A contract will be verified automatically after deployment. You don't need to
-          do anything.     </div>
-      </div>
-    </div><div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Where do I get the source code of my token?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          It will be available on BscScan, EtherScan, or others after deployment.
+          </div>
         </div>
       </div>
-    </div><div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How can I deploy the logo on the trust wallet?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          Check out this article: <a href="https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863">https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863</a>
+    </nav>
+
+    <div
+      class="container col-xxl-8 px-4 py-0"
+      style="margin-top: 60px; margin-bottom: 10px"
+    >
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-0">
+        <div class="col">
+          <h1 class="display-5 fw-bold lh-1 mb-3 mt-2">MoonDeploy FAQs</h1>
+
+          <p class="lead">Frequently Asked Questions</p>
         </div>
       </div>
     </div>
-  
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          I'm the owner. How do I prove to BscScan?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          “To have an address verified, the user would need : <br>
-          1. A BscScan account <br>
-          2. To have signed a message once to verify ownership of each address
-      “. <br>
-      - source 
-      <a href=" https://bscscan.freshdesk.com/support/solutions/articles/67000573840-what-is-verify-contract-address-ownership-">BscScan</a>
+    <div class="accordion p-3" id="faqSection">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            How to have value for my token?
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingOne"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You need to add liquidity to your token. After that, your token will
+            be listed on PancakeSwap or another swap platform, it will have
+            price, and people can  trade it.
+          </div>
         </div>
       </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Can I upgrade my token to a Pro token?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          No, you can’t update from your token to Pro Token. You need to create it from the beginning.
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            How to create a price for my token?
+          </button>
+        </h2>
+        <div
+          id="collapseTwo"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingTwo"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You can decide the initial price of your token depending on how many
+            tokens and  BNB. Ex: you add liquidity with 1000 tokens and 1 BNB.
+            Now the price of your  token is 0.001 BNB.
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          What can I do for the Standard Token?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          You can do basic trading and transfer tokens, renounce ownership, mint and burn tokens.     </div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How can I list this coin at coingeko and coinmarketcap?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          Check out these articles: <br>
-        <a href="https://support.coingecko.com/hc/en-us/articles/7291312302617-How-to-list-new-cryptocurrencies-on-CoinGecko-">
-        https://support.coingecko.com/hc/en-us/articles/7291312302617-How-to-list-new-cryptocurrencies-on-CoinGecko-
-      
-      </a> <br>
-      <a href="  https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria">
-        https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria
-      
-      </a><br>
-      <a href="   https://coinmarketcap.com/alexandria/article/coinmarketcap-listing-is-free">
-        https://coinmarketcap.com/alexandria/article/coinmarketcap-listing-is-free
-      
-      </a>
-        
-       
-                </div>
-      </div>
-    </div>
-
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          I want to develop smart contract and a staking business plan.
-          Can I use your token creator on the testnet?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          No, testnet is not available at the moment. However if you use our customized token service to develop your smart contract, you can use it on the testnet.        </div>
-      </div>
-    </div>
-
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Create a token through the website that you want rewards in a specific currency that the website does not have available. How do I do?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          You can send a request to our dev team, we’ll add the reward token within 24 hours.      </div>
-      </div>
-    </div> 
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          The contracts have a panel to be able to modify some things in them? For example change the marketing fee?     </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          Yes, you can go to BscScan or EtherScan or other similar websites to interact with your token contract.
-             </div>
-      </div>
-    </div> 
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          What is the cost of a most deployed token on your website? The token has all facilities.
-        
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          It's 0.39 BNB, the Pro token.          
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How to add liquidity or list my token for trading?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Check out this article:
+            <a
+              href="https://docs.pancakeswap.finance/products/pancakeswap-exchange/liquidity-guide"
+            >
+              https://docs.pancakeswap.finance/products/pancakeswap-exchange/liquidity-guide
+            </a>
+          </div>
         </div>
       </div>
-    </div> 
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Is there also an upgraded version?   
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          No, it's impossible to upgrade any token       
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I add more functions to my token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            No, after deployment, you can't add more functions or features. You
+            can only  edit some values of your contract, such as taxes, and
+            interact with functions  of your contract.
+          </div>
         </div>
       </div>
-    </div>   
-    
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          I want to create, what is the cost of a smart contract deployment
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          Start from 2 BNB.    
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How to edit/change marketing tax?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            If you go to BscScan or EtherScan, you'll find the write contract
+            section. Go to the update/set marketing tax function and enter the
+            value you want to  change. Ex: enter 5 to set marketing tax to 5%.
+          </div>
         </div>
       </div>
-    </div>   
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Are you also listing our token at Coingeko and CoinMarketCap?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          No, we don't. It's others' service.    
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How to edit/change liquidity fee?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You go to BscScan or EtherScan, and you'll find the write contract
+            section. Go to the update/set liquidity fee function and enter the
+            value you want to  change. Ex: enter 5 to set liquidity fee to 5%.
+          </div>
         </div>
       </div>
-    </div>   
-    
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          So what do I do when I have my token once I have made it?
-                </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          You need: <br>
-          - <a href="https://docs.pancakeswap.finance/products/pancakeswap-exchange/liquidity-guide">Add liquidity to it</a>  <br>
-          - <a href="https://moondeploy.com/watch-token/">Create a token logo</a>  (optional) <br>
-          - <a href="https://moondeploy.com/liquidity-locker/">Lock your liquidity</a>  (optional) <br>
-          - <a href="https://moondeploy.com/token-airdrop-tool/">Send airdrop</a>  (optional) <br>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Do you create an ICO website?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, you can contact our dev and send details about your project.
+          </div>
         </div>
       </div>
-    </div>   
-
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Is 1 BNB liquidity good?
-                </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          There is no standard for liquidity amount. You should add what you can afford. But obviously, more is always better.        </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How do I verify my contract?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            A contract will be verified automatically after deployment. You
+            don't need to do anything.
+          </div>
+        </div>
       </div>
-    </div>  
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Where do I get the source code of my token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            It will be available on BscScan, EtherScan, or others after
+            deployment.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How can I deploy the logo on the trust wallet?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Check out this article:
+            <a
+              href="https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863"
+              >https://community.trustwallet.com/t/how-to-submit-a-token-logo/3863</a
+            >
+          </div>
+        </div>
+      </div>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How does burn work?
-                </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          There are different ways to burn tokens: <br>
-          - Send tokens to 0x0 or 0xdead addresses, the total supply of tokens doesn't change. <br>
-          - Completely remove the tokens and reduce the total supply of tokens   
-         </div>  
-    </div>  
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            I'm the owner. How do I prove to BscScan?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            “To have an address verified, the user would need : <br />
+            1. A BscScan account <br />
+            2. To have signed a message once to verify ownership of each address
+            “. <br />
+            - source
+            <a
+              href=" https://bscscan.freshdesk.com/support/solutions/articles/67000573840-what-is-verify-contract-address-ownership-"
+              >BscScan</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I upgrade my token to a Pro token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            No, you can’t update from your token to Pro Token. You need to
+            create it from the beginning.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            What can I do for the Standard Token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You can do basic trading and transfer tokens, renounce ownership,
+            mint and burn tokens.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How can I list this coin at coingeko and coinmarketcap?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Check out these articles: <br />
+            <a
+              href="https://support.coingecko.com/hc/en-us/articles/7291312302617-How-to-list-new-cryptocurrencies-on-CoinGecko-"
+            >
+              https://support.coingecko.com/hc/en-us/articles/7291312302617-How-to-list-new-cryptocurrencies-on-CoinGecko-
+            </a>
+            <br />
+            <a
+              href="  https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria"
+            >
+              https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria </a
+            ><br />
+            <a
+              href="   https://coinmarketcap.com/alexandria/article/coinmarketcap-listing-is-free"
+            >
+              https://coinmarketcap.com/alexandria/article/coinmarketcap-listing-is-free
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            I want to develop smart contract and a staking business plan. Can I
+            use your token creator on the testnet?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            No, testnet is not available at the moment. However if you use our
+            customized token service to develop your smart contract, you can use
+            it on the testnet.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Create a token through the website that you want rewards in a
+            specific currency that the website does not have available. How do I
+            do?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You can send a request to our dev team, we’ll add the reward token
+            within 24 hours.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            The contracts have a panel to be able to modify some things in them?
+            For example change the marketing fee?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, you can go to BscScan or EtherScan or other similar websites to
+            interact with your token contract.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            What is the cost of a most deployed token on your website? The token
+            has all facilities.
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">It's 0.39 BNB, the Pro token.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Is there also an upgraded version?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            No, it's impossible to upgrade any token
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            I want to create, what is the cost of a smart contract deployment
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">Start from 2 BNB.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Are you also listing our token at Coingeko and CoinMarketCap?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">No, we don't. It's others' service.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            So what do I do when I have my token once I have made it?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You need: <br />
+            -
+            <a
+              href="https://docs.pancakeswap.finance/products/pancakeswap-exchange/liquidity-guide"
+              >Add liquidity to it</a
+            >
+            <br />
+            -
+            <a href="https://moondeploy.com/watch-token/"
+              >Create a token logo</a
+            >
+            (optional) <br />
+            -
+            <a href="https://moondeploy.com/liquidity-locker/"
+              >Lock your liquidity</a
+            >
+            (optional) <br />
+            -
+            <a href="https://moondeploy.com/token-airdrop-tool/"
+              >Send airdrop</a
+            >
+            (optional) <br />
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Is 1 BNB liquidity good?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            There is no standard for liquidity amount. You should add what you
+            can afford. But obviously, more is always better.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How does burn work?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            There are different ways to burn tokens: <br />
+            - Send tokens to 0x0 or 0xdead addresses, the total supply of tokens
+            doesn't change. <br />
+            - Completely remove the tokens and reduce the total supply of tokens
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How do I create a new token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You need to enter the required parameters. Just follow our
+            instructions and watch video tutorials.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How to connect with Trust Wallet?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            To connect with Trust Wallet, you can: <br />
+            - open MoonDeploy from a PC/laptop and scan the barcode on
+            WalletConnect <br />
+            - open MoonDeploy from Dapp Browser on Trust Wallet
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Where do the rewards in a rewards token come from?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Reward token works by collecting taxes from transactions and
+            distributing them to holders.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How do I add my wallet address to standard token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Standard token doesn't have a fee structure
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            What is marketing support for new projects?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Our marketing partner will help you to boost your project if you
+            create token from our website.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            A member sent BNB to my token contract. How do I recover them?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            It's impossible to recover BNB sent to the token address.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            For the Pro token, what is the difference between the "Buyback and
+            Burn" and "Burn" feature?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            The difference is the buyback. <br />
+            Buyback and burn: buy some tokens and burn them. <br />
+            Burn: burn the tokens directly.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Marketing taxes in the ERC20 network come to the marketing wallet as
+            ETH?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, you will receive ETH taxes for the marketing tax token on
+            Ethereum Network. If you select other networks, you receive the
+            native token for that network.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Does the Liquidity Generator has Renounce Ownership function via
+            Web3 write?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">Yes, it does.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            If I put Liquidity Fees at x% (for example 5%), then deploy the
+            contract. After that, can I change the fee?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, you can change the fees and taxes after deployment.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Does the Smart Tax token has the same reward address on ETH after
+            the fork and merge?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, everything is the same after the merge.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can tokens deployed by MoonDeploy pass audit by Certik?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">Yes, absolutely.</div>
+        </div>
+      </div>
+
+      <!-- consulting section -->
+
+      <div class="text-center mt-3 mx-2">
+        <p>
+          Get more in-depth conversation with our
+          <a href="https://moondeploy.com/crypto-consulting/">
+            consulting session</a
+          >.
+        </p>
+      </div>
     </div>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How do I create a new token?
-                </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          You need to enter the required parameters. Just follow our instructions and watch video tutorials.
-
-    </div>   
-    </div>
-  </div>  
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          How to connect with Trust Wallet?
-                </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqSection">
-        <div class="accordion-body">
-          To connect with Trust Wallet, you can: <br>
-- open MoonDeploy from a PC/laptop and scan the barcode on WalletConnect <br>
-- open MoonDeploy from Dapp Browser on Trust Wallet
-
-      </div>   
-    </div>
-  </div>  
-
-  
-  <!-- consulting section -->
-
-    <div class="text-center mt-3 mx-2">
-      <p>Get more in-depth conversation with our
-        <a href="https://moondeploy.com/crypto-consulting/" > consulting session</a>.
-    </p>
-
-  </div>
-
-
-</div>
-
-  <div class="text-center">
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted mt-2">
-   
       <!-- <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     
         <div class="me-5 d-none d-lg-block">
@@ -506,7 +1143,8 @@
                 <i class="fas fa-gem me-3"></i>Moon Deploy
               </h6>
               <p>
-                Our mission is to make token creation easy and accessible for everyone.
+                Our mission is to make token creation easy and accessible for
+                everyone.
               </p>
             </div>
             <!-- Grid column -->
@@ -514,43 +1152,143 @@
             <!-- Grid column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">
-                Tools
-              </h6>
+              <h6 class="text-uppercase fw-bold mb-4">Tools</h6>
               <p>
-                <a href="/bep20-token-generator" target="_blank" class="text-reset">BEP20 token generator</a>
+                <a
+                  href="/bep20-token-generator"
+                  target="_blank"
+                  class="text-reset"
+                  >BEP20 token generator</a
+                >
               </p>
               <p>
-                <a href="/bep20-wallet-generator" target="_blank" class="text-reset">BEP20 wallet generator</a>
+                <a
+                  href="/bep20-wallet-generator"
+                  target="_blank"
+                  class="text-reset"
+                  >BEP20 wallet generator</a
+                >
               </p>
             </div>
             <script>
-              function _0x33bc(_0x23128b, _0x178ab9) { var _0x2d970a = _0x2d97(); return _0x33bc = function (_0x33bc63, _0x45ba7f) { _0x33bc63 = _0x33bc63 - 0x76; var _0x162d9a = _0x2d970a[_0x33bc63]; return _0x162d9a; }, _0x33bc(_0x23128b, _0x178ab9); } function _0x2d97() { var _0x37020e = ['817226YbkSUc', 'location', '2580066mMQJLT', '4PLiuLH', '192.1:', 'includes', '32529540FKzTxz', '127.0.0.1:', '413720FqJwxH', '1991264xluMqU', 'file:', 'href', '5FJEWTA', '105lGdYJc', 'innerHTML', '2015694kNRXPl', 'localhost:', 'documentElement', '184407LIsVnV']; _0x2d97 = function () { return _0x37020e; }; return _0x2d97(); } var _0x79ff1c = _0x33bc; (function (_0x223364, _0x5e6c1e) { var _0x312033 = _0x33bc, _0x212670 = _0x223364(); while (!![]) { try { var _0x327176 = -parseInt(_0x312033(0x80)) / 0x1 + -parseInt(_0x312033(0x76)) / 0x2 + -parseInt(_0x312033(0x7f)) / 0x3 * (-parseInt(_0x312033(0x83)) / 0x4) + -parseInt(_0x312033(0x79)) / 0x5 * (parseInt(_0x312033(0x82)) / 0x6) + parseInt(_0x312033(0x7a)) / 0x7 * (-parseInt(_0x312033(0x88)) / 0x8) + parseInt(_0x312033(0x7c)) / 0x9 + parseInt(_0x312033(0x86)) / 0xa; if (_0x327176 === _0x5e6c1e) break; else _0x212670['push'](_0x212670['shift']()); } catch (_0x487521) { _0x212670['push'](_0x212670['shift']()); } } }(_0x2d97, 0x7ee73)); (window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x77)) || window['location'][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x7d)) || window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x87)) || window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x84))) && (document[_0x79ff1c(0x7e)][_0x79ff1c(0x7b)] = '');
+              function _0x33bc(_0x23128b, _0x178ab9) {
+                var _0x2d970a = _0x2d97();
+                return (
+                  (_0x33bc = function (_0x33bc63, _0x45ba7f) {
+                    _0x33bc63 = _0x33bc63 - 0x76;
+                    var _0x162d9a = _0x2d970a[_0x33bc63];
+                    return _0x162d9a;
+                  }),
+                  _0x33bc(_0x23128b, _0x178ab9)
+                );
+              }
+              function _0x2d97() {
+                var _0x37020e = [
+                  "817226YbkSUc",
+                  "location",
+                  "2580066mMQJLT",
+                  "4PLiuLH",
+                  "192.1:",
+                  "includes",
+                  "32529540FKzTxz",
+                  "127.0.0.1:",
+                  "413720FqJwxH",
+                  "1991264xluMqU",
+                  "file:",
+                  "href",
+                  "5FJEWTA",
+                  "105lGdYJc",
+                  "innerHTML",
+                  "2015694kNRXPl",
+                  "localhost:",
+                  "documentElement",
+                  "184407LIsVnV",
+                ];
+                _0x2d97 = function () {
+                  return _0x37020e;
+                };
+                return _0x2d97();
+              }
+              var _0x79ff1c = _0x33bc;
+              (function (_0x223364, _0x5e6c1e) {
+                var _0x312033 = _0x33bc,
+                  _0x212670 = _0x223364();
+                while (!![]) {
+                  try {
+                    var _0x327176 =
+                      -parseInt(_0x312033(0x80)) / 0x1 +
+                      -parseInt(_0x312033(0x76)) / 0x2 +
+                      (-parseInt(_0x312033(0x7f)) / 0x3) *
+                        (-parseInt(_0x312033(0x83)) / 0x4) +
+                      (-parseInt(_0x312033(0x79)) / 0x5) *
+                        (parseInt(_0x312033(0x82)) / 0x6) +
+                      (parseInt(_0x312033(0x7a)) / 0x7) *
+                        (-parseInt(_0x312033(0x88)) / 0x8) +
+                      parseInt(_0x312033(0x7c)) / 0x9 +
+                      parseInt(_0x312033(0x86)) / 0xa;
+                    if (_0x327176 === _0x5e6c1e) break;
+                    else _0x212670["push"](_0x212670["shift"]());
+                  } catch (_0x487521) {
+                    _0x212670["push"](_0x212670["shift"]());
+                  }
+                }
+              })(_0x2d97, 0x7ee73);
+              (window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](
+                _0x79ff1c(0x77)
+              ) ||
+                window["location"][_0x79ff1c(0x78)][_0x79ff1c(0x85)](
+                  _0x79ff1c(0x7d)
+                ) ||
+                window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](
+                  _0x79ff1c(0x87)
+                ) ||
+                window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](
+                  _0x79ff1c(0x84)
+                )) &&
+                (document[_0x79ff1c(0x7e)][_0x79ff1c(0x7b)] = "");
             </script>
 
             <!-- Grid column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">
-                Useful links
-              </h6>
+              <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <a href="https://t.me/MoonDeploy" target="_blank" class="text-reset"
-                  onclick="gtag('event','telegram')">Telegram</a>
+                <a
+                  href="https://t.me/MoonDeploy"
+                  target="_blank"
+                  class="text-reset"
+                  onclick="gtag('event','telegram')"
+                  >Telegram</a
+                >
               </p>
               <p>
-                <a href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg" target="_blank"
-                  class="text-reset">Youtube</a>
+                <a
+                  href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg"
+                  target="_blank"
+                  class="text-reset"
+                  >Youtube</a
+                >
               </p>
               <!-- <p>
                 <a href="#!" class="text-reset">Blogs</a>
               </p> -->
               <p>
-                <a href="https://forms.gle/mZjhovdVTizCwRSB8" class="text-reset" target="_blank"> Feedback</a>
+                <a
+                  href="https://forms.gle/mZjhovdVTizCwRSB8"
+                  class="text-reset"
+                  target="_blank"
+                >
+                  Feedback</a
+                >
               </p>
               <p>
-                <a href="https://t.me/MoonDeploy" class="text-reset" target="_blank"
-                  onclick="gtag('event','telegram')">Help</a>
+                <a
+                  href="https://t.me/MoonDeploy"
+                  class="text-reset"
+                  target="_blank"
+                  onclick="gtag('event','telegram')"
+                  >Help</a
+                >
               </p>
             </div>
             <!-- Grid column -->
@@ -559,21 +1297,21 @@
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <!-- Links -->
 
-
-              <h6 class="text-uppercase fw-bold mb-4">
-                Services
-              </h6>
+              <h6 class="text-uppercase fw-bold mb-4">Services</h6>
               <p>
-                <a href="https://t.me/MoonDeploy" class="text-reset" target="_blank"
-                  onclick="gtag('event','telegram')">Smart contract
-                  development</a>
+                <a
+                  href="https://t.me/MoonDeploy"
+                  class="text-reset"
+                  target="_blank"
+                  onclick="gtag('event','telegram')"
+                  >Smart contract development</a
+                >
               </p>
               <!-- <p><i class="fas fa-home me-3"></i> Moon Deploy</p> -->
               <!-- <p>
                 <i class="fas fa-envelope me-3"></i>
   
               </p> -->
-
             </div>
             <!-- Grid column -->
           </div>
@@ -583,7 +1321,10 @@
       <!-- Section: Links  -->
 
       <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(17, 0, 255, 0.2)">
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(17, 0, 255, 0.2)"
+      >
         © 2021-2022 Copyright:
         <a class="text-white" href="https://moondeploy.com">MoonDeploy</a>
       </div>
@@ -593,20 +1334,19 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script>
       if (navigator.userAgent.indexOf("Safari") != -1) {
-        $(".introMedia").html('<img width="500" height="500" class="d-block mx-lg-auto img-fluid" src="/static/media/intro3.gif">')
+        $(".introMedia").html(
+          '<img width="500" height="500" class="d-block mx-lg-auto img-fluid" src="/static/media/intro3.gif">'
+        );
       }
     </script>
-   
+
     <script type="module" src="static/events.js"></script>
     <script type="module" src="static/utils.js"></script>
-
-
 
     <!-- Include this in your HTML page -->
 
     <!-- Start of HubSpot Embed Code -->
     <!-- <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25571645.js"></script> -->
     <!-- End of HubSpot Embed Code -->
-</body>
-
+  </body>
 </html>
