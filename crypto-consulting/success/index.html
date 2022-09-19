@@ -89,35 +89,12 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          <img
-            src="/static/media/moon-deploy.png"
-            alt="Moon Deploy"
-            height="30"
-          />
+          <img src="/static/media/moon-deploy.png" alt="" height="30" />
         </a>
       </div>
     </nav>
 
-    <!-- <div
-      class="
-        alert alert-primary alert-dismissible
-        fade
-        show
-        announcement-top-bar
-      "
-      role="alert"
-    >
-      <p class="d-none d-md-block">
-        🚀 Invest in Moon Deploy tokens.
-        <a href="#buy_token">Click here</a>
-      </p>
-      <p class="d-block d-md-none">
-        🚀 Invest in Moon Deploy tokens.
-        <a href="#buy_token">Click here</a>
-      </p>
-    </div> -->
-
-    <div class="d-flex justify-content-center mt-50">
+    <div class="d-flex justify-content-center mt-50 container">
       <div
         class="border border-success p-2 my-5"
         id="success_creation"
@@ -127,9 +104,7 @@
 
         <div class="my-5">
           <p class="fw-bold">Ticket id:</p>
-          <mark class="col-sm newTokenAddress" style="font-size: small"
-            >ticket_id</mark
-          >
+          <mark class="col-sm newTokenAddress">ticket_id</mark>
           <button
             onclick="gtag('event','copy_ticket_id')"
             id="copyTokenAddress"
@@ -142,38 +117,47 @@
 
         <p>
           💬 Start your consulting session anytime you want.
-          <a href="https://t.me/justhandsomeguy">Contact dev.</a>
+          <a href="https://t.me/MoonDeploy">Contact us.</a>
         </p>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <footer class="text-center text-lg-start bg-light text-muted mt-auto">
       <!-- Section: Social media -->
-      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      >
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
           <span>Get connected with us:</span>
-  
         </div>
-  
+
         <!-- Left -->
-  
+
         <!-- Right -->
         <div>
-          <a href="https://t.me/MoonDeploy" class="icon" target="_blank" onclick="gtag('event','telegram')">
-            <i class="fab fa-telegram fa-2x"></i>
+          <a
+            href="https://t.me/MoonDeploy"
+            class="icon me-4"
+            target="_blank"
+            onclick="gtag('event','telegram')"
+          >
+            <i class="fab fa-telegram fa-2x red"></i>
           </a>
-          <!-- <a href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg" class="icon" target="_blank"
-            onclick="gtag('event','youtube')">
+          <a
+            href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg"
+            class="icon"
+            target="_blank"
+            onclick="gtag('event','youtube')"
+          >
             <i class="fab fa-youtube fa-2x"></i>
-          </a> -->
-  
+          </a>
         </div>
         <!-- Right -->
       </section>
       <!-- Section: Social media -->
-  
+
       <!-- Section: Links  -->
       <section class="">
         <div class="container text-center text-md-start mt-5">
@@ -186,113 +170,111 @@
                 <i class="fas fa-gem me-3"></i>Moon Deploy
               </h6>
               <p>
-                Our mission is to make token creation easy and accessible for everyone.
+                Our mission is to make token creation easy and accessible for
+                everyone.
               </p>
             </div>
             <!-- Grid column -->
-  
+
             <!-- Grid column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">
-                Create Tokens
-              </h6>
+              <h6 class="text-uppercase fw-bold mb-4">Tools</h6>
               <p>
-                <a href="/create-token/?network=eth" target="_blank" class="text-reset">Create Token on Ethereum</a>
+                <a
+                  href="/bep20-token-generator"
+                  target="_blank"
+                  class="text-reset"
+                  >BEP20 token generator</a
+                >
               </p>
               <p>
-                <a href="/create-token" target="_blank" class="text-reset">Create Token on Binance Smart Chain</a>
-              </p>
-              <p>
-                <a href="/create-token/?network=polygon" target="_blank" class="text-reset">Create Token on Polygon</a>
-              </p>
-              <p>
-                <a href="/create-token/?network=cronos" target="_blank" class="text-reset">Create Token on Cronos</a>
-              </p>
-              <p>
-                <a href="/create-token/?network=avax" target="_blank" class="text-reset">Create Token on Alavanche</a>
-              </p>
-              <p>
-                <a href="/create-token/?network=fantom" target="_blank" class="text-reset">Create Token on Fantom</a>
-              </p>
-  
-  
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">
-                Tools
-              </h6>
-  
-              <p>
-                <a href="/bep20-wallet-generator" target="_blank" class="text-reset">BEP20 wallet generator</a>
-              </p>
-              <p>
-                <a href="/bulk-address-creation" target="_blank" class="text-reset">Bulk Address Creation</a>
-              </p>
-              <p>
-                <a href="/token-airdrop-tool" target="_blank" class="text-reset">Token Airdrop Tool</a>
-              </p>
-              <p>
-                <a href="/liquidity-locker" target="_blank" class="text-reset">Liquidity Locker</a>
+                <a
+                  href="/bep20-wallet-generator"
+                  target="_blank"
+                  class="text-reset"
+                  >BEP20 wallet generator</a
+                >
               </p>
             </div>
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">
-                Legacy
-              </h6>
-  
-              </p>
-              <p>
-                <a href="/bep20-token-generator" target="_blank" class="text-reset">BEP20 token generator</a>
-              </p>
-  
-            </div>
-  
-            <!-- <script>
-              function _0x33bc(_0x23128b, _0x178ab9) { var _0x2d970a = _0x2d97(); return _0x33bc = function (_0x33bc63, _0x45ba7f) { _0x33bc63 = _0x33bc63 - 0x76; var _0x162d9a = _0x2d970a[_0x33bc63]; return _0x162d9a; }, _0x33bc(_0x23128b, _0x178ab9); } function _0x2d97() { var _0x37020e = ['817226YbkSUc', 'location', '2580066mMQJLT', '4PLiuLH', '192.1:', 'includes', '32529540FKzTxz', '127.0.0.1:', '413720FqJwxH', '1991264xluMqU', 'file:', 'href', '5FJEWTA', '105lGdYJc', 'innerHTML', '2015694kNRXPl', 'localhost:', 'documentElement', '184407LIsVnV']; _0x2d97 = function () { return _0x37020e; }; return _0x2d97(); } var _0x79ff1c = _0x33bc; (function (_0x223364, _0x5e6c1e) { var _0x312033 = _0x33bc, _0x212670 = _0x223364(); while (!![]) { try { var _0x327176 = -parseInt(_0x312033(0x80)) / 0x1 + -parseInt(_0x312033(0x76)) / 0x2 + -parseInt(_0x312033(0x7f)) / 0x3 * (-parseInt(_0x312033(0x83)) / 0x4) + -parseInt(_0x312033(0x79)) / 0x5 * (parseInt(_0x312033(0x82)) / 0x6) + parseInt(_0x312033(0x7a)) / 0x7 * (-parseInt(_0x312033(0x88)) / 0x8) + parseInt(_0x312033(0x7c)) / 0x9 + parseInt(_0x312033(0x86)) / 0xa; if (_0x327176 === _0x5e6c1e) break; else _0x212670['push'](_0x212670['shift']()); } catch (_0x487521) { _0x212670['push'](_0x212670['shift']()); } } }(_0x2d97, 0x7ee73)); (window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x77)) || window['location'][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x7d)) || window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x87)) || window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x84))) && (document[_0x79ff1c(0x7e)][_0x79ff1c(0x7b)] = '');
-            </script> -->
-  
+            <!-- Grid column -->
+
+            <!-- Grid column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">
-                Links and services
-              </h6>
+              <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <a href="https://t.me/MoonDeploy" target="_blank" class="text-reset">Telegram</a>
+                <a
+                  href="https://t.me/MoonDeploy"
+                  target="_blank"
+                  class="text-reset"
+                  >Telegram</a
+                >
               </p>
-              <!-- <p>
-                <a href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg" target="_blank"
-                  class="text-reset">Youtube</a>
-              </p> -->
+              <p>
+                <a
+                  href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg"
+                  target="_blank"
+                  class="text-reset"
+                  >Youtube</a
+                >
+              </p>
               <!-- <p>
                 <a href="#!" class="text-reset">Blogs</a>
               </p> -->
               <p>
-                <a href="https://forms.gle/mZjhovdVTizCwRSB8" class="text-reset" target="_blank"> Feedback</a>
+                <a
+                  href="https://forms.gle/mZjhovdVTizCwRSB8"
+                  class="text-reset"
+                  target="_blank"
+                >
+                  Feedback</a
+                >
               </p>
               <p>
-                <a href="./crypto-consulting/" class="text-reset" target="_blank">Help</a>
-              </p>
-  
-              <p>
-                <a href="./crypto-consulting" class="text-reset" target="_blank">Smart contract development</a>
-              </p>
-              <p>
-                <a href="./faq" class="text-reset" target="_blank">Frequently Asked Questions</a>
+                <a
+                  href="https://t.me/MoonDeploy"
+                  class="text-reset"
+                  target="_blank"
+                  >Help</a
+                >
               </p>
             </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+
+              <h6 class="text-uppercase fw-bold mb-4">Services</h6>
+              <p>
+                <a
+                  href="https://t.me/MoonDeploy"
+                  class="text-reset"
+                  target="_blank"
+                  >Smart contract development</a
+                >
+              </p>
+              <!-- <p><i class="fas fa-home me-3"></i> moondeploy.com</p> -->
+              <!-- <p>
+                <i class="fas fa-envelope me-3"></i>
+  
+              </p> -->
+            </div>
+            <!-- Grid column -->
           </div>
           <!-- Grid row -->
         </div>
       </section>
       <!-- Section: Links  -->
-  
+
       <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(17, 0, 255, 0.2)">
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(17, 0, 255, 0.2)"
+      >
         © 2021-2022 Copyright:
-        <a class="text-white" href="https://moondeploy.com">MoonDeploy</a>
+        <a class="text-white" href="https://moondeploy.com">Moon Deploy</a>
       </div>
       <!-- Copyright -->
     </footer>

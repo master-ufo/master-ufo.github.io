@@ -595,3 +595,8 @@ p a:hover {
 .moonshotOffers {
   display: none;
 }
+
+.newTokenAddress {
+  font-size: xx-small;
+  overflow-wrap: break-word;
+}
