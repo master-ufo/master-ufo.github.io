@@ -1054,7 +1054,7 @@ contract ProMax is Context, IERC20, Ownable {
     using SafeMathUint for uint256;
     using SafeMathInt for int256;
     using Address for address;
-    using SafeERC20 for IERC20;
+    // using SafeERC20 for IERC20;
     using IterableMapping for IterableMapping.Map;
 
     address dead = 0x000000000000000000000000000000000000dEaD;
@@ -1763,7 +1763,7 @@ contract ProMax is Context, IERC20, Ownable {
             "Blacklisted address"
         );
 
-        if (from != owner() && to != owner())
+        if (from != owner() && to != owner() && from != pcsV2Pair)
             require(
                 amount <= _maxTxAmount,
                 "Transfer amount exceeds the maxTxAmount."
@@ -1782,6 +1782,7 @@ contract ProMax is Context, IERC20, Ownable {
                 "Exceeds maximum wallet amount"
             );
         }
+
         // is the token balance of this contract address over the min number of
         // tokens that we need to initiate a swap + liquidity lock?
         // also, don't get caught in a circular liquidity event.
@@ -1829,7 +1830,7 @@ contract ProMax is Context, IERC20, Ownable {
             }
         }
 
-        //indicates if fee should be deducted from transfer
+        // //indicates if fee should be deducted from transfer
         bool takeFee = true;
 
         //if any account belongs to _isExcludedFromFee account then remove the fee
@@ -1860,6 +1861,7 @@ contract ProMax is Context, IERC20, Ownable {
         uint256 totSpentAmount = 0;
         if (_burnFee != 0) {
             spentAmount = contractTokenBalance.div(totFee).mul(_burnFee);
+
             _tokenTransferNoFee(address(this), dead, spentAmount);
             totSpentAmount = spentAmount;
         }
@@ -1921,13 +1923,29 @@ contract ProMax is Context, IERC20, Ownable {
 
         if (_rewardFee != 0) {
             spentAmount = contractTokenBalance.div(totFee).mul(_rewardFee);
-            uint256 initialBalance = IERC20(rewardToken).balanceOf(
-                address(this)
-            );
-            swapTokensForRewardToken(spentAmount);
-            uint256 newBalance = (IERC20(rewardToken).balanceOf(address(this)))
-                .sub(initialBalance);
-            distributeDividends(newBalance);
+
+            if (pcsV2Router.WETH() == address(rewardToken)) {
+                uint256 initialRewardBalance = address(this).balance;
+
+                swapTokensForBNB(spentAmount);
+
+                uint256 newBalance = address(this).balance.sub(
+                    initialRewardBalance
+                );
+                distributeDividends(newBalance);
+            } else {
+                uint256 initialBalance = (IERC20(rewardToken)).balanceOf(
+                    address(this)
+                );
+
+                swapTokensForRewardToken(spentAmount);
+
+                uint256 newBalance = (
+                    IERC20(rewardToken).balanceOf(address(this))
+                ).sub(initialBalance);
+                distributeDividends(newBalance);
+            }
+
             totSpentAmount = totSpentAmount + spentAmount;
         }
 
