@@ -657,3 +657,7 @@ input {
   font-size: small;
   width: 330px;
 }
+
+.cappedSupplyForm {
+  display: none;
+}
