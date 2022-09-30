@@ -1,0 +1,336 @@
+<div class="dynamic my-3">
+  <form>
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-lable">Token name</label>
+      <div class="col-sm-9">
+        <input
+          class="token_name"
+          type="text"
+          placeholder=""
+          required
+          name="token_name"
+          title="Enter token name"
+        />
+        <p class="hint">Choose a name for your token.</p>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-lable">Token symbol </label>
+      <div class="col-sm-9">
+        <input
+          class="token_symbol"
+          type="text"
+          placeholder=""
+          required
+          name="token_symbol"
+          title="Enter token symbol"
+        />
+        <p class="hint">Choose a symbol for your token (usually 3-5 chars).</p>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-lable">Total supply </label>
+      <div class="col-sm-9">
+        <input
+          class="token_supply"
+          type="number"
+          placeholder="1000000000000"
+          name="token_supply"
+          min="1"
+          max="115792089237316195423570985008687907853269"
+          integer="true"
+        />
+        <p class="hint">
+          Insert the initial number of tokens available. Will be put in your
+          account.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-3 col-form-lable">Decimals </label>
+      <div class="col-sm-9">
+        <input
+          class="decimals"
+          type="number"
+          placeholder="18"
+          name="decimals"
+          min="0"
+          max="255"
+          integer="true"
+        />
+        <p class="hint">Insert the decimal precision of your token.</p>
+      </div>
+    </div>
+    <!-- 
+    <div class="form-check mt-2" style="pointer-events: none">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="defaultCheck2"
+        checked
+      />
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>No Copyright</strong>
+      </label>
+    </div>
+
+    <div class="form-check mt-2" style="pointer-events: none">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="defaultCheck2"
+        checked
+      />
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Verified Automatically</strong>
+      </label>
+    </div>
+
+    <div class="form-check mt-2" style="pointer-events: none">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="defaultCheck2"
+        checked
+      />
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Pass Audits</strong>
+      </label>
+    </div>
+
+    <div class="form-check mt-2" style="pointer-events: none">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="defaultCheck2"
+        checked
+      />
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Source Code</strong>
+      </label>
+    </div>
+
+    <div class="form-check mt-2" style="pointer-events: none">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="defaultCheck2"
+        checked
+      />
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Full Ownership</strong>
+      </label>
+    </div>
+
+    <div class="form-check mt-2" style="pointer-events: none">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        id="defaultCheck2"
+        checked
+      />
+      <label class="form-check-label" for="defaultCheck2">
+        <strong>Lastest Compiler</strong>
+      </label>
+    </div> -->
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input can_mint"
+        type="checkbox"
+        value=""
+        id="can_mint_option"
+      />
+      <label class="form-check-label" for="can_mint_option">
+        <strong>Can Mint</strong>
+      </label>
+    </div>
+
+    <div class="form-group row mt-3 mb-3">
+      <label class="col-sm-3 col-form-lable mb-3">Supply Type:</label>
+      <div class="col-sm-9">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="supplyType"
+            id="unlimitedSupply"
+            checked
+          />
+          <label class="form-check-label" for="unlimitedSupply">
+            Unlimited
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="supplyType"
+            id="cappedSupply"
+          />
+          <label class="form-check-label" for="cappedSupply"> Capped </label>
+        </div>
+        <div class="col-sm-9 cappedSupplyForm">
+          <input
+            class="cappedSupply"
+            type="number"
+            integer="true"
+            name="cappedSupply"
+            notSmallerThan=".token_supply"
+            required
+          />
+          <p class="hint">Maximum amount of total supply in future.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input can_burn"
+        type="checkbox"
+        value=""
+        id="can_burn_option"
+      />
+      <label class="form-check-label" for="can_burn_option">
+        <strong>Can Burn</strong>
+      </label>
+    </div>
+
+    <div class="form-group row mt-3 mb-3">
+      <div class="col-sm-9">
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="ownerCanBurnAny"
+            checked
+          />
+          <label class="form-check-label" for="ownerCanBurnAny"
+            >Allow owner to burn tokens from any wallet</label
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input can_recover"
+        type="checkbox"
+        value=""
+        id="can_recover_option"
+      />
+      <label class="form-check-label" for="can_recover_option">
+        <strong>Can Recover</strong>
+      </label>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-9">
+        <div class="col-sm-9">
+          <p class="hint">
+            Owner can recover tokens and funds sent to contract by mistakes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input can_pause"
+        type="checkbox"
+        value=""
+        id="can_pause_option"
+      />
+      <label class="form-check-label" for="can_pause_option">
+        <strong>Can Pause</strong>
+      </label>
+    </div>
+
+    <div class="form-group row mt-3 mb-3">
+      <label class="col-sm-3 col-form-lable mb-3">When pause:</label>
+      <div class="col-sm-9">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pauseExclude"
+            id="allowOwnerWhenPause"
+            checked
+          />
+          <label class="form-check-label" for="allowOwnerWhenPause">
+            Only allow owner to make transactions
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pauseExclude"
+            id="allowNoOneWhenPause"
+          />
+          <label class="form-check-label" for="allowNoOneWhenPause">
+            Pause all transactions
+          </label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="module">
+  var token_type = "dynamic";
+
+  function optionForm(option) {
+    $("." + token_type + " ." + option)
+      .parent()
+      .next()
+      .hide();
+    $("." + token_type + " ." + option).on("click", () => {
+      if ($("." + token_type + " ." + option).is(":checked")) {
+        $("." + token_type + " ." + option)
+          .parent()
+          .next()
+          .show();
+      } else {
+        $("." + token_type + " ." + option)
+          .parent()
+          .next()
+          .hide();
+      }
+    });
+  }
+
+  var formList = ["can_recover", "can_burn", "can_mint", "can_pause"];
+
+  for (let i = 0; i < formList.length; i++) {
+    optionForm(formList[i]);
+  }
+
+  $("." + token_type)
+    .find("form")
+    .validate({
+      messages: {
+        cappedSupply: {
+          notSmallerThan: "Can't be smaller than total supply",
+        },
+      },
+    });
+
+  $("#cappedSupply").on("click", () => {
+    $(".cappedSupplyForm").show();
+  });
+
+  $("#unlimitedSupply").on("click", () => {
+    $(".cappedSupplyForm").hide();
+  });
+</script>
