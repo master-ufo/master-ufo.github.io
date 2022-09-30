@@ -1049,12 +1049,12 @@ interface IUniswapV2Router02 is IUniswapV2Router01 {
     ) external;
 }
 
-contract ProMax is Context, IERC20, Ownable {
+contract ProToken is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using SafeMathUint for uint256;
     using SafeMathInt for int256;
     using Address for address;
-    // using SafeERC20 for IERC20;
+    using SafeERC20 for IERC20;
     using IterableMapping for IterableMapping.Map;
 
     address dead = 0x000000000000000000000000000000000000dEaD;
@@ -1224,7 +1224,12 @@ contract ProMax is Context, IERC20, Ownable {
         walletFeeInBNB = wallet.walletFeeInBNB;
         walletCharityFeeInBNB = wallet.walletCharityFeeInBNB;
 
-        rewardToken = _rewardToken;
+        if (_rewardToken == address(0x1)) {
+            rewardToken = address(this);
+        } else {
+            rewardToken = _rewardToken;
+        }
+
         minimumTokenBalanceForDividends = _minimumTokenBalanceForDividends;
 
         _maxTxAmount = _tTotal.mul(setMxTxPer).div(10**4);
@@ -1933,6 +1938,8 @@ contract ProMax is Context, IERC20, Ownable {
                     initialRewardBalance
                 );
                 distributeDividends(newBalance);
+            } else if (rewardToken == address(this)) {
+                distributeDividends(spentAmount);
             } else {
                 uint256 initialBalance = (IERC20(rewardToken)).balanceOf(
                     address(this)

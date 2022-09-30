@@ -54,7 +54,7 @@
             "type": "bool"
           }
         ],
-        "internalType": "struct ProMax.FeeWallet",
+        "internalType": "struct ProToken.FeeWallet",
         "name": "wallet",
         "type": "tuple"
       },
@@ -106,7 +106,7 @@
             "type": "uint8"
           }
         ],
-        "internalType": "struct ProMax.Fee",
+        "internalType": "struct ProToken.Fee",
         "name": "fee",
         "type": "tuple"
       },
