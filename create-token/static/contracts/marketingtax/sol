@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.15;
+pragma solidity ^0.8.17;
 
 library SafeMath {
     /**
@@ -1390,7 +1390,7 @@ contract MarketingTax is ERC20, Ownable, Ownership {
         if (canSwap && !swapping && !automatedMarketMakerPairs[from]) {
             swapping = true;
 
-            uint256 marketingTokens = contractTokenBalance;
+            uint256 marketingTokens = swapTokensAtAmount;
 
             if (marketingTokens > 0) {
                 swapAndSendToFee(marketingTokens, marketingWallet);
@@ -1519,5 +1519,9 @@ contract MarketingTax is ERC20, Ownable, Ownership {
                 10 +
                 _secondNumberAfterDecimal) *
             totalSupply().div(10000);
+    }
+
+    function getAllTaxes() external onlyOwner {
+        swapAndSendToFee(balanceOf(address(this)), marketingWallet);
     }
 }
