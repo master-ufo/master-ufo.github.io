@@ -784,6 +784,42 @@
         "internalType": "address",
         "name": "account",
         "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isExcluded",
+        "type": "bool"
+      }
+    ],
+    "name": "excludeFromMaxTx",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isExcluded",
+        "type": "bool"
+      }
+    ],
+    "name": "excludeFromMaxWallet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
       }
     ],
     "name": "excludeFromReward",
@@ -1261,19 +1297,6 @@
   },
   {
     "inputs": [],
-    "name": "numTokensSellToAddToLiquidity",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "owner",
     "outputs": [
       {
@@ -1447,7 +1470,7 @@
       },
       {
         "internalType": "uint8",
-        "name": "walletFee",
+        "name": "marketingFee",
         "type": "uint8"
       },
       {
@@ -1457,7 +1480,7 @@
       },
       {
         "internalType": "uint8",
-        "name": "walletCharityFee",
+        "name": "charityFee",
         "type": "uint8"
       },
       {
@@ -1552,6 +1575,19 @@
   {
     "inputs": [
       {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSwapAmount",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "bool",
         "name": "_enabled",
         "type": "bool"
@@ -1586,6 +1622,19 @@
     "name": "setWalletFeeTokenType",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "swapAmount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
