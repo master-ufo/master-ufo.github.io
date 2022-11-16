@@ -1380,8 +1380,6 @@ contract SafeToken is Context, IERC20, Ownable {
             from != uniswapV2Pair &&
             swapAndLiquifyEnabled
         ) {
-            contractTokenBalance = numTokensSellToAddToLiquidity;
-
             //add liquidity
             swapAndLiquify(contractTokenBalance);
         }
