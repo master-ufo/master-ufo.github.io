@@ -119,18 +119,21 @@
     </nav>
 
     <div
-      class="container col-xxl-8 px-4 py-0"
-      style="margin-top: 60px; margin-bottom: 10px"
-    >
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-0">
-        <div class="col">
-          <h1 class="display-5 fw-bold lh-1 mb-3 mt-2">MoonDeploy FAQs</h1>
+    class="container col-xxl-8 px-4 py-0"
+    style="margin-top: 60px; margin-bottom: 10px"
+  >
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-0">
+      <div class="col">
+        <h1 class="display-5 fw-bold lh-1 mb-3 mt-2">MoonDeploy - FAQs</h1>
 
-          <p class="lead">Frequently Asked Questions</p>
-        </div>
+        <p class="lead">Frequently Asked Questions</p>
       </div>
     </div>
+  </div>
+
     <div class="accordion p-3" id="faqSection">
+      <h3 class="p-3">Token Listing</h3>
+
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
           <button
@@ -209,12 +212,46 @@
             >
               https://docs.pancakeswap.finance/products/pancakeswap-exchange/liquidity-guide
             </a>
-            <br />
-            For Ethereum, you can add liquidity on Uniswap, and the process is
-            similar to PancakeSwap:
-            <a href="https://app.uniswap.org/#/pool/v2"
-              >https://app.uniswap.org/#/pool/v2</a
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How can I list this coin at coingeko and coinmarketcap?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Check out these articles: <br />
+            <a
+              href="https://support.coingecko.com/hc/en-us/articles/7291312302617-How-to-list-new-cryptocurrencies-on-CoinGecko-"
             >
+              https://support.coingecko.com/hc/en-us/articles/7291312302617-How-to-list-new-cryptocurrencies-on-CoinGecko-
+            </a>
+            <br />
+            <a
+              href="  https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria"
+            >
+              https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria </a
+            ><br />
+            <a
+              href="   https://coinmarketcap.com/alexandria/article/coinmarketcap-listing-is-free"
+            >
+              https://coinmarketcap.com/alexandria/article/coinmarketcap-listing-is-free
+            </a>
           </div>
         </div>
       </div>
@@ -228,7 +265,7 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
-            Can I add more functions to my token?
+            Are you also listing our token at Coingeko and CoinMarketCap?
           </button>
         </h2>
         <div
@@ -237,65 +274,10 @@
           aria-labelledby="headingThree"
           data-bs-parent="#faqSection"
         >
-          <div class="accordion-body">
-            No, after deployment, you can't add more functions or features. You
-            can only  edit some values of your contract, such as taxes, and
-            interact with functions  of your contract.
-          </div>
+          <div class="accordion-body">No, we don't. It's others' service.</div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            How to edit/change marketing tax?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            If you go to BscScan or EtherScan, you'll find the write contract
-            section. Go to the update/set marketing tax function and enter the
-            value you want to  change. Ex: enter 5 to set marketing tax to 5%.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            How to edit/change liquidity fee?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            You go to BscScan or EtherScan, and you'll find the write contract
-            section. Go to the update/set liquidity fee function and enter the
-            value you want to  change. Ex: enter 5 to set liquidity fee to 5%.
-          </div>
-        </div>
-      </div>
+
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
           <button
@@ -320,6 +302,63 @@
           </div>
         </div>
       </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I list my token created with MoonDeploy to big exchanges?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, you can. Your token is totally compatible with all exchanges.
+            Usually exchanges require big volume and liquidity to qualify, for
+            more details, we suggest you contact them directly.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How do I list my token to exchanges?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            If your token has grow to certain levels, you can contact these
+            exchanges directly for listing. However, if your token is still new,
+            you can list it to platforms like PancakeSwap, Uniswap or others
+            first. And later you can plan for exchange listing.
+          </div>
+        </div>
+      </div>
+      <h3 class="p-3 mt-3">Source code and verification</h3>
+
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
           <button
@@ -431,31 +470,8 @@
           </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Can I upgrade my token to a Pro token?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            No, you can’t update from your token to Pro Token. You need to
-            create it from the beginning.
-          </div>
-        </div>
-      </div>
+
+      <h3 class="p-3 mt-3">Functions and usage</h3>
 
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
@@ -493,7 +509,7 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
-            How can I list this coin at coingeko and coinmarketcap?
+            Where do the rewards in a rewards token come from?
           </button>
         </h2>
         <div
@@ -503,51 +519,8 @@
           data-bs-parent="#faqSection"
         >
           <div class="accordion-body">
-            Check out these articles: <br />
-            <a
-              href="https://support.coingecko.com/hc/en-us/articles/7291312302617-How-to-list-new-cryptocurrencies-on-CoinGecko-"
-            >
-              https://support.coingecko.com/hc/en-us/articles/7291312302617-How-to-list-new-cryptocurrencies-on-CoinGecko-
-            </a>
-            <br />
-            <a
-              href="  https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria"
-            >
-              https://support.coinmarketcap.com/hc/en-us/articles/360043659351-Listings-Criteria </a
-            ><br />
-            <a
-              href="   https://coinmarketcap.com/alexandria/article/coinmarketcap-listing-is-free"
-            >
-              https://coinmarketcap.com/alexandria/article/coinmarketcap-listing-is-free
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            I want to develop smart contract and a staking business plan. Can I
-            use your token creator on the testnet?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            No, testnet is not available at the moment. However if you use our
-            customized token service to develop your smart contract, you can use
-            it on the testnet.
+            Reward token works by collecting taxes from transactions and
+            distributing them to holders.
           </div>
         </div>
       </div>
@@ -603,330 +576,6 @@
           <div class="accordion-body">
             Yes, you can go to BscScan or EtherScan or other similar websites to
             interact with your token contract.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            What is the cost of a most deployed token on your website? The token
-            has all facilities.
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">It's 0.39 BNB, the Pro token.</div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Is there also an upgraded version?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            No, it's impossible to upgrade any token
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            I want to create, what is the cost of a smart contract deployment
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">Start from 2 BNB.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Are you also listing our token at Coingeko and CoinMarketCap?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">No, we don't. It's others' service.</div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            So what do I do when I have my token once I have made it?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            You need: <br />
-            -
-            <a
-              href="https://docs.pancakeswap.finance/products/pancakeswap-exchange/liquidity-guide"
-              >Add liquidity to it</a
-            >
-            <br />
-            -
-            <a href="https://moondeploy.com/watch-token/"
-              >Create a token logo</a
-            >
-            (optional) <br />
-            -
-            <a href="https://moondeploy.com/liquidity-locker/"
-              >Lock your liquidity</a
-            >
-            (optional) <br />
-            -
-            <a href="https://moondeploy.com/token-airdrop-tool/"
-              >Send airdrop</a
-            >
-            (optional) <br />
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Is 1 BNB liquidity good?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            There is no standard for liquidity amount. You should add what you
-            can afford. But obviously, more is always better.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            How does burn work?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            There are different ways to burn tokens: <br />
-            - Send tokens to 0x0 or 0xdead addresses, the total supply of tokens
-            doesn't change. <br />
-            - Completely remove the tokens and reduce the total supply of tokens
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            How do I create a new token?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            You need to enter the required parameters. Just follow our
-            instructions and watch video tutorials.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            How to connect with Trust Wallet?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            To connect with Trust Wallet, you can: <br />
-            - open MoonDeploy from a PC/laptop and scan the barcode on
-            WalletConnect <br />
-            - open MoonDeploy from Dapp Browser on Trust Wallet
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Where do the rewards in a rewards token come from?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            Reward token works by collecting taxes from transactions and
-            distributing them to holders.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            How do I add my wallet address to standard token?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            Standard token doesn't have a fee structure
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            What is marketing support for new projects?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            Our marketing partner will help you to boost your project if you
-            create token from our website.
           </div>
         </div>
       </div>
@@ -1042,6 +691,234 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
+            Can I renounce ownership for my token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, you can renounce ownership. <br />
+            You go to your token address page from BscScan, EtherScan or other
+            scan websites. You'll find the write contract section. Click on
+            Connect Web3 button. Next find the function named renounceOwnership.
+            Click write and confirm transactions.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I burn tokens?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, you can burn tokens by sending them to the
+            0x0000000000000000000000000000000000000000 or
+            0x000000000000000000000000000000000000dEaD. <br />
+            Especially, with the
+            <a href="https://moondeploy.com/create-token/">Dynamic Token</a>
+            type, you can also burn tokens from any wallet. <br />
+            Also you can have a burn feature to automatically burn tokens with
+            <a href="https://moondeploy.com/create-token/">the Pro Token</a>.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I do presale?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, all token types support pre-sale. If you have tokens with
+            taxes, you need to exclude the pre-sale address from fees. For the
+            Pro token, you also need to exclude the presale address from Max Tx
+            and Max Wallet.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I create "intersect" tokens with Smart tax for mini token and
+            Pro token is the main, Smart tax mini token sends rewards (the main
+            Pro token) to holders to create more buy?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes you can. You need to:
+            <br />
+            - from your mini token, excludes the Pro token from fees <br />
+            - from your Pro token, excludes the Mini token from fees, Max Tx and
+            Max Wallet
+            <br />
+            But before launch, have a third party to audit your setup. If you
+            can't afford that, please do a small test to make sure your setup
+            works. If you face any problem, reach out to us immediately.
+          </div>
+        </div>
+      </div>
+
+      <h3 class="p-3 mt-3">Upgradability</h3>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I upgrade my token to a Pro token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            No, you can’t update from your token to Pro Token. You need to
+            create it from the beginning.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Is there also an upgraded version?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            No, it's impossible to upgrade any token
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can I add more functions to my token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            No, after deployment, you can't add more functions or features. You
+            can only  edit some values of your contract, such as taxes, and
+            interact with functions  of your contract.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How do I add my wallet address to standard token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Standard token doesn't have a fee structure
+          </div>
+        </div>
+      </div>
+
+      <h3 class="p-3 mt-3">Taxes and Fees</h3>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
             If I put Liquidity Fees at x% (for example 5%), then deploy the
             contract. After that, can I change the fee?
           </button>
@@ -1067,8 +944,7 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
-            Does the Smart Tax token has the same reward address on ETH after
-            the fork and merge?
+            How to edit/change marketing tax?
           </button>
         </h2>
         <div
@@ -1078,7 +954,9 @@
           data-bs-parent="#faqSection"
         >
           <div class="accordion-body">
-            Yes, everything is the same after the merge.
+            If you go to BscScan or EtherScan, you'll find the write contract
+            section. Go to the update/set marketing tax function and enter the
+            value you want to  change. Ex: enter 5 to set marketing tax to 5%.
           </div>
         </div>
       </div>
@@ -1092,30 +970,7 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
-            Can tokens deployed by MoonDeploy pass audit by Certik?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">Yes, absolutely.</div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            After creating a token, how to verify it?
+            How to edit/change liquidity fee?
           </button>
         </h2>
         <div
@@ -1125,114 +980,9 @@
           data-bs-parent="#faqSection"
         >
           <div class="accordion-body">
-            Contracts will be verified automatically after deployment.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            I am creating a Pro token. Can I change the tax % later, or will it
-            be fixed?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">Yes, you can change it later.</div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Can I do presale?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            Yes, all token types support pre-sale. If you have tokens with
-            taxes, you need to exclude the pre-sale address from fees.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            Why don't I receive any tax?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            Because your token contract needs to collect enough taxes before
-            distributing it.
-            <br />
-            The default threshold for tokens is around 1/1000 of the total
-            supply. If your token contract has setSwapAmount or
-            setSwapTokensAtAmount functions, you can change that default value.
-            Also, it requires selling transactions to your token contract to
-            send taxes.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
-            aria-expanded="false"
-            aria-controls="collapseThree"
-          >
-            How to unlock my liquidity/tokens?
-          </button>
-        </h2>
-        <div
-          id="collapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqSection"
-        >
-          <div class="accordion-body">
-            You go to:
-            <a href="https://moondeploy.com/smart-lock/">Smart Lock</a> and
-            enter your token address. You will see Unlock button.
+            You go to BscScan or EtherScan, and you'll find the write contract
+            section. Go to the update/set liquidity fee function and enter the
+            value you want to  change. Ex: enter 5 to set liquidity fee to 5%.
           </div>
         </div>
       </div>
@@ -1308,7 +1058,6 @@
           </div>
         </div>
       </div>
-
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
           <button
@@ -1319,7 +1068,7 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
-            Can I renounce ownership for my token?
+            Why don't I receive any tax?
           </button>
         </h2>
         <div
@@ -1329,12 +1078,38 @@
           data-bs-parent="#faqSection"
         >
           <div class="accordion-body">
-            Yes, you can renounce ownership. <br />
-            You go to your token address page from BscScan, EtherScan or other
-            scan websites. You'll find the write contract section. Click on
-            Connect Web3 button. Next find the function named renounceOwnership.
-            Click write and confirm transactions.
+            Because your token contract needs to collect enough taxes before
+            distributing it.
+            <br />
+            The default threshold for tokens is around 1/1000 of the total
+            supply. If your token contract has setSwapAmount or
+            setSwapTokensAtAmount functions, you can change that default value.
+            Also, it requires selling transactions to your token contract to
+            send taxes.
           </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            I am creating a Pro token. Can I change the tax % later, or will it
+            be fixed?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">Yes, you can change it later.</div>
         </div>
       </div>
 
@@ -1348,7 +1123,8 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
-            Can I burn tokens?
+            Why Max Tx doesn't work correctly in my Pro token, people can buy
+            full wallet?
           </button>
         </h2>
         <div
@@ -1358,17 +1134,148 @@
           data-bs-parent="#faqSection"
         >
           <div class="accordion-body">
-            Yes, you can burn tokens by sending them to the
-            0x0000000000000000000000000000000000000000 or
-            0x000000000000000000000000000000000000dEaD. <br />
-            Especially, with the
-            <a href="https://moondeploy.com/create-token/">Dynamic Token</a>
-            type, you can also burn tokens from any wallet. <br />
-            Also you can have a burn feature to automatically burn tokens with
-            <a href="https://moondeploy.com/create-token/">the Pro Token</a>.
+            In the recent version of Pro token, Max Tx only works for sell
+            transactions so holders can buy freely but he will be limited by Max
+            Wallet. However, we're working on options of Max Tx for both buy and
+            sell.
           </div>
         </div>
       </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            I forgot to select BNB tax for marketing/charity in my Pro Token,
+            how do I change it?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You can set the function setWalletFeeTokenType (for marketing
+            wallet) or setWalletCharityFeeTokenType (for charity wallet) to
+            true.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            I forgot to select ETH tax for marketing/charity in my Pro Token,
+            how do I change it?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You can set the function setWalletFeeTokenType (for marketing
+            wallet) or setWalletCharityFeeTokenType (for charity wallet) to
+            true.
+          </div>
+        </div>
+      </div>
+
+      <h3 class="p-3 mt-3">Price and cost</h3>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            What is the cost of a most deployed token on your website? The token
+            has all facilities.
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">It's 0.5 BNB, the Pro token.</div>
+        </div>
+      </div>
+
+      <h3 class="p-3 mt-3">Develop customized token</h3>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            I want to create, what is the cost of a smart contract deployment
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">Start from 2 BNB.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            I want to develop smart contract and a staking business plan. Can I
+            use your token creator on the testnet?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            No, testnet is not available at the moment. However if you use our
+            customized token service to develop your smart contract, you can use
+            it on the testnet.
+          </div>
+        </div>
+      </div>
+
+      <!-- Supported Browser -->
+      <h3 class="p-3 mt-3">Supported Browser</h3>
 
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
@@ -1463,6 +1370,8 @@
         </div>
       </div>
 
+      <!-- request new features -->
+      <h3 class="p-3 mt-3">Request new features</h3>
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
           <button
@@ -1489,9 +1398,222 @@
           </div>
         </div>
       </div>
+
+      <!-- report bugs, errors -->
+      <h3 class="p-3 mt-3">Report bugs, errors</h3>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Why I don't receive my tokens after deployment?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            If your transaction is complished and you paid the fees, you have
+            probably received your tokens. Go to your wallet address page from
+            BscScan, EtherScan or others, looking for the token balance
+            sections, you'll see a list of tokens. Find and click to your token
+            and copy its address to your wallet.
+
+            <br />
+            If these steps don't help you, contact our support immediately with
+            your transaction hash or wallet address. If possible, try to take
+            screenshots and describe the situation precisely, we'll help you
+            solve your problem.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Where is my token?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            If your transaction is complished and you paid the fees, you have
+            probably received your tokens. Go to your wallet address page from
+            BscScan, EtherScan or others, looking for the token balance
+            sections, you'll see a list of tokens. Find and click to your token
+            and copy its address to your wallet.
+            <br />
+            If these steps don't help you, contact our support immediately with
+            your transaction hash or wallet address. If possible, try to take
+            screenshots and describe the situation precisely, we'll help you
+            solve your problem.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            My token doesn't do X, why?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Firstly, all contracts are well tested and audited by our team. It
+            should have no errors. Secondly, before quick assumsion about why
+            your token doesn't function correctly, please take some times to
+            check other questions in this FAQs, you may find your answer.
+            <br />
+            If that doesn't help, contact our support immediately with your
+            transaction hash, wallet address and token address. If possible, try
+            to take screenshots and very importantly, describe the situation
+            precisely why you think your token is defective, we'll help you
+            solve your problem.
+          </div>
+        </div>
+      </div>
+      <!-- Others -->
+      <h3 class="p-3 mt-3">Others</h3>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Does the Smart Tax token has the same reward address on ETH after
+            the fork and merge?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Yes, everything is the same after the merge.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            Can tokens deployed by MoonDeploy pass audit by Certik?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">Yes, absolutely.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            What is marketing support for new projects?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            Our marketing partner will help you to boost your project if you
+            create token from our website.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            How to unlock my liquidity/tokens?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            You go to:
+            <a href="https://moondeploy.com/smart-lock/">Smart Lock</a> and
+            enter your token address. You will see Unlock button.
+          </div>
+        </div>
+      </div>
+    </div>
       <!-- consulting section -->
 
       <div class="text-center mt-3 mx-2">
+
+        <p class="alert alert-warning" role="alert">
+          ⚠️ Always have a third party to audit your project before launch. If you
+          can't afford that, do small testing first.
+        </p>
         <p>
           Get more in-depth conversation with our
           <a href="https://moondeploy.com/crypto-consulting/">
