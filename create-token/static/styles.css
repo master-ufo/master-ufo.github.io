@@ -661,3 +661,15 @@ input {
 .cappedSupplyForm {
   display: none;
 }
+
+.specific_reward_token {
+  display: none;
+}
+
+.specific_reward_token_for_marketing {
+  display: none;
+}
+
+.specific_reward_token_for_charity {
+  display: none;
+}
