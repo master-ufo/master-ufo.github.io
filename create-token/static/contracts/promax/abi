@@ -52,6 +52,21 @@
             "internalType": "bool",
             "name": "walletCharityFeeInBNB",
             "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "marketingFeeToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "charityFeeToken",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "hasBlacklist",
+            "type": "bool"
           }
         ],
         "internalType": "struct ProToken.FeeWallet",
@@ -103,6 +118,11 @@
           {
             "internalType": "uint8",
             "name": "setRewardFee",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "setExtraSellFee",
             "type": "uint8"
           }
         ],
@@ -385,6 +405,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "_extraSellFee",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -652,7 +685,7 @@
   },
   {
     "inputs": [],
-    "name": "buyBackUpperLimitAmount",
+    "name": "buyBackUpperLimit",
     "outputs": [
       {
         "internalType": "uint256",
@@ -771,6 +804,11 @@
         "internalType": "address",
         "name": "account",
         "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isExcluded",
+        "type": "bool"
       }
     ],
     "name": "excludeFromFee",
@@ -1033,16 +1071,16 @@
     "type": "function"
   },
   {
-    "inputs": [
+    "inputs": [],
+    "name": "hasBlacklist",
+    "outputs": [
       {
-        "internalType": "address",
-        "name": "account",
-        "type": "address"
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
-    "name": "includeInFee",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -1181,6 +1219,19 @@
   {
     "inputs": [],
     "name": "maxBuybackFee",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "maxExtraSellFee",
     "outputs": [
       {
         "internalType": "uint8",
@@ -1474,6 +1525,11 @@
         "internalType": "uint8",
         "name": "rewardFee",
         "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "extraSellFee",
+        "type": "uint8"
       }
     ],
     "name": "setAllFeePercent",
@@ -1490,6 +1546,19 @@
       }
     ],
     "name": "setBuybackUpperLimit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "feeToken",
+        "type": "address"
+      }
+    ],
+    "name": "setCharityFeeToken",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1516,6 +1585,19 @@
       }
     ],
     "name": "setFeeWalletCharity",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "feeToken",
+        "type": "address"
+      }
+    ],
+    "name": "setMarketingFeeToken",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1581,32 +1663,6 @@
       }
     ],
     "name": "setSwapAndLiquifyEnabled",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bool",
-        "name": "inBNB",
-        "type": "bool"
-      }
-    ],
-    "name": "setWalletCharityFeeTokenType",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bool",
-        "name": "inBNB",
-        "type": "bool"
-      }
-    ],
-    "name": "setWalletFeeTokenType",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1803,19 +1859,6 @@
       }
     ],
     "name": "updateGasForProcessing",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "newAddress",
-        "type": "address"
-      }
-    ],
-    "name": "updatePcsV2Router",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
