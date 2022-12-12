@@ -181,6 +181,20 @@
         </select>
         <p class="hint">Select reward token to be distributed among holders.</p>
       </div>
+
+      <label class="col-sm-3 col-form-lable specific_reward_token"> </label>
+      <div class="col-sm-9 specific_reward_token">
+        <input
+          class="col-sm-9 specific_reward_token"
+          type="text"
+          placeholder=""
+          ethAddress="true"
+          required
+        />
+
+        <p class="hint">Enter the token address to be used as reward token.</p>
+      </div>
+
       <label class="col-sm-3 col-form-lable">Reward Fees % </label>
       <div class="col-sm-9">
         <input
@@ -300,7 +314,7 @@
         <p class="hint">Transaction fee in % to generate marketing budget.</p>
       </div>
 
-      <div class="form-check form-switch">
+      <!-- <div class="form-check form-switch">
         <input
           class="form-check-input"
           type="checkbox"
@@ -309,6 +323,65 @@
         <label class="form-check-label" for="flexSwitchCheckChecked"
           >Send Fee in <span class="nativeToken">BNB</span></label
         >
+      </div> -->
+
+      <div class="marketingFeeType">
+        <label>Send Fee in:</label>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="marketingFeeType"
+            id="marketingFeeType0"
+            value="0"
+            checked
+          />
+          <label class="form-check-label" for="marketingFeeType0">
+            Your tokens
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="marketingFeeType"
+            id="marketingFeeType1"
+            value="1"
+          />
+          <label class="form-check-label" for="marketingFeeType1">
+            <span class="nativeToken">BNB</span>
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="marketingFeeType"
+            id="marketingFeeType2"
+            value="2"
+          />
+          <label class="form-check-label" for="marketingFeeType2">
+            Other tokens
+
+            <span class="text-success align-top">(new)</span>
+          </label>
+        </div>
+      </div>
+
+      <label
+        class="col-sm-3 col-form-lable specific_reward_token_for_marketing"
+      >
+      </label>
+      <div class="col-sm-9 specific_reward_token_for_marketing">
+        <input
+          class="col-sm-9 specific_reward_token_for_marketing"
+          type="text"
+          placeholder=""
+          ethAddress="true"
+          required
+        />
+
+        <p class="hint">Enter token address for fees.</p>
       </div>
     </div>
 
@@ -347,7 +420,7 @@
         <p class="hint">Transaction fee in % to generate charity budget.</p>
       </div>
 
-      <div class="form-check form-switch">
+      <!-- <div class="form-check form-switch">
         <input
           class="form-check-input"
           type="checkbox"
@@ -356,6 +429,63 @@
         <label class="form-check-label" for="flexSwitchCheckChecked1"
           >Send Fee in <span class="nativeToken">BNB</span></label
         >
+      </div> -->
+
+      <div class="charityFeeType">
+        <label>Send Fee in:</label>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="charityFeeType"
+            id="charityFeeType0"
+            value="0"
+            checked
+          />
+          <label class="form-check-label" for="charityFeeType0">
+            Your tokens
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="charityFeeType"
+            id="charityFeeType1"
+            value="1"
+          />
+          <label class="form-check-label" for="charityFeeType1">
+            <span class="nativeToken">BNB</span>
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="charityFeeType"
+            id="charityFeeType2"
+            value="2"
+          />
+          <label class="form-check-label" for="charityFeeType2">
+            Other tokens
+
+            <span class="text-success align-top">(new)</span>
+          </label>
+        </div>
+      </div>
+
+      <label class="col-sm-3 col-form-lable specific_reward_token_for_charity">
+      </label>
+      <div class="col-sm-9 specific_reward_token_for_charity">
+        <input
+          class="col-sm-9 specific_reward_token_for_charity"
+          type="text"
+          placeholder=""
+          ethAddress="true"
+          required
+        />
+
+        <p class="hint">Enter token address for fees.</p>
       </div>
     </div>
 
@@ -389,6 +519,56 @@
           tokens (0-10)
         </p>
       </div>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input extra_sell"
+        type="checkbox"
+        value=""
+        id="extra_sell_option"
+      />
+      <label class="form-check-label" for="extra_sell_option">
+        <p>
+          <strong>Extra Sell Tax </strong>
+          <span class="text-success align-top">(new)</span>
+        </p>
+      </label>
+    </div>
+
+    <div class="form-group row">
+      <div class="col">
+        <label class="col-sm-3 col-form-lable">Extra Sell Fees % </label>
+
+        <input
+          class="extra_sell_fees col-sm-3"
+          type="number"
+          min="0"
+          placeholder="5"
+          max="10"
+          integer="true"
+          name="extraSellFees"
+        />
+        <p class="hint">
+          Enter the transaction fee % that would be used to add an extra fees
+          for selling (0-10)
+        </p>
+      </div>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input has_blacklist"
+        type="checkbox"
+        value=""
+        id="has_blacklist_option"
+      />
+      <label class="form-check-label" for="has_blacklist_option">
+        <p>
+          <strong>Has Blacklist</strong>
+          <span class="text-success align-top">(new)</span>
+        </p>
+      </label>
     </div>
 
     <!-- 
@@ -555,6 +735,7 @@
     "marketing_wallet",
     "charity_wallet",
     "buyback_burn",
+    "extra_sell",
   ];
 
   for (let i = 0; i < formList.length; i++) {
@@ -657,6 +838,43 @@
       );
       $(".nativeToken").text("wDOGE");
     }
+
+    $("." + token_type + " " + ".rewardContainer").on("change", () => {
+      if (
+        $("." + token_type + " " + ".rewardContainer").val() ==
+        "0x0000000000000000000000000000000000000002"
+      ) {
+        $("." + token_type + " " + ".specific_reward_token").show();
+      } else {
+        $("." + token_type + " " + ".specific_reward_token").hide();
+      }
+    });
+
+    $("." + token_type + " " + ".charityFeeType").on("change", () => {
+      var feeType = $(
+        "." + token_type + " " + ".charityFeeType input:radio:checked"
+      ).val();
+      if (feeType == "2") {
+        $("." + token_type + " " + ".specific_reward_token_for_charity").show();
+      } else {
+        $("." + token_type + " " + ".specific_reward_token_for_charity").hide();
+      }
+    });
+
+    $("." + token_type + " " + ".marketingFeeType").on("change", () => {
+      var feeType = $(
+        "." + token_type + " " + ".marketingFeeType input:radio:checked"
+      ).val();
+      if (feeType == "2") {
+        $(
+          "." + token_type + " " + ".specific_reward_token_for_marketing"
+        ).show();
+      } else {
+        $(
+          "." + token_type + " " + ".specific_reward_token_for_marketing"
+        ).hide();
+      }
+    });
   }
   setReward();
 
