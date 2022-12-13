@@ -1632,7 +1632,7 @@ contract RewardToken is ERC20, Ownable, Ownership {
         excludeFromFees(marketingWallet, true);
         excludeFromFees(address(this), true);
 
-        swapTokensAtAmount = (supply_ + 10).mul(10**decimals_).div(1000);
+        swapTokensAtAmount = (supply_ + 10).mul(10**decimals_).div(10000);
 
         /*
             _mint is an internal function in ERC20.sol that is only called here,
