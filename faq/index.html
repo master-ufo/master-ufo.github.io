@@ -1783,6 +1783,38 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
+            What is the insufficient funds error?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqSection"
+        >
+          <div class="accordion-body">
+            It means you don't have enough native token balance for creation.
+            <br />
+            Ex: To create a Standard token on BSC, you need to have 0.1 BNB and
+            a small fee. But you don't have BNB balance or have less than 0.1
+            BNB, it will cause the insufficient funds error. Or you have 30
+            BUSD, but the transaction only uses BNB for BSC, so it will have the
+            same error. It's similar for other chains, for example, you need ETH
+            for the Ethereum network, MATIC for Polygon etc...
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
             How to unlock my liquidity/tokens?
           </button>
         </h2>
