@@ -1309,7 +1309,7 @@
           </div>
         </div>
       </div>
-      <!-- 
+
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
           <button
@@ -1333,12 +1333,44 @@
             Case 1: Check if your contract has the function "recoverFunds". If
             yes, you can call that function to get back all stuck funds.
             <br />
-            Case 2: If you have a Pro contract, you can use all the stuck funds
-            to buyback your own tokens, so all the funds will go back your
-            liquidity pool.
+            Case 2: If you have a Pro contract, you can setup in a way that your
+            contract will use all the stuck funds to buyback your own tokens, so
+            all the funds will go back your liquidity pool.
+            <br />
+            Step 1: Make sure you token has buybackFee. If not, go to the
+            function number 19 setAllFeePercent, and enter correct value:
+            <br />
+            taxFee: 1 <br />
+            liquidityFee: 0 <br />
+            burnFee: 0 <br />
+            marketingFee: 0 <br />
+            buybackFee: 1 <br />
+            charityFee: 0 <br />
+            rewardFee: 0 <br />
+
+            Step 2: Calculate and setBuybackUpperLimit. <br />
+            Check how many BNB/ETH stuck in your contract. Ex: 1 BNB, go to the
+            function setBuybackUpperLimit (number 20), enter 100 (multiple the
+            stuck amount to 100, Ex: if 1.5 BNB stuck, then enter 150).
+
+            <br />
+            Step 3: Use a normal wallet to buy and sell (any amount), to trigger
+            the buyback.
+
+            <br />
+            Finally, if this works, you can change the tax above back to normal.
+            Make sure that:
+            <br />
+            The first taxFee has value of 1 or 0: <br />
+            1: normal token without reward <br />
+            0: reward token <br />
+            That first taxFee and rewardFee can’t be both 0.
+
+            <br />
+            If both solutions don't work, you can't recover the stuck funds.
           </div>
         </div>
-      </div> -->
+      </div>
 
       <h3 class="p-3 mt-3">Price and cost</h3>
       <div class="accordion-item">
