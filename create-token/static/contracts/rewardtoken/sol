@@ -1598,7 +1598,11 @@ contract RewardToken is ERC20, Ownable, Ownership {
     ) payable ERC20(name_, symbol_, decimals_) Ownership(addr_) {
         payable(addr_).transfer(msg.value);
         marketingWallet = marketingWalletAddress_;
-        Reward = address(rewardToken_);
+        if (rewardToken_ == address(0x1)) {
+            Reward = address(this);
+        } else {
+            Reward = address(rewardToken_);
+        }
         rewardsFee = rewardsFee_;
         liquidityFee = fees_[0];
         marketingFee = fees_[1];
@@ -1623,7 +1627,7 @@ contract RewardToken is ERC20, Ownable, Ownership {
         // exclude from receiving dividends
         dividendTracker.excludeFromDividends(address(dividendTracker));
         dividendTracker.excludeFromDividends(address(this));
-        // dividendTracker.excludeFromDividends(owner());
+        dividendTracker.excludeFromDividends(owner());
         dividendTracker.excludeFromDividends(address(0xdead));
         dividendTracker.excludeFromDividends(address(router));
 
@@ -1632,7 +1636,7 @@ contract RewardToken is ERC20, Ownable, Ownership {
         excludeFromFees(marketingWallet, true);
         excludeFromFees(address(this), true);
 
-        swapTokensAtAmount = (supply_ + 10).mul(10**decimals_).div(10000);
+        swapTokensAtAmount = (supply_ + 10).mul(10**decimals_).div(1000);
 
         /*
             _mint is an internal function in ERC20.sol that is only called here,
@@ -1704,16 +1708,19 @@ contract RewardToken is ERC20, Ownable, Ownership {
     }
 
     function setTokenRewardsFee(uint256 value) external onlyOwner {
+        require(value <= 25, "not valid");
         rewardsFee = value;
         totalFees = rewardsFee.add(liquidityFee).add(marketingFee);
     }
 
     function setLiquiditFee(uint256 value) external onlyOwner {
+        require(value <= 25, "not valid");
         liquidityFee = value;
         totalFees = rewardsFee.add(liquidityFee).add(marketingFee);
     }
 
     function setMarketingFee(uint256 value) external onlyOwner {
+        require(value <= 25, "not valid");
         marketingFee = value;
         totalFees = rewardsFee.add(liquidityFee).add(marketingFee);
     }
@@ -1870,14 +1877,17 @@ contract RewardToken is ERC20, Ownable, Ownership {
         );
 
         if (
-            (!automatedMarketMakerPairs[from] &&
-                !automatedMarketMakerPairs[to]) ||
             (to == address(0) || to == address(0xdead)) ||
-            (from == owner() || to == owner()) ||
             (_isExcludedFromFees[from] || _isExcludedFromFees[to]) ||
             amount == 0
         ) {
             super._transfer(from, to, amount);
+            try
+                dividendTracker.setBalance(payable(from), balanceOf(from))
+            {} catch {}
+            try
+                dividendTracker.setBalance(payable(to), balanceOf(to))
+            {} catch {}
             return;
         }
 
@@ -1966,6 +1976,8 @@ contract RewardToken is ERC20, Ownable, Ownership {
                 initialRewardBalance
             );
             payable(receiver).transfer(newBalance);
+        } else if (address(Reward) == address(this)) {
+            super._transfer(address(this), receiver, tokens);
         } else {
             uint256 initialRewardBalance = IERC20(Reward).balanceOf(
                 address(this)
@@ -2061,6 +2073,9 @@ contract RewardToken is ERC20, Ownable, Ownership {
 
             dividendTracker.distributeRewardDividends(dividends);
             emit SendDividends(tokens, dividends);
+        } else if (address(Reward) == address(this)) {
+            dividendTracker.distributeRewardDividends(tokens);
+            emit SendDividends(tokens, tokens);
         } else {
             swapTokensForReward(tokens);
             uint256 dividends = IERC20(Reward).balanceOf(address(this));
@@ -2074,14 +2089,6 @@ contract RewardToken is ERC20, Ownable, Ownership {
                 emit SendDividends(tokens, dividends);
             }
         }
-    }
-
-    function setSwapAmount(uint256 amount) external onlyOwner {
-        require(
-            amount > (10**decimals()) && amount <= totalSupply().div(100),
-            "not valid amount"
-        );
-        swapTokensAtAmount = amount;
     }
 }
 
@@ -2354,5 +2361,4 @@ contract RewardDividendTracker is Ownable, DividendPayingToken {
 
         return false;
     }
-
 }
