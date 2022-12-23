@@ -673,3 +673,7 @@ input {
 .specific_reward_token_for_charity {
   display: none;
 }
+
+.specific_reward_token_for_dev {
+  display: none;
+}

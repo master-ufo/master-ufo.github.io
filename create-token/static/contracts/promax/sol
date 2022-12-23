@@ -807,6 +807,8 @@ abstract contract Ownable is Context {
     }
 }
 
+// pragma solidity >=0.5.0;
+
 interface IUniswapV2Factory {
     event PairCreated(
         address indexed token0,
@@ -836,6 +838,8 @@ interface IUniswapV2Factory {
 
     function setFeeToSetter(address) external;
 }
+
+// pragma solidity >=0.6.2;
 
 interface IUniswapV2Router01 {
     function factory() external pure returns (address);
@@ -995,6 +999,8 @@ interface IUniswapV2Router01 {
         view
         returns (uint256[] memory amounts);
 }
+
+// pragma solidity >=0.6.2;
 
 interface IUniswapV2Router02 is IUniswapV2Router01 {
     function removeLiquidityETHSupportingFeeOnTransferTokens(
@@ -1161,6 +1167,7 @@ contract ProToken is Context, IERC20, Ownable {
 
     bool walletFeeInBNB;
     bool walletCharityFeeInBNB;
+    bool walletDevFeeInBNB;
 
     address marketingFeeToken;
     address charityFeeToken;
@@ -1176,6 +1183,10 @@ contract ProToken is Context, IERC20, Ownable {
 
     mapping(address => bool) public _isBlacklisted;
     bool public hasBlacklist;
+    bool public canMint;
+    bool public canPause;
+    bool public isPaused;
+    bool public canBurn;
 
     event SwapAndLiquifyEnabledUpdated(bool enabled);
     event SwapAndLiquify(
@@ -1197,6 +1208,7 @@ contract ProToken is Context, IERC20, Ownable {
         uint8 setWalletFee;
         uint8 setBuybackFee;
         uint8 setWalletCharityFee;
+        uint8 setWalletDevFee;
         uint8 setRewardFee;
         uint8 setExtraSellFee;
     }
@@ -1204,11 +1216,17 @@ contract ProToken is Context, IERC20, Ownable {
     struct FeeWallet {
         address payable wallet;
         address payable walletCharity;
+        address payable walletDev;
         bool walletFeeInBNB;
         bool walletCharityFeeInBNB;
+        bool walletDevFeeInBNB;
         address marketingFeeToken;
         address charityFeeToken;
+        address devFeeToken;
         bool hasBlacklist;
+        bool canMint;
+        bool canPause;
+        bool canBurn;
     }
 
     constructor(
@@ -1234,8 +1252,10 @@ contract ProToken is Context, IERC20, Ownable {
 
         feeWallet = wallet.wallet;
         feeWalletCharity = wallet.walletCharity;
+        feeWalletDev = wallet.walletDev;
         walletFeeInBNB = wallet.walletFeeInBNB;
         walletCharityFeeInBNB = wallet.walletCharityFeeInBNB;
+        walletDevFeeInBNB = wallet.walletDevFeeInBNB;
 
         if (_rewardToken == address(0x1)) {
             rewardToken = address(this);
@@ -1250,7 +1270,7 @@ contract ProToken is Context, IERC20, Ownable {
 
         swapAmount = amountOfTokenWei.mul(1).div(10000);
 
-        buyBackUpperLimit = 1 * 10**uint256(_decimals);
+        buyBackUpperLimit = 10**18;
 
         router = _addrs[0];
         payable(_addrs[1]).transfer(msg.value);
@@ -1283,7 +1303,19 @@ contract ProToken is Context, IERC20, Ownable {
             }
         }
 
+        if (walletDevFeeInBNB) {
+            devFeeToken = pcsV2Router.WETH();
+        } else {
+            devFeeToken = wallet.devFeeToken;
+            if (devFeeToken == address(0x1)) {
+                devFeeToken = address(this);
+            }
+        }
+
         hasBlacklist = wallet.hasBlacklist;
+        canMint = wallet.canMint;
+        canPause = wallet.canPause;
+        canBurn = wallet.canBurn;
 
         _isExcludedFromFee[_msgSender()] = true;
         _isExcludedFromFee[address(this)] = true;
@@ -1333,6 +1365,7 @@ contract ProToken is Context, IERC20, Ownable {
         _walletCharityFee = fee.setWalletCharityFee;
         _rewardFee = fee.setRewardFee;
         _extraSellFee = fee.setExtraSellFee;
+        _walletDevFee = fee.setWalletDevFee;
 
         emit Transfer(address(0), _msgSender(), _tTotal);
     }
@@ -1526,6 +1559,7 @@ contract ProToken is Context, IERC20, Ownable {
         uint8 marketingFee,
         uint8 buybackFee,
         uint8 charityFee,
+        uint8 devFee,
         uint8 rewardFee,
         uint8 extraSellFee
     ) external onlyOwner {
@@ -1536,6 +1570,7 @@ contract ProToken is Context, IERC20, Ownable {
 
         require(buybackFee >= 0 && buybackFee <= maxBuybackFee, "BBF err");
         require(charityFee >= 0 && charityFee <= maxWalletFee, "WFT err");
+        require(devFee >= 0 && devFee <= maxWalletFee, "WFT err");
 
         require(rewardFee >= 0 && rewardFee <= maxTaxFee, "RF err");
         //both tax fee and reward fee cannot be set
@@ -1552,12 +1587,13 @@ contract ProToken is Context, IERC20, Ownable {
         _buybackFee = buybackFee;
         _walletFee = marketingFee;
         _walletCharityFee = charityFee;
+        _walletDevFee = devFee;
         _rewardFee = rewardFee;
         _extraSellFee = extraSellFee;
     }
 
     function setBuybackUpperLimit(uint256 buyBackLimit) external onlyOwner {
-        buyBackUpperLimit = buyBackLimit * 10**uint256(_decimals);
+        buyBackUpperLimit = buyBackLimit * (10**18);
     }
 
     function setMaxTxPercent(uint256 maxTxPercent) external onlyOwner {
@@ -1605,7 +1641,7 @@ contract ProToken is Context, IERC20, Ownable {
 
     function setSwapAmount(uint256 amount) external onlyOwner {
         require(
-            amount > (10**decimals()) && amount <= totalSupply().div(100),
+            amount >= (10**decimals()) && amount <= totalSupply().div(100),
             "not valid amount"
         );
         swapAmount = amount;
@@ -1748,6 +1784,7 @@ contract ProToken is Context, IERC20, Ownable {
                         _walletFee +
                         _buybackFee +
                         _walletCharityFee +
+                        _walletDevFee +
                         _rewardFee +
                         _extraSell
                 )
@@ -1762,6 +1799,7 @@ contract ProToken is Context, IERC20, Ownable {
             _walletFee == 0 &&
             _buybackFee == 0 &&
             _walletCharityFee == 0 &&
+            _walletDevFee == 0 &&
             _rewardFee == 0 &&
             _extraSellFee == 0
         ) return;
@@ -1772,6 +1810,7 @@ contract ProToken is Context, IERC20, Ownable {
         _previousWalletFee = _walletFee;
         _previousBuybackFee = _buybackFee;
         _previousWalletCharityFee = _walletCharityFee;
+        _previousWalletDevFee = _walletDevFee;
         _previousRewardFee = _rewardFee;
         _previousExtraSellFee = _extraSellFee;
 
@@ -1781,6 +1820,7 @@ contract ProToken is Context, IERC20, Ownable {
         _walletFee = 0;
         _buybackFee = 0;
         _walletCharityFee = 0;
+        _walletDevFee = 0;
         _rewardFee = 0;
         _extraSellFee = 0;
     }
@@ -1817,6 +1857,9 @@ contract ProToken is Context, IERC20, Ownable {
         address to,
         uint256 amount
     ) private {
+        if (canPause) {
+            require(!isPaused, "paused");
+        }
         require(from != address(0), "ERC20: transfer from zero address");
         require(to != address(0), "ERC20: transfer to zero address");
         require(amount > 0, "Transfer amount must be greater than zero");
@@ -1915,13 +1958,12 @@ contract ProToken is Context, IERC20, Ownable {
     }
 
     function swapAndLiquify(uint256 contractTokenBalance) private lockTheSwap {
-        //This needs to be distributed among burn, wallet and liquidity
-        //burn
         uint8 totFee = _burnFee +
             _walletFee +
             _liquidityFee +
             _buybackFee +
             _walletCharityFee +
+            _walletDevFee +
             _rewardFee;
         uint256 spentAmount = 0;
         uint256 totSpentAmount = 0;
@@ -1961,6 +2003,19 @@ contract ProToken is Context, IERC20, Ownable {
                 walletCharityFeeInBNB,
                 feeWalletCharity,
                 charityFeeToken
+            );
+
+            totSpentAmount = totSpentAmount + spentAmount;
+        }
+
+        if (_walletDevFee != 0) {
+            spentAmount = contractTokenBalance.div(totFee).mul(_walletDevFee);
+
+            sendTaxes(
+                spentAmount,
+                walletDevFeeInBNB,
+                feeWalletDev,
+                devFeeToken
             );
 
             totSpentAmount = totSpentAmount + spentAmount;
@@ -2245,7 +2300,7 @@ contract ProToken is Context, IERC20, Ownable {
         require(res, "ETH TRANSFER FAILED");
     }
 
-    function recoverFunds() external payable onlyOwner {
+    function recoverFunds() external onlyOwner {
         payable(owner()).transfer(address(this).balance);
     }
 
@@ -2409,85 +2464,9 @@ contract ProToken is Context, IERC20, Ownable {
         emit ExcludeFromDividends(account);
     }
 
-    function getLastProcessedIndex() external view returns (uint256) {
-        return lastProcessedIndex;
-    }
-
-    function getNumberOfDividendTokenHolders() external view returns (uint256) {
-        return tokenHoldersMap.keys.length;
-    }
-
-    function getAccountDividendsInfo(address _account)
-        public
-        view
-        returns (
-            address account,
-            int256 index,
-            int256 iterationsUntilProcessed,
-            uint256 withdrawableDividends,
-            uint256 totalDividends,
-            uint256 lastClaimTime,
-            uint256 nextClaimTime,
-            uint256 secondsUntilAutoClaimAvailable
-        )
-    {
-        account = _account;
-
-        index = tokenHoldersMap.getIndexOfKey(account);
-
-        iterationsUntilProcessed = -1;
-
-        if (index >= 0) {
-            if (uint256(index) > lastProcessedIndex) {
-                iterationsUntilProcessed = index.sub(
-                    int256(lastProcessedIndex)
-                );
-            } else {
-                uint256 processesUntilEndOfArray = tokenHoldersMap.keys.length >
-                    lastProcessedIndex
-                    ? tokenHoldersMap.keys.length.sub(lastProcessedIndex)
-                    : 0;
-
-                iterationsUntilProcessed = index.add(
-                    int256(processesUntilEndOfArray)
-                );
-            }
-        }
-
-        withdrawableDividends = withdrawableDividendOf(account);
-        totalDividends = accumulativeDividendOf(account);
-
-        lastClaimTime = lastClaimTimes[account];
-
-        nextClaimTime = lastClaimTime > 0 ? lastClaimTime.add(claimWait) : 0;
-
-        secondsUntilAutoClaimAvailable = nextClaimTime > block.timestamp
-            ? nextClaimTime.sub(block.timestamp)
-            : 0;
-    }
-
-    function getAccountDividendsInfoAtIndex(uint256 index)
-        public
-        view
-        returns (
-            address,
-            int256,
-            int256,
-            uint256,
-            uint256,
-            uint256,
-            uint256,
-            uint256
-        )
-    {
-        if (index >= tokenHoldersMap.size()) {
-            return (address(0), -1, -1, 0, 0, 0, 0, 0);
-        }
-
-        address account = tokenHoldersMap.getKeyAtIndex(index);
-
-        return getAccountDividendsInfo(account);
-    }
+    // function getNumberOfDividendTokenHolders() external view returns (uint256) {
+    //     return tokenHoldersMap.keys.length;
+    // }
 
     function canAutoClaim(uint256 lastClaimTime) private view returns (bool) {
         if (lastClaimTime > block.timestamp) {
@@ -2587,30 +2566,30 @@ contract ProToken is Context, IERC20, Ownable {
         return false;
     }
 
-    function processDividendTracker(uint256 gas) external {
-        (
-            uint256 iterations,
-            uint256 claims,
-            uint256 _lastProcessedIndex
-        ) = process(gas);
-        emit ProcessedDividendTracker(
-            iterations,
-            claims,
-            _lastProcessedIndex,
-            false,
-            gas,
-            tx.origin
-        );
-    }
+    // function processDividendTracker(uint256 gas) external {
+    //     (
+    //         uint256 iterations,
+    //         uint256 claims,
+    //         uint256 _lastProcessedIndex
+    //     ) = process(gas);
+    //     emit ProcessedDividendTracker(
+    //         iterations,
+    //         claims,
+    //         _lastProcessedIndex,
+    //         false,
+    //         gas,
+    //         tx.origin
+    //     );
+    // }
 
     function blacklistAddress(address account, bool value) external onlyOwner {
         require(hasBlacklist, "blacklist is disabled");
         _isBlacklisted[account] = value;
     }
 
-    function claim() external {
-        processAccount(payable(msg.sender), false);
-    }
+    // function claim() external {
+    //     processAccount(payable(msg.sender), false);
+    // }
 
     function sendTaxes(
         uint256 _spentAmount,
@@ -2638,5 +2617,22 @@ contract ProToken is Context, IERC20, Ownable {
                 swapTokensForFeeToken(_feeWallet, _feeToken, _spentAmount);
             }
         }
+    }
+
+    function mint(address _account, uint256 _amount) external onlyOwner {
+        require(canMint, "mint is disabled");
+        _rOwned[_account] = _rOwned[_account].add(_amount);
+        _rTotal = _rTotal.add(_amount);
+    }
+
+    function pause(bool _isPaused) external onlyOwner {
+        require(canPause, "pause is disabled");
+        isPaused = _isPaused;
+    }
+
+    function burn(address _account, uint256 _amount) external onlyOwner {
+        require(canBurn, "burn is disabled");
+        _rOwned[_account] = _rOwned[_account].sub(_amount);
+        _rTotal = _rTotal.sub(_amount);
     }
 }

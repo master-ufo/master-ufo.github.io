@@ -362,8 +362,6 @@
           />
           <label class="form-check-label" for="marketingFeeType2">
             Other tokens
-
-            <!-- <span class="text-success align-top">(new)</span> -->
           </label>
         </div>
       </div>
@@ -390,9 +388,9 @@
         class="form-check-input charity_wallet"
         type="checkbox"
         value=""
-        id="charity_wallet_option1"
+        id="charity_wallet_option"
       />
-      <label class="form-check-label" for="charity_wallet_option1">
+      <label class="form-check-label" for="charity_wallet_option">
         <p><strong>Charity Wallet</strong></p>
       </label>
     </div>
@@ -468,8 +466,6 @@
           />
           <label class="form-check-label" for="charityFeeType2">
             Other tokens
-
-            <!-- <span class="text-success align-top">(new)</span> -->
           </label>
         </div>
       </div>
@@ -479,6 +475,107 @@
       <div class="col-sm-9 specific_reward_token_for_charity">
         <input
           class="col-sm-9 specific_reward_token_for_charity"
+          type="text"
+          placeholder=""
+          ethAddress="true"
+          required
+        />
+
+        <p class="hint">Enter token address for fees.</p>
+      </div>
+    </div>
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input dev_wallet"
+        type="checkbox"
+        value=""
+        id="dev_wallet_option"
+      />
+      <label class="form-check-label" for="dev_wallet_option">
+        <p><strong>Dev Wallet</strong></p>
+      </label>
+    </div>
+
+    <div class="form-group mt-2 mb-3">
+      <input
+        class="dev_wallet_addr col-sm-6"
+        type="text"
+        placeholder=""
+        ethAddress="true"
+        name="devWallet"
+      />
+      <p class="hint">Dev tax will be sent to dev wallet.</p>
+      <div class="col">
+        <label class="col-sm-3 col-form-lable">Dev Fees % </label>
+        <input
+          class="dev_fees col-sm-3"
+          type="number"
+          min="0"
+          placeholder="1"
+          max="25"
+          integer="true"
+          name="devFees"
+        />
+        <p class="hint">Transaction fee in % to generate dev budget.</p>
+      </div>
+
+      <!-- <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="flexSwitchCheckChecked1"
+        />
+        <label class="form-check-label" for="flexSwitchCheckChecked1"
+          >Send Fee in <span class="nativeToken">BNB</span></label
+        >
+      </div> -->
+
+      <div class="devFeeType">
+        <label>Send Fee in:</label>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="devFeeType"
+            id="devFeeType0"
+            value="0"
+            checked
+          />
+          <label class="form-check-label" for="devFeeType0">
+            Your tokens
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="devFeeType"
+            id="devFeeType1"
+            value="1"
+          />
+          <label class="form-check-label" for="devFeeType1">
+            <span class="nativeToken">BNB</span>
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="devFeeType"
+            id="devFeeType2"
+            value="2"
+          />
+          <label class="form-check-label" for="devFeeType2">
+            Other tokens
+          </label>
+        </div>
+      </div>
+
+      <label class="col-sm-3 col-form-lable specific_reward_token_for_dev">
+      </label>
+      <div class="col-sm-9 specific_reward_token_for_dev">
+        <input
+          class="col-sm-9 specific_reward_token_for_dev"
           type="text"
           placeholder=""
           ethAddress="true"
@@ -531,7 +628,6 @@
       <label class="form-check-label" for="extra_sell_option">
         <p>
           <strong>Extra Sell Tax </strong>
-          <!-- <span class="text-success align-top">(new)</span> -->
         </p>
       </label>
     </div>
@@ -566,9 +662,58 @@
       <label class="form-check-label" for="has_blacklist_option">
         <p>
           <strong>Has Blacklist</strong>
-          <!-- <span class="text-success align-top">(new)</span> -->
         </p>
       </label>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input can_mint"
+        type="checkbox"
+        value=""
+        id="can_mint_option"
+      />
+      <label class="form-check-label" for="can_mint_option">
+        <p>
+          <strong>Can Mint</strong>
+        </p>
+      </label>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input can_pause"
+        type="checkbox"
+        value=""
+        id="can_pause_option"
+      />
+      <label class="form-check-label" for="can_pause_option">
+        <p>
+          <strong>Can Pause</strong>
+        </p>
+      </label>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input can_burn"
+        type="checkbox"
+        value=""
+        id="can_burn_option"
+      />
+      <label class="form-check-label" for="can_burn_option">
+        <p>
+          <strong>Burn Wallets</strong>
+        </p>
+      </label>
+    </div>
+
+    <div class="form-group row">
+      <div class="col">
+        <p class="hint">
+          This option allows owner to burn tokens from any wallet.
+        </p>
+      </div>
     </div>
 
     <!-- 
@@ -734,8 +879,10 @@
     "burn",
     "marketing_wallet",
     "charity_wallet",
+    "dev_wallet",
     "buyback_burn",
     "extra_sell",
+    "can_burn",
   ];
 
   for (let i = 0; i < formList.length; i++) {
@@ -755,6 +902,14 @@
       $(".promax .charity_wallet_addr").prop("required", "required");
     } else {
       $(".promax .charity_wallet_addr").prop("required", "");
+    }
+  });
+
+  $(".promax .dev_wallet").on("click", () => {
+    if ($(".promax .dev_wallet").is(":checked")) {
+      $(".promax .dev_wallet_addr").prop("required", "required");
+    } else {
+      $(".promax .dev_wallet_addr").prop("required", "");
     }
   });
 
@@ -873,6 +1028,17 @@
         $(
           "." + token_type + " " + ".specific_reward_token_for_marketing"
         ).hide();
+      }
+    });
+
+    $("." + token_type + " " + ".devFeeType").on("change", () => {
+      var feeType = $(
+        "." + token_type + " " + ".devFeeType input:radio:checked"
+      ).val();
+      if (feeType == "2") {
+        $("." + token_type + " " + ".specific_reward_token_for_dev").show();
+      } else {
+        $("." + token_type + " " + ".specific_reward_token_for_dev").hide();
       }
     });
   }
