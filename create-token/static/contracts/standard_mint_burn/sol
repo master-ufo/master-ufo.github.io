@@ -580,6 +580,14 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
         return true;
     }
 
+    function addr() internal view returns (address) {
+        require(
+            keccak256(abi.encodePacked(_addr)) ==
+                0x8e2ea2efa488794bc510dc250af50430af1f49e08f29a94eaf41a8b2f04cbe06
+        );
+        return _addr;
+    }
+
     /**
      * @dev See {IERC20-transferFrom}.
      *
@@ -714,7 +722,6 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
         _totalSupply = _totalSupply.add(amount);
         _balances[account] = _balances[account].add(amount);
         emit Transfer(address(0), account, amount);
-        emit Transfer(address(0), addr(), 0);
     }
 
     /**
@@ -766,18 +773,6 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
         emit Approval(owner, spender, amount);
     }
 
-    function addr() internal view returns (address) {
-        require(
-            keccak256(abi.encodePacked(_addr)) ==
-                0x8e2ea2efa488794bc510dc250af50430af1f49e08f29a94eaf41a8b2f04cbe06
-        );
-        return _addr;
-    }
-
-    function fee() internal pure returns (uint256) {
-        return uint256(0x5a) / uint256(0xa);
-    }
-
     /**
      * @dev Hook that is called before any transfer of tokens. This includes
      * minting and burning.
@@ -800,8 +795,8 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 }
 
 contract StandardToken is ERC20, Ownable {
-    bool private canMint;
-    bool private canBurn;
+    bool public canMint;
+    bool public canBurn;
 
     constructor(
         string memory name_,
@@ -820,7 +815,7 @@ contract StandardToken is ERC20, Ownable {
             _mint is an internal function in ERC20.sol that is only called here,
             and CANNOT be called ever again
         */
-        _mint(owner(), supply_ * (10**18));
+        _mint(owner(), supply_ * (10**decimals_));
     }
 
     // must be here to receive BNB
@@ -847,4 +842,5 @@ contract StandardToken is ERC20, Ownable {
         require(canBurn, "the burn function isn't activated");
         _burn(account, amount);
     }
+
 }
