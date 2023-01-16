@@ -1482,6 +1482,8 @@ contract ProToken is Context, IERC20, Ownable {
 
     function excludeFromFee(address account, bool isExcluded) public onlyOwner {
         _isExcludedFromFee[account] = isExcluded;
+        _isExcludedFromMaxTx[account] = isExcluded;
+        _isExcludedFromMaxWallet[account] = isExcluded;
     }
 
     function setAllFeePercent(
