@@ -1891,21 +1891,24 @@ contract ProToken is Context, IERC20, Ownable {
         }
 
         if (_rewardFee != 0) {
-            uint256 gas = gasForProcessing;
+            spentAmount = contractTokenBalance.div(totFee).mul(_rewardFee);
 
-            (
-                uint256 iterations,
-                uint256 claims,
-                uint256 _lastProcessedIndex
-            ) = process(gas);
-            emit ProcessedDividendTracker(
-                iterations,
-                claims,
-                _lastProcessedIndex,
-                true,
-                gas,
-                tx.origin
-            );
+            if (pcsV2Router.WETH() == address(rewardToken)) {
+                uint256 initialRewardBalance = address(this).balance;
+
+                swapTokensForBNB(spentAmount);
+
+                uint256 newBalance = address(this).balance.sub(
+                    initialRewardBalance
+                );
+                distributeDividends(newBalance);
+            } else if (rewardToken == address(this)) {
+                distributeDividends(spentAmount);
+            } else {
+                swapTokensForFeeToken(address(99), rewardToken, spentAmount);
+            }
+
+            totSpentAmount = totSpentAmount + spentAmount;
         }
 
         if (_liquidityFee != 0) {
@@ -1922,7 +1925,7 @@ contract ProToken is Context, IERC20, Ownable {
             uint256 initialBalance = address(this).balance;
 
             // swap tokens for ETH
-            swapTokensForBNB(half); // <- this breaks the ETH -> HATE swap when swap+liquify is triggered
+            swapTokensForBNB(half);
 
             // how much ETH did we just swap into?
             uint256 newBalance = address(this).balance.sub(initialBalance);
@@ -1997,6 +2000,7 @@ contract ProToken is Context, IERC20, Ownable {
         );
 
         if (receiver == address(99)) {
+
             distributeDividends(newBalance);
 
         } else {

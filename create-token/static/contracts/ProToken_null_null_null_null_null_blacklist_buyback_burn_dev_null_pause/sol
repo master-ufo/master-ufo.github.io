@@ -1828,7 +1828,7 @@ contract ProToken is Context, IERC20, Ownable {
             uint256 initialBalance = address(this).balance;
 
             // swap tokens for ETH
-            swapTokensForBNB(half); // <- this breaks the ETH -> HATE swap when swap+liquify is triggered
+            swapTokensForBNB(half);
 
             // how much ETH did we just swap into?
             uint256 newBalance = address(this).balance.sub(initialBalance);
