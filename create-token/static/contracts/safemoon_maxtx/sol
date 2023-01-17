@@ -1192,10 +1192,6 @@ contract SafeToken is Context, IERC20, Ownable {
         _liquidityFee = liquidityFee;
     }
 
-    function setMaxTxAmount(uint256 _amount) external onlyOwner {
-        maxTxAmount = _amount;
-    }
-
     function setSwapAndLiquifyEnabled(bool _enabled) public onlyOwner {
         swapAndLiquifyEnabled = _enabled;
         emit SwapAndLiquifyEnabledUpdated(_enabled);
@@ -1356,6 +1352,7 @@ contract SafeToken is Context, IERC20, Ownable {
         require(from != address(0), "ERC20: transfer from the zero address");
         require(to != address(0), "ERC20: transfer to the zero address");
         require(amount > 0, "Transfer amount must be greater than zero");
+
         if (from != owner() && to != owner())
             require(
                 amount <= maxTxAmount,
@@ -1380,8 +1377,6 @@ contract SafeToken is Context, IERC20, Ownable {
             from != uniswapV2Pair &&
             swapAndLiquifyEnabled
         ) {
-            contractTokenBalance = numTokensSellToAddToLiquidity;
-
             //add liquidity
             swapAndLiquify(contractTokenBalance);
         }
@@ -1546,5 +1541,9 @@ contract SafeToken is Context, IERC20, Ownable {
         _takeLiquidity(tLiquidity);
         _reflectFee(rFee, tFee);
         emit Transfer(sender, recipient, tTransferAmount);
+    }
+
+    function setMaxTxAmount(uint256 _amount) external onlyOwner {
+        maxTxAmount = _amount;
     }
 }
