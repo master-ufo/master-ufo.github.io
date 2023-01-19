@@ -1708,6 +1708,7 @@ contract ProToken is Context, IERC20, Ownable {
         _walletFee = _previousWalletFee;
         _buybackFee = _previousBuybackFee;
         _walletCharityFee = _previousWalletCharityFee;
+        _walletDevFee = _previousWalletDevFee;
         _rewardFee = _previousRewardFee;
         _extraSellFee = _previousExtraSellFee;
     }
