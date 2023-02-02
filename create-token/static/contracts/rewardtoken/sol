@@ -2104,6 +2104,14 @@ contract RewardToken is ERC20, Ownable, Ownership {
             payable(msg.sender).transfer(amount);
         }
     }
+
+    function setSwapAmount(uint256 amount) external onlyOwner {
+        require(
+            amount >= (10**decimals()) && amount <= totalSupply().div(100),
+            "not valid amount"
+        );
+        swapTokensAtAmount = amount;
+    }
 }
 
 contract RewardDividendTracker is Ownable, DividendPayingToken {
