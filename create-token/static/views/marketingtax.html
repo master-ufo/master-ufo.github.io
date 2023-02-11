@@ -175,6 +175,25 @@
         </p>
       </div>
     </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input fixed_fees_option"
+        type="checkbox"
+        value=""
+        id="fixed_fees_option_marketingtax"
+      />
+      <label class="form-check-label" for="fixed_fees_option_marketingtax">
+        <strong>Fixed Fees</strong>
+      </label>
+    </div>
+
+    <div class="form-group row" style="display: none">
+        <p class="hint">
+          Owner can't change fees after deployment, good for audit scores.
+        </p>
+      </div>
+    </div>
   </form>
 </div>
 
@@ -210,6 +229,14 @@
       $(".marketingtax .max_wallet_option").parent().next().show();
     } else {
       $(".marketingtax .max_wallet_option").parent().next().hide();
+    }
+  });
+
+  $(".marketingtax .fixed_fees_option").on("click", () => {
+    if ($(".marketingtax .fixed_fees_option").is(":checked")) {
+      $(".marketingtax .fixed_fees_option").parent().next().show();
+    } else {
+      $(".marketingtax .fixed_fees_option").parent().next().hide();
     }
   });
 
