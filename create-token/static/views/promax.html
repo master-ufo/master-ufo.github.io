@@ -248,6 +248,22 @@
         />
         <p class="hint">Transaction fee in % to generate liquidity.</p>
       </div>
+
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input liquidity_burnt"
+          type="checkbox"
+          id="liquidity_burnt"
+          value="true"
+        />
+        <label class="form-check-label" for="liquidity_burnt"></label>
+          Burn Generated Liquidity</label
+        >
+
+        <p class="hint">
+          Automatic generated liquidity will be burnt if this is enabled, instead of sending it to owner.
+        </p>
+      </div>
     </div>
 
     <div class="form-check mt-2">
@@ -716,6 +732,26 @@
       </div>
     </div>
 
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input fixed_fees"
+        type="checkbox"
+        value=""
+        id="fixed_fees_option"
+      />
+      <label class="form-check-label" for="fixed_fees_option">
+        <p>
+          <strong>Fixed Fees</strong>
+        </p>
+      </label>
+    </div>
+
+    <div class="form-group row">
+      <div class="col">
+        <p class="hint">Owner can't change fees after deployment</p>
+      </div>
+    </div>
+
     <!-- 
     <div class="form-group row" style="display: none;">
         <label class="col-sm-3 col-form-lable">Max Transfer % </label>
@@ -883,6 +919,7 @@
     "buyback_burn",
     "extra_sell",
     "can_burn",
+    "fixed_fees",
   ];
 
   for (let i = 0; i < formList.length; i++) {
