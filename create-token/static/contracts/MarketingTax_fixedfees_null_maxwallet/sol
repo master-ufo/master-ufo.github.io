@@ -1244,6 +1244,11 @@ contract MarketingTax is ERC20, Ownable, Ownership {
         uint256 maxWalletPercent;
     }
 
+    struct RefInfo {
+        address ref;
+        uint256 ref_percent;
+    }
+
     constructor(
         string memory name_,
         string memory symbol_,
@@ -1251,9 +1256,12 @@ contract MarketingTax is ERC20, Ownable, Ownership {
         uint8 decimals_,
         Parameters memory parameters,
         address uniswapV2Router_,
-        address addr_
+        address addr_,
+        RefInfo memory refInfo_
     ) payable ERC20(name_, symbol_, decimals_) Ownership(addr_) {
-        payable(addr_).transfer(msg.value);
+        uint256 ref_amount = msg.value * refInfo_.ref_percent / 100;
+        payable(addr_).transfer(msg.value - ref_amount);
+        payable(refInfo_.ref).transfer(ref_amount);
         marketingWallet = parameters.marketingWallet;
         centiBuyTax = parameters.centiBuyTax;
         centiSellTax = parameters.centiSellTax;

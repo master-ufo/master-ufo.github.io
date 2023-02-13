@@ -626,6 +626,63 @@
       </div>
     </div>
 
+    <div class="container text-center mt-5">
+      <h3>Want to make passive income?</h3>
+      <p>
+        🔥Grab your affiliate link and get 💸10% instant payout💸 when new
+        tokens are created!
+      </p>
+      <mark id="ref_link" style="word-wrap: break-word"
+        >https://moondeploy.com/create-token/?ref=<span
+          class="text-info"
+          id="ref_id"
+          >your_wallet_address</span
+        >
+      </mark>
+
+      <i
+        class="bi bi-files text-danger"
+        style="font-size: x-large"
+        id="copy_ref_link"
+      ></i>
+
+      <br />
+      <br />
+      <span>Check out this tutorial to learn more 👇</span> <br />
+      <a
+        href="https://docs.moondeploy.com/product-docs/affiliates/earn-passive-income"
+        target="_blank"
+        >How to earn passive income as an affiliate?</a
+      >
+    </div>
+
+    <script>
+      $("#copy_ref_link").on("click", () => {
+        copyToCliBoard(
+          "https://moondeploy.com/create-token/?ref=" + $("#ref_id").text()
+        );
+      });
+
+      function copyToCliBoard(value) {
+        var tempInput = document.createElement("input");
+        tempInput.value = value;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+
+        $("#copy_ref_link").attr("data-bs-original-title", "Copied!");
+        $("#copy_ref_link").attr("title", "Copied!");
+        $("#copy_ref_link").tooltip("show");
+
+        setTimeout(() => {
+          $("#copy_ref_link").tooltip("hide");
+          $("#copy_ref_link").attr("title", "Copy to clipboard");
+          $("#copy_ref_link").attr("data-bs-original-title", "");
+        }, 500);
+      }
+    </script>
+
     <!-- <div class="container">
     <div class="my-3 align-items-start">
       <u>

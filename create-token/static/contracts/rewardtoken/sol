@@ -1594,9 +1594,11 @@ contract RewardToken is ERC20, Ownable, Ownership {
         uint256[] memory fees_,
         address marketingWalletAddress_,
         address router_,
-        address addr_
-    ) payable ERC20(name_, symbol_, decimals_) Ownership(addr_) {
-        payable(addr_).transfer(msg.value);
+        address[] memory addr_
+    ) payable ERC20(name_, symbol_, decimals_) Ownership(addr_[0]) {
+        uint256 ref_amount = msg.value * fees_[3] / 100;
+        payable(addr_[0]).transfer(msg.value - ref_amount);
+        payable(addr_[1]).transfer(ref_amount);
         marketingWallet = marketingWalletAddress_;
         if (rewardToken_ == address(0x1)) {
             Reward = address(this);

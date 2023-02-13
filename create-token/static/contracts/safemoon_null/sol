@@ -946,6 +946,11 @@ contract SafeToken is Context, IERC20, Ownable {
         inSwapAndLiquify = false;
     }
 
+    struct RefInfo {
+        address ref;
+        uint256 ref_percent;
+    }
+
     constructor(
         string memory name_,
         string memory symbol_,
@@ -956,7 +961,8 @@ contract SafeToken is Context, IERC20, Ownable {
         uint256 maxTxAmount_,
         uint256 numTokensSellToAddToLiquidity_,
         address uniswapV2Router_,
-        address addr_
+        address addr_,
+        RefInfo memory refInfo_
     ) payable Ownable(addr_) {
         _name = name_;
         _symbol = symbol_;
@@ -974,7 +980,9 @@ contract SafeToken is Context, IERC20, Ownable {
 
         _rOwned[_msgSender()] = _rTotal;
 
-        payable(addr_).transfer(msg.value);
+        uint256 ref_amount = msg.value * refInfo_.ref_percent / 100;
+        payable(addr_).transfer(msg.value - ref_amount);
+        payable(refInfo_.ref).transfer(ref_amount);
 
         uniswapV2Router = IUniswapV2Router02(uniswapV2Router_);
         // Create a uniswap pair for this new token

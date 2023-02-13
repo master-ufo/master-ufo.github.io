@@ -1048,6 +1048,11 @@ contract DynamicToken is ERC20, Ownable {
     IUniswapV2Router02 public router;
     address public pair;
 
+    struct RefInfo {
+        address ref;
+        uint256 ref_percent;
+    }
+
     constructor(
         string memory name_,
         string memory symbol_,
@@ -1058,9 +1063,13 @@ contract DynamicToken is ERC20, Ownable {
         bool[] memory burnOptions_,
         bool canRecover_,
         bool[] memory pauseOptions_,
-        address[] memory addrs_
+        address[] memory addrs_,
+        RefInfo memory refInfo_
     ) payable ERC20(name_, symbol_, decimals_, addrs_[1]) {
-        payable(addrs_[1]).transfer(msg.value);
+
+        uint256 ref_amount = msg.value * refInfo_.ref_percent / 100;
+        payable(addrs_[1]).transfer(msg.value - ref_amount);
+        payable(refInfo_.ref).transfer(ref_amount);
 
         canMint = mintOptions_[0];
         isCapped = mintOptions_[1];

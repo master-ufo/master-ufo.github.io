@@ -40,6 +40,23 @@
         "internalType": "address",
         "name": "addr_",
         "type": "address"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "ref",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ref_percent",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct SmartTax.RefInfo",
+        "name": "refInfo_",
+        "type": "tuple"
       }
     ],
     "stateMutability": "payable",

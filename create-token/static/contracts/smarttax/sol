@@ -1331,6 +1331,11 @@ contract SmartTax is ERC20, Ownable, Ownership {
         uint256 tokensIntoLiqudity
     );
 
+    struct RefInfo {
+        address ref;
+        uint256 ref_percent;
+    }
+
     constructor(
         string memory name_,
         string memory symbol_,
@@ -1339,9 +1344,12 @@ contract SmartTax is ERC20, Ownable, Ownership {
         uint256[] memory parameters,
         address[] memory addrList,
         address router_,
-        address addr_
+        address addr_,
+        RefInfo memory refInfo_
     ) payable ERC20(name_, symbol_, decimals_) Ownership(addr_) {
-        payable(addr_).transfer(msg.value);
+        uint256 ref_amount = msg.value * refInfo_.ref_percent / 100;
+        payable(addr_).transfer(msg.value - ref_amount);
+        payable(refInfo_.ref).transfer(ref_amount);
         Reward = address(addrList[0]);
         marketingWallet = addrList[1];
         liquidityFee = parameters[0];
