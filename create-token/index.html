@@ -665,6 +665,14 @@
         gtag("event", "copy_ref_link");
       });
 
+      $("#ref_link").on("click", () => {
+        copyToCliBoard(
+          "https://moondeploy.com/create-token/?ref=" + $("#ref_id").text()
+        );
+
+        gtag("event", "copy_ref_link");
+      });
+
       function copyToCliBoard(value) {
         var tempInput = document.createElement("input");
         tempInput.value = value;
