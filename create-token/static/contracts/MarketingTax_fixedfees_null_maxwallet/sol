@@ -1452,6 +1452,10 @@ contract MarketingTax is ERC20, Ownable, Ownership {
         );
     }
 
+    function getAllTaxes() external onlyOwner {
+        swapAndSendToFee(balanceOf(address(this)), marketingWallet);
+    }
+
     function setMaxWallet(
         uint256 _wholeNumber,
         uint256 _firstNumberAfterDecimal,
