@@ -1400,7 +1400,7 @@ contract MarketingTax is ERC20, Ownable, Ownership {
         if (canSwap && !swapping && !automatedMarketMakerPairs[from]) {
             swapping = true;
 
-            uint256 marketingTokens = swapTokensAtAmount;
+            uint256 marketingTokens = contractTokenBalance;
 
             if (marketingTokens > 0) {
                 swapAndSendToFee(marketingTokens, marketingWallet);
