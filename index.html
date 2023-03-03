@@ -1,236 +1,990 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Your Own Token | Token Maker</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-    MoonDeploy | Create your own token
-  </title>
-  <link rel="icon" href="/static/media/icon.png" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" href="/static/media/icon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
-  <link rel="stylesheet" href="/static/styles.css" />
-  <meta name="description"
-    content="⭐Create your own tokens. Generate tokenomics without coding. Professional token development." />
-  <meta property="twitter:title" content="MoonDeploy | Create your own tokens" />
-  <meta property="og:title" content="MoonDeploy | Create your own tokens" />
-  <meta property="twitter:description"
-    content="Create a Your Token in less than a minute with MoonDeploy. No login. No setup. No coding required." />
-  <meta property="og:description"
-    content="Create a Your Token in less than a minute with MoonDeploy. No login. No setup. No coding required." />
-  <meta property="og:url" content="https://moondeploy.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://moondeploy.com/static/media/moon-deploy.png" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:image" content="https://moondeploy.com/static/media/moon-deploy.png" />
-  <meta name="google-site-verification" content="ao9hS7yDUw-d4m80i6qtmkMRx7pAaSxWapAfEZ-dpqY" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7KB79ESXBB"></script>
-  <script>
-    if (!window.location.toString().includes("127.0.0.1") && !window.location.toString().includes("localhost") && !window.location.toString().includes("192.168.")) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-7KB79ESXBB');
-    } else {
-      console.log("development mode")
-      function gtag(event, event_name) {
-        console.log(event, event_name)
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta
+      name="description"
+      content="Create your own tokens. Generate tokenomics without coding. Professional token development."
+    />
+    <meta
+      property="twitter:title"
+      content="MoonDeploy | Create your own tokens"
+    />
+    <meta property="og:title" content="MoonDeploy | Create your own tokens" />
+    <meta
+      property="twitter:description"
+      content="Create a Your Token in less than a minute with MoonDeploy. No login. No setup. No coding required."
+    />
+    <meta
+      property="og:description"
+      content="Create a Your Token in less than a minute with MoonDeploy. No login. No setup. No coding required."
+    />
+    <meta property="og:url" content="https://moondeploy.com/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://moondeploy.com/static/media/moon-deploy.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:image"
+      content="https://moondeploy.com/static/media/moon-deploy.png"
+    />
+    <meta
+      name="google-site-verification"
+      content="ao9hS7yDUw-d4m80i6qtmkMRx7pAaSxWapAfEZ-dpqY"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7KB79ESXBB"
+    ></script>
+    <script>
+      if (
+        !window.location.toString().includes("127.0.0.1") &&
+        !window.location.toString().includes("localhost") &&
+        !window.location.toString().includes("192.168.")
+      ) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-7KB79ESXBB");
+      } else {
+        console.log("development mode");
+        function gtag(event, event_name) {
+          console.log(event, event_name);
+        }
       }
-    }
-  </script>
+    </script>
 
-  <!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
-  <script type="application/ld+json">
-  {
-    "@context" : "http://schema.org",
-    "@type" : "SoftwareApplication",
-    "name" : "Token Generator",
-    "image" : "https://moondeploy.com/static/media/intro3.gif",
-    "url" : "https://moondeploy.com/",
-    "author" : {
-      "@type" : "Person",
-      "name" : "Moon Deploy"
-    },
-    "aggregateRating" : {
-      "@type" : "AggregateRating",
-      "ratingValue" : "4.8",
-      "bestRating" : "5",
-      "worstRating" : "4",
-      "ratingCount" : "168"
-    }
-  }
-  </script>
-</head>
+    <!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "BEP20 Token Generator",
+        "image": "https://moondeploy.com/static/media/create-bep20-token.gif",
+        "url": "https://moondeploy.com/",
+        "author": {
+          "@type": "Person",
+          "name": "Moon Deploy"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "bestRating": "5",
+          "worstRating": "4",
+          "ratingCount": "168"
+        }
+      }
+    </script>
+  </head>
 
-<body>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="/static/media/moon-deploy.png" alt="Moon Deploy" height="30" /></a>
-    </div>
-  </nav>
-
-  <div class="container col-xxl-8 px-4 hero">
-    <div class="row flex-lg-row-reverse align-items-center g-5">
-      <div class="col-10 col-sm-8 col-lg-6 container mt-5">
-        <img src="static/media/intro3.gif" class="enter-block d-block mx-lg-auto img-fluid" alt="BEP20 Token Generator"
-          loading="lazy" width="500" height="500">
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/static/media/moon-deploy.png"
+            alt="Moon Deploy"
+            height="30"
+        /></a>
       </div>
-      <div class="col-lg-6">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Create your token</h1>
-        <p class="lead">Our mission is to make token creation easy and accessible for everyone. You can create your own
-          token without coding.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    </nav>
 
-          <button type="button" onclick="gtag('event','open_builder');location.href='/create-token';"
-            class="btn btn-primary btn-lg px-4 me-md-2">Create Token</button>
+    <div class="container col-xxl-8 px-4 hero">
+      <div class="row flex-lg-row-reverse align-items-center g-5">
+        <div class="col-10 col-sm-8 col-lg-6 container mt-5">
+          <img
+            src="static/media/intro3.gif"
+            class="enter-block d-block mx-lg-auto img-fluid"
+            alt="BEP20 Token Generator"
+            loading="lazy"
+            width="500"
+            height="500"
+          />
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold lh-1 mb-3">
+            Create
+            <a
+              href=""
+              class="typewrite"
+              data-period="1000"
+              data-type='["your", "BEP20", "ERC20"]'
+            >
+              <span class="wrap"></span>
+            </a>
+            token
+          </h1>
+          <p class="lead">
+            Our mission is to make token creation easy and accessible for
+            everyone. You can create your own token without coding on
+            <a
+              href=""
+              class="typewrite1"
+              data-period="500"
+              data-type='["Binance Smart Chain","Ethereum", "Polygon", "Cronos", "Avalanche", "Fantom", "DogeChain"]'
+            >
+              <span class="wrap"></span>
+            </a>
+          </p>
 
-          <button type="button" onclick="gtag('event','learn_more');location.href='#features'"
-            class="btn btn-outline-secondary btn-lg px-4">Learn
-            More</button>
+          <script>
+            var TxtType = function (el, toRotate, period) {
+              this.toRotate = toRotate;
+              this.el = el;
+              this.loopNum = 0;
+              this.period = parseInt(period, 10) || 2000;
+              this.txt = "";
+              this.tick();
+              this.isDeleting = false;
+            };
 
-          <!-- <button type="button" onclick="gtag('event','open_builder');location.href='/bep20-token-generator'"
-            class="btn btn-outline-secondary btn-lg px-4">Create Token</button> -->
+            TxtType.prototype.tick = function () {
+              var i = this.loopNum % this.toRotate.length;
+              var fullTxt = this.toRotate[i];
+
+              if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+              } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+              }
+
+              this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
+
+              var that = this;
+              var delta = 200 - Math.random() * 100;
+
+              if (this.isDeleting) {
+                delta /= 2;
+              }
+
+              if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+              } else if (this.isDeleting && this.txt === "") {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+              }
+
+              setTimeout(function () {
+                that.tick();
+              }, delta);
+            };
+
+            window.onload = function () {
+              var elements = document.getElementsByClassName("typewrite");
+              for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute("data-type");
+                var period = elements[i].getAttribute("data-period");
+                if (toRotate) {
+                  new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+              }
+              // INJECT CSS
+              var css = document.createElement("style");
+              css.type = "text/css";
+              css.innerHTML =
+                ".typewrite > .wrap { border-right: 0.08em solid #3B71CA}";
+              document.body.appendChild(css);
+
+              var elements1 = document.getElementsByClassName("typewrite1");
+              for (var i = 0; i < elements1.length; i++) {
+                var toRotate = elements1[i].getAttribute("data-type");
+                var period = elements1[i].getAttribute("data-period");
+                if (toRotate) {
+                  new TxtType(elements1[i], JSON.parse(toRotate), period);
+                }
+              }
+              // INJECT CSS
+              var css = document.createElement("style");
+              css.type = "text/css";
+              css.innerHTML =
+                ".typewrite1 > .wrap { border-right: 0.08em solid #3B71CA}";
+              document.body.appendChild(css);
+            };
+          </script>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <button
+              type="button"
+              onclick="gtag('event','open_builder');location.href='/create-token';"
+              class="btn btn-primary btn-lg px-4 me-md-2"
+            >
+              Create Token
+            </button>
+
+            <button
+              type="button"
+              onclick="gtag('event','learn_more');location.href='#features'"
+              class="btn btn-outline-secondary btn-lg px-4"
+            >
+              Learn More
+            </button>
+          </div>
+
+          <div class="mt-5">
+            <h6>Powered by</h6>
+
+            <img
+              class="small-logo"
+              src="/static/media/binance.png"
+              alt="Create token on Binance Smart Chain"
+            />
+            <img
+              class="small-logo"
+              src="/static/media/eth.png"
+              alt="Create token on Ethereum"
+            />
+            <img
+              class="small-logo"
+              src="/static/media/polygon.jpg"
+              alt="Create token on MACTIC(Polygon)"
+            />
+            <img
+              class="small-logo"
+              src="/static/media/cronos.jpg"
+              alt="Create token on Cronos"
+            />
+            <img
+              class="small-logo"
+              src="/static/media/avax.png"
+              alt="Create token on Alavanche"
+            />
+            <img
+              class="small-logo"
+              src="/static/media/ftm.png"
+              alt="Create token on Fantom"
+            />
+            <img
+              class="small-logo"
+              src="/static/media/doge.png"
+              alt="Create token on DogeChain"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="border-bottom" id="features">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-fire text-danger"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z"
+                />
+              </svg>
+            </div>
+
+            <div class="col-sm-11">
+              <h1 class="display-6">Why token generator?</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container px-4 py-0" id="icon-grid">
+      <div
+        class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5"
+      >
+        <div class="col d-flex align-items-start">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1.75em"
+            height="1.75em"
+            fill="currentColor"
+            class="bi bi-laptop text-muted flex-shrink-0 me-3"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"
+            />
+          </svg>
+          <div>
+            <h4 class="fw-bold mb-0">No coding required</h4>
+            <p>
+              You don't need to be a developer or have any programming knowledge
+              :)
+            </p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <svg
+            class="bi text-muted flex-shrink-0 me-3"
+            width="1.75em"
+            height="1.75em"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M8 13.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
+            />
+          </svg>
+          <div>
+            <h4 class="fw-bold mb-0">Make money</h4>
+            <p>Potential to make millions of dollar with your own tokens!</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <svg
+            class="bi text-muted flex-shrink-0 me-3"
+            width="1.75em"
+            height="1.75em"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+            />
+            <path
+              d="M12.331 9.5a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zM7 6.5c0 .828-.448 0-1 0s-1 .828-1 0S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 0-1 0s-1 .828-1 0S9.448 5 10 5s1 .672 1 1.5z"
+            />
+          </svg>
+          <div>
+            <h4 class="fw-bold mb-0">Be proud</h4>
+            <p>Share your tokens with your family, friends and the world</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <svg
+            class="bi text-muted flex-shrink-0 me-3"
+            width="1.75em"
+            height="1.75em"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+            />
+            <path
+              d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+            />
+          </svg>
+          <div>
+            <h4 class="fw-bold mb-0">Safe</h4>
+            <p>No questions asked refund if you don't receive your tokens</p>
+          </div>
         </div>
 
+        <div class="col d-flex align-items-start">
+          <svg
+            class="bi text-muted flex-shrink-0 me-3"
+            width="1.75em"
+            height="1.75em"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+            />
+            <path
+              d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+            />
+          </svg>
+          <div>
+            <h4 class="fw-bold mb-0">Expand your business</h4>
+            <p>Explore new potential of web3 and grow your business</p>
+          </div>
+        </div>
 
-        <div class="mt-5">
+        <div class="col d-flex align-items-start">
+          <svg
+            class="bi text-muted flex-shrink-0 me-3"
+            width="1.75em"
+            height="1.75em"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+            />
+            <path
+              d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+            />
+          </svg>
+          <div>
+            <h4 class="fw-bold mb-0">Decentralize Finance</h4>
+            <p>Take part in the next great revolution!</p>
+          </div>
+        </div>
 
-          <h6>Powered by</h6>
+        <div class="col d-flex align-items-start">
+          <svg
+            class="bi text-muted flex-shrink-0 me-3"
+            width="1.75em"
+            height="1.75em"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+            />
+            <path
+              d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+            />
+          </svg>
+          <div>
+            <h4 class="fw-bold mb-0">Contract Verified</h4>
+            <p>
+              Source code will be available and verified instantly after
+              deployment
+            </p>
+          </div>
+        </div>
 
-          <img class="small-logo" src="/static/media/binance.png" alt="Create token on Binance Smart Chain">
-          <img class="small-logo" src="/static/media/eth.png" alt="Create token on Ethereum">
-          <img class="small-logo" src="/static/media/polygon.jpg" alt="Create token on MACTIC(Polygon)">
-          <img class="small-logo" src="/static/media/cronos.jpg" alt="Create token on Cronos">
-          <img class="small-logo" src="/static/media/avax.png" alt="Create token on Alavanche">
-          <img class="small-logo" src="/static/media/ftm.png" alt="Create token on Fantom">
-          <img class="small-logo" src="/static/media/doge.png" alt="Create token on DogeChain">
-
+        <div class="col d-flex align-items-start">
+          <svg
+            class="bi text-muted flex-shrink-0 me-3"
+            width="1.75em"
+            height="1.75em"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+            />
+            <path
+              d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+            />
+          </svg>
+          <div>
+            <h4 class="fw-bold mb-0">Huge Community</h4>
+            <p>
+              Biggest community of token creators, get support and be inspired
+              by innovative minds
+            </p>
+          </div>
         </div>
       </div>
-
     </div>
-  </div>
-
-  <div class="container px-4 py-0" id="icon-grid">
-    <!-- <h2 class="pb-2 border-bottom">🔥Features</h2> -->
 
     <section class="border-bottom mb-5" id="features">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-6">🔥Features</h1>
-          </p>
+          <div class="row">
+            <div class="col-sm-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-shield-check text-primary"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+                />
+                <path
+                  d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"
+                />
+              </svg>
+            </div>
+
+            <div class="col-sm-11">
+              <h1 class="display-6">Trusted by startups</h1>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="
-          row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4
-          g-4
-          py-5
-        ">
-      <div class="col d-flex align-items-start">
-        <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor"
-          class="bi bi-laptop text-muted flex-shrink-0 me-3" viewBox="0 0 16 16">
-          <path
-            d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z" />
-        </svg>
-        <div>
-          <h4 class="fw-bold mb-0">No coding required</h4>
-          <p>
-            You don't need to be a developer or have any programming knowledge
-            :)
-          </p>
+    <div class="container text-center">
+      <img src="/static/media/rocket2.gif" width="250px" alt="" />
+      <h2>
+        Secure your project with our reliable and audited Smart Contracts.
+      </h2>
+
+      <h5>
+        Trust in our thoroughly tested platform to support your amazing project,
+        with no reported issues.
+      </h5>
+
+      <p>Choose the best for your project - choose us.</p>
+    </div>
+
+    <div class="container mb-5 text-center d-flex justify-content-center">
+      <div class="row">
+        <div class="col-sm">
+          <div class="card text-primary bg-light border-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">50K+</h5>
+              <p class="card-text">Tokens generated</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em" viewBox="0 0 16 16">
-          <path
-            d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
-          <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-          <path fill-rule="evenodd"
-            d="M8 13.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-        </svg>
-        <div>
-          <h4 class="fw-bold mb-0">Make money</h4>
-          <p>Potential to make millions of dollar with your own tokens!</p>
+
+        <div class="col-sm">
+          <div class="card text-primary bg-light border-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">100K+</h5>
+              <p class="card-text">Unique users</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-          <path
-            d="M12.331 9.5a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zM7 6.5c0 .828-.448 0-1 0s-1 .828-1 0S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 0-1 0s-1 .828-1 0S9.448 5 10 5s1 .672 1 1.5z" />
-        </svg>
-        <div>
-          <h4 class="fw-bold mb-0">Be proud</h4>
-          <p>Share your tokens with your family, friends and the world</p>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em" viewBox="0 0 16 16">
-          <path
-            d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
-          <path
-            d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-        </svg>
-        <div>
-          <h4 class="fw-bold mb-0">Safe</h4>
-          <p>
-            No questions asked refund if you don't receive your tokens
-          </p>
+
+        <div class="col-sm" style="width: 500px">
+          <div class="card text-primary bg-light border-primary mb-3">
+            <div class="card-body">
+              <h5 class="card-title">10K+</h5>
+              <p class="card-text">Automated tests</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- <div class="container px-4 py-0" id="icon-grid">
-    <h2 class="pb-2 border-bottom">🔥Features</h2>
 
     <section class="border-bottom mb-5" id="features">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-6">Bulk Address Creation</h1>
+          <div class="row">
+            <div class="col-sm-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-rocket text-primary"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 8c.828 0 1.5-.895 1.5-2S8.828 4 8 4s-1.5.895-1.5 2S7.172 8 8 8Z"
+                />
+                <path
+                  d="M11.953 8.81c-.195-3.388-.968-5.507-1.777-6.819C9.707 1.233 9.23.751 8.857.454a3.495 3.495 0 0 0-.463-.315A2.19 2.19 0 0 0 8.25.064.546.546 0 0 0 8 0a.549.549 0 0 0-.266.073 2.312 2.312 0 0 0-.142.08 3.67 3.67 0 0 0-.459.33c-.37.308-.844.803-1.31 1.57-.805 1.322-1.577 3.433-1.774 6.756l-1.497 1.826-.004.005A2.5 2.5 0 0 0 2 12.202V15.5a.5.5 0 0 0 .9.3l1.125-1.5c.166-.222.42-.4.752-.57.214-.108.414-.192.625-.281l.198-.084c.7.428 1.55.635 2.4.635.85 0 1.7-.207 2.4-.635.067.03.132.056.196.083.213.09.413.174.627.282.332.17.586.348.752.57l1.125 1.5a.5.5 0 0 0 .9-.3v-3.298a2.5 2.5 0 0 0-.548-1.562l-1.499-1.83ZM12 10.445v.055c0 .866-.284 1.585-.75 2.14.146.064.292.13.425.199.39.197.8.46 1.1.86L13 14v-1.798a1.5 1.5 0 0 0-.327-.935L12 10.445ZM4.75 12.64C4.284 12.085 4 11.366 4 10.5v-.054l-.673.82a1.5 1.5 0 0 0-.327.936V14l.225-.3c.3-.4.71-.664 1.1-.861.133-.068.279-.135.425-.199ZM8.009 1.073c.063.04.14.094.226.163.284.226.683.621 1.09 1.28C10.137 3.836 11 6.237 11 10.5c0 .858-.374 1.48-.943 1.893C9.517 12.786 8.781 13 8 13c-.781 0-1.517-.214-2.057-.607C5.373 11.979 5 11.358 5 10.5c0-4.182.86-6.586 1.677-7.928.409-.67.81-1.082 1.096-1.32.09-.076.17-.135.236-.18Z"
+                />
+                <path
+                  d="M9.479 14.361c-.48.093-.98.139-1.479.139-.5 0-.999-.046-1.479-.139L7.6 15.8a.5.5 0 0 0 .8 0l1.079-1.439Z"
+                />
+              </svg>
+            </div>
 
-          <h1 class="display-8">Create Unlimited of Addresses in nano seconds</h1>
+            <div class="col-sm-11">
+              <h1 class="display-6">Token Generator</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col">
+          <h2 class="pb-2">Create BEP20 token</h2>
+          <p>
+            Looking to create your own BEP20 token without any coding knowledge?
+            Look no further than our top-of-the-line BEP20 token generator. With
+            our user-friendly platform, you can easily create a custom token in
+            just a few simple steps. Our BEP20 token generator is designed to
+            provide you with a hassle-free experience, allowing you to focus on
+            what really matters - your project. Trust in the best BEP20 token
+            generator on the market and start creating your token today!
+          </p>
+          <button
+            type="button"
+            onclick="gtag('event','open_builder');location.href='/create-token';"
+            class="btn btn-primary btn-lg px-4 me-md-2 mb-5"
+          >
+            Create BEP20 token
+          </button>
+        </div>
+        <div class="col text-center">
+          <img
+            src="/static/media/bep20-token-generator.gif"
+            width="350px"
+            alt="Create BEP20 token with BEP20 token generator"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col text-center">
+          <img
+            src="/static/media/erc20-token-generator.gif"
+            width="350px"
+            alt="Create ERC20 token with ERC20 token generator"
+          />
+        </div>
+
+        <div class="col">
+          <h2 class="pb-2">Create ERC20 token</h2>
+          <p>
+            Create your own ERC20 token without coding knowledge using our best
+            ERC20 token generator. Our intuitive platform allows you to create a
+            unique token in just a few simple steps. Our ERC20 token generator
+            is designed to provide a smooth experience, allowing you to focus on
+            your project's vision. When you use the best ERC20 token generator
+            on the market to create your custom token, your project has a great
+            chance of success.
+          </p>
+          <button
+            type="button"
+            onclick="gtag('event','open_builder');location.href='/create-token/?network=eth';"
+            class="btn btn-primary btn-lg px-4 me-md-2 mb-5"
+          >
+            Create ERC20 token
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col">
+          <h2 class="pb-2">Support multiple blockchains</h2>
+          <p>
+            Our platform supports multiple blockchains, including Ethereum,
+            Binance Smart Chain, Polygon, Fantom, Cronos, Avalanche and
+            DogeChain, giving you the flexibility to choose the one that best
+            suits your needs. With our cutting-edge technology, you can
+            seamlessly switch between blockchains and harness the full potential
+            of the blockchain ecosystem. Enjoy the benefits of multi-chain
+            interoperability with our platform.
+          </p>
+          <button
+            type="button"
+            onclick="gtag('event','open_builder');location.href='/create-token';"
+            class="btn btn-primary btn-lg px-4 me-md-2 mb-5"
+          >
+            Create token
+          </button>
+        </div>
+
+        <div class="col text-center">
+          <img
+            src="/static/media/create-bep20-token.GIF"
+            width="350px"
+            alt="Create your own cryptocurrency on multiple blockchains"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2 class="pb-2">Toolkit for tokens</h2>
+          <p>
+            We also offers a variety of useful tools to enhance your token
+            project. From token creation to management and marketing, our suite
+            of tools has got you covered. With our intuitive user interface and
+            advanced features, you can save time and focus on growing your
+            project. Explore the many useful tools we have to offer and take
+            your token project to the next level.
+          </p>
+        </div>
+        <div class="col-sm-6 text-start">
           <ul>
-            <li>Coffee</li>
-            <li>Tea</li>
-            <li>Milk</li>
+            <li>
+              <a href="/smart-lock/" target="_blank"
+                >How to lock liquidity and tokens</a
+              >
+            </li>
+            <li>
+              <a href="/watch-token/" target="_blank"
+                >Add token logo for Metamask</a
+              >
+            </li>
+            <li>
+              <a href="/bep20-wallet-generator/" target="_blank"
+                >Trust Wallet Address Generator</a
+              >
+            </li>
+            <li>
+              <a href="/bep20-wallet-generator/" target="_blank"
+                >Metamask Wallet Address Generator</a
+              >
+            </li>
+            <li>
+              <a href="/bulk-address-creation/" target="_blank"
+                >Bulk Address Generator</a
+              >
+            </li>
+            <li>
+              <a href="/token-airdrop-tool/" target="_blank"
+                >Token Airdrop Tool</a
+              >
+            </li>
           </ul>
+        </div>
+      </div>
+    </div>
 
-          <button class="btn btn-primary">Create Wallets</button>
+    <section class="border-bottom mb-5" id="features">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-tools text-primary"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"
+                />
+              </svg>
+            </div>
+
+            <div class="col-sm-11">
+              <h1 class="display-6">Smart Contract Tools</h1>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col-sm text-center">
+          <img
+            src="/static/media/lock-liquidity.gif"
+            width="350px"
+            alt="Lock liquidity and tokens"
+          />
+        </div>
 
+        <div class="col">
+          <h2 class="pb-2">Smart Lock</h2>
+          <p>
+            Learn how to lock liquidity and tokens effortlessly with our
+            platform's advanced locking mechanisms. Our intuitive user interface
+            and comprehensive guides provide a straightforward process, ensuring
+            your token project is secure and transparent. Locking liquidity and
+            tokens is essential for building trust with your community and
+            safeguarding your token's value. Take advantage of our seamless
+            locking process and rest assured that your token is in good hands.
+          </p>
+
+          <a href="/smart-lock/" target="_blank" class="btn btn-primary"
+            >Lock Liquidity</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col text-center">
+          <img src="/static/media/logo-tool.gif" width="350px" />
+        </div>
+
+        <div class="col">
+          <h2 class="pb-2">Logo Tool</h2>
+          <p>
+            Building a successful token project requires attention to detail and
+            a professional image. Adding a logo to your ERC20 and BEP20 tokens
+            on Metamask is an important step in establishing your token's brand
+            and increasing visibility. Our platform offers a simple process for
+            both tasks, ensuring your token stands out in the decentralized
+            finance space. Follow our easy-to-use guide and learn how to add a
+            logo to your ERC20 and BEP20 tokens on Metamask today. Enhance your
+            token's brand and increase its chances of success.
+          </p>
+
+          <a href="/watch-token/" target="_blank" class="btn btn-primary"
+            >Create token logo</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col text-center">
+          <img src="/static/media/bep20-wallet-generator.gif" width="350px" />
+        </div>
+
+        <div class="col">
+          <h2 class="pb-2">BEP20 Wallet generator</h2>
+          <p>
+            As a token owner, securing your assets is a top priority. Our BEP20
+            wallet generator offers a fast and easy solution to create a custom
+            wallet address for your BEP20 tokens. Our platform supports popular
+            wallets such as Metamask and Trust Wallet, ensuring seamless
+            integration for all your crypto transactions. With our user-friendly
+            interface, you can quickly generate a secure BEP20 wallet address,
+            giving you complete control over your funds. Trust in the best BEP20
+            wallet generator and safeguard your tokens.
+          </p>
+          <a
+            href="/bep20-wallet-generator/"
+            target="_blank"
+            class="btn btn-primary"
+            >Create Wallet</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col text-center">
+          <img src="/static/media/token-airdrop-tool.gif" width="350px" />
+        </div>
+
+        <div class="col">
+          <h2 class="pb-2">Token Airdrop Tool</h2>
+          <p>
+            Looking to conduct a BSC airdrop for your BEP20 tokens? Our
+            <a href="/token-airdrop-tool/" target="_blank">BSC airdrop tool</a>
+            simplifies the process and makes it easy for you to distribute
+            tokens to your community. Our platform provides comprehensive tools
+            to help you create and manage a successful airdrop campaign,
+            including the ability to send airdrops to 600 addresses per
+            transaction. With our BSC airdrop tool, you can engage your
+            community and reward them with ease. Try our user-friendly platform
+            and simplify your airdrop process now!
+          </p>
+          <a href="/token-airdrop-tool/" target="_blank" class="btn btn-primary"
+            >Airdrop</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col text-center">
+          <img src="/static/media/bulk-address-generator.gif" width="350px" />
+        </div>
+
+        <div class="col">
+          <h2 class="pb-2">Bulk Address Generator</h2>
+          <p>
+            Our Bulk Address Generator offers a simple and efficient solution
+            for creating thousands of addresses with just a few clicks. With
+            lightning-fast speed, you can generate addresses in milliseconds,
+            saving valuable time and streamlining your workflow. Our platform is
+            designed to be intuitive and easy to use, giving you complete
+            control over your addresses. Say goodbye to manual address creation
+            and discover the smart and efficient way to generate addresses with
+            our Bulk Address Generator.
+          </p>
+          <a
+            href="/bulk-address-creation/"
+            target="_blank"
+            class="btn btn-primary"
+            >Generate Address</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+  <div class="container px-4 py-0 mb-5">
+    <div class="row">
+      <div class="col">
+        <h2 class="pb-2">Create ERC20 token</h2>
+        <p>Create your BEP20 token without coding with the best BEP20 token generator. Create BEP20 token on mutiple blockchains.</p>
+  
+      </div>
+      <div class="col">
+        <img src="/static/media/bep20-demo-landing-page.gif" width="350px"></img>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container px-4 py-0 mb-5">
+    <div class="row">
+      <div class="col">
+        <h2 class="pb-2">BEP20 token generator</h2>
+        <p>Create your BEP20 token without coding with the best BEP20 token generator. Create BEP20 token on mutiple blockchains.</p>
+  
+      </div>
+      <div class="col">
+        <img src="/static/media/bep20-demo-landing-page.gif" width="350px"></img>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container px-4 py-0 mb-5">
+    <div class="row">
+      <div class="col">
+        <h2 class="pb-2">ERC20 token generator</h2>
+        <p>Create your BEP20 token without coding with the best BEP20 token generator. Create BEP20 token on mutiple blockchains.</p>
+  
+      </div>
+      <div class="col">
+        <img src="/static/media/bep20-demo-landing-page.gif" width="350px"></img>
+
+      </div>
+    </div>
   </div> -->
 
-
-
-  <div class="container">
-    <section class="border-bottom">
+    <section class="border-bottom mb-5" id="features">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-6">🌟 We are passionate smart contract developers</h1>
-          <p class="lead">
-            <br> We do solidity development and develop smart contracts.
-          </p>
+          <div class="row">
+            <div class="col-sm-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-star-fill text-warning"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                />
+              </svg>
+            </div>
+
+            <div class="col-sm-11">
+              <h1 class="display-6">Smart contract developers</h1>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- <section class="section-medium section-arrow--bottom-center section-arrow-primary-color bg-primary">
+    <div class="container">
+      <!-- <section class="section-medium section-arrow--bottom-center section-arrow-primary-color bg-primary">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-white text-center">
@@ -243,378 +997,737 @@
         </div>
       </div>
     </section> -->
-    <section class="section-primary t-bordered">
-      <div class="container">
-        <div class="row testimonial-three testimonial-three--col-three">
-          <div class="col-md-4 testimonial-three-col">
-            <div class="testimonial-inner">
-              <div class="testimonial-image" itemprop="image">
-                <img class="testimonial-image-profile" width="180" height="180" src="/static/media/avatar1.jpg"
-                  alt="create bep20 token">
+
+      <p>
+        If you're looking for top-notch solidity development services and
+        skilled smart contract developers, you've come to the right place! Our
+        team of experienced developers specializes in creating secure and
+        scalable smart contracts using the Solidity programming language. From
+        blockchain-based applications to decentralized finance solutions, we
+        have the expertise to deliver exceptional results for your business
+        needs. Contact us today to learn more about our smart contract
+        development and Solidity development services and let us help you bring
+        your ideas to life.
+      </p>
+
+      <a href="/crypto-consulting" class="btn btn-primary" target="_blank"
+        >Book Appointment</a
+      >
+
+      <section class="mt-5">
+        <div class="container">
+          <div class="row testimonial-three testimonial-three--col-three">
+            <div class="col-md-4 testimonial-three-col">
+              <div class="testimonial-inner">
+                <div class="testimonial-image" itemprop="image">
+                  <img
+                    class="testimonial-image-profile"
+                    width="180"
+                    height="180"
+                    src="/static/media/avatar1.jpg"
+                    alt="create bep20 token"
+                  />
+                </div>
+                <div class="testimonial-content">
+                  <p>Most underated website on the internet ! Love it !</p>
+                </div>
+                <div class="testimonial-meta">
+                  <strong class="testimonial-name" itemprop="name"
+                    >Mr. Cooper</strong
+                  >
+                  <span class="testimonial-job-title" itemprop="jobTitle">
+                  </span>
+                  <p class="testimonial-link"></p>
+                </div>
               </div>
-              <div class="testimonial-content">
-                <p>
-                  Most underated website on the internet ! Love it !
-                </p>
+            </div>
+
+            <div class="col-md-4 testimonial-three-col">
+              <div class="testimonial-inner">
+                <div class="testimonial-image" itemprop="image">
+                  <img
+                    class="testimonial-image-profile"
+                    width="180"
+                    height="180"
+                    src="/static/media/avatar2.jpg"
+                    alt="bep20 token generator free"
+                  />
+                </div>
+
+                <div class="testimonial-content">
+                  <p>
+                    It's very easy to use, I just created my own token in
+                    seconds without coding. Unbelievable !
+                  </p>
+                </div>
+
+                <div class="testimonial-meta">
+                  <strong class="testimonial-name" itemprop="name">King</strong>
+                  <span class="testimonial-job-title" itemprop="jobTitle">
+                  </span>
+                  <p class="testimonial-link"></p>
+                </div>
               </div>
-              <div class="testimonial-meta">
-                <strong class="testimonial-name" itemprop="name">Mr. Cooper</strong>
-                <span class="testimonial-job-title" itemprop="jobTitle"> </span>
-                <p class="testimonial-link"></a>
+            </div>
+
+            <div class="col-md-4 testimonial-three-col">
+              <div class="testimonial-inner">
+                <div class="testimonial-image" itemprop="image">
+                  <img
+                    class="testimonial-image-profile"
+                    width="180"
+                    height="180"
+                    src="/static/media/avatar3.jpg"
+                    alt="create bsc token"
+                  />
+                </div>
+                <div class="testimonial-content">
+                  <p>
+                    You guys have been a big help since the begin of our
+                    project. It's definitely the best token creation website !
+                  </p>
+                </div>
+                <div class="testimonial-meta">
+                  <strong class="testimonial-name" itemprop="name">Jim</strong>
+                  <span class="testimonial-job-title" itemprop="jobTitle">
+                  </span>
+                  <p class="testimonial-link"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 testimonial-three-col">
+              <div class="testimonial-inner">
+                <div class="testimonial-image" itemprop="image">
+                  <img
+                    class="testimonial-image-profile"
+                    width="180"
+                    height="180"
+                    src="/static/media/avatar4.jpg"
+                    alt="create bep20 token free"
+                  />
+                </div>
+
+                <div class="testimonial-content">
+                  <p>
+                    Fastest way to learn about the metaverse is to create your
+                    own tokens.
+                  </p>
+                </div>
+
+                <div class="testimonial-meta">
+                  <strong class="testimonial-name" itemprop="name"
+                    >Gem Hunter</strong
+                  >
+                  <span class="testimonial-job-title" itemprop="jobTitle">
+                  </span>
+                  <p class="testimonial-link"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 testimonial-three-col">
+              <div class="testimonial-inner">
+                <div class="testimonial-image" itemprop="image">
+                  <img
+                    class="testimonial-image-profile"
+                    width="180"
+                    height="180"
+                    src="/static/media/avatar5.jpg"
+                    alt="create token bep20"
+                  />
+                </div>
+                <div class="testimonial-content">
+                  <p>
+                    I created a CAKE reward token to expand my local bakery
+                    business. Very exciting.
+                  </p>
+                </div>
+                <div class="testimonial-meta">
+                  <strong class="testimonial-name" itemprop="name"
+                    >Katie</strong
+                  >
+                  <span class="testimonial-job-title" itemprop="jobTitle">
+                  </span>
+                  <p class="testimonial-link"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 testimonial-three-col">
+              <div class="testimonial-inner">
+                <div class="testimonial-image" itemprop="image">
+                  <img
+                    class="testimonial-image-profile"
+                    width="180"
+                    height="180"
+                    src="/static/media/avatar6.jpg"
+                    alt="generate bep20 token"
+                  />
+                </div>
+
+                <div class="testimonial-content">
+                  <p>Those guys are Shatoshi on BSC, they are the best.</p>
+                </div>
+
+                <div class="testimonial-meta">
+                  <strong class="testimonial-name" itemprop="name">Wolf</strong>
+                  <span
+                    class="testimonial-job-title"
+                    itemprop="jobTitle"
+                  ></span>
+                  <p class="testimonial-link"></p>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+    </div>
 
-          <div class="col-md-4 testimonial-three-col">
-            <div class="testimonial-inner">
-              <div class="testimonial-image" itemprop="image">
-                <img class="testimonial-image-profile" width="180" height="180" src="/static/media/avatar2.jpg"
-                  alt="bep20 token generator free">
-              </div>
+    <!-- <section class="border-bottom mb-5" id="features">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-6">📈 Results from users</h1>
+        </div>
+      </div>
+    </section>
 
-              <div class="testimonial-content">
-                <p>
-                  It's very easy to use, I just created my own token in seconds without coding. Unbelievable !
-                </p>
-              </div>
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col">
+          <h2 class="pb-2">Great Potential</h2>
+          <p>
+            Create your BEP20 token without coding with the best BEP20 token
+            generator. Create BEP20 token on mutiple blockchains.
+          </p>
+        </div>
+        <div class="col text-center">
+          <img src="/static/media/trading.png" height="200px" />
+        </div>
+      </div>
+    </div>
 
-              <div class="testimonial-meta">
-                <strong class="testimonial-name" itemprop="name">King</strong>
-                <span class="testimonial-job-title" itemprop="jobTitle"> </span>
-                <p class="testimonial-link"></a>
-              </div>
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col text-center">
+          <img src="/static/media/trading1.png" height="200px" />
+        </div>
+
+        <div class="col">
+          <h2 class="pb-2">Block whale and bots</h2>
+          <p>
+            Create your BEP20 token without coding with the best BEP20 token
+            generator. Create BEP20 token on mutiple blockchains.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 py-0 mb-5">
+      <div class="row">
+        <div class="col">
+          <h2 class="pb-2">Great Potential</h2>
+          <p>
+            Create your BEP20 token without coding with the best BEP20 token
+            generator. Create BEP20 token on mutiple blockchains.
+          </p>
+        </div>
+        <div class="col text-center">
+          <img src="/static/media/trading2.png" height="200px" />
+        </div>
+      </div>
+    </div> -->
+
+    <section class="border-bottom mb-5 mt-5" id="features">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="currentColor"
+                class="bi bi-check-circle text-success"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                />
+                <path
+                  d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
+                />
+              </svg>
             </div>
-          </div>
 
-          <div class="col-md-4 testimonial-three-col">
-            <div class="testimonial-inner">
-              <div class="testimonial-image" itemprop="image">
-                <img class="testimonial-image-profile" width="180" height="180" src="/static/media/avatar3.jpg"
-                  alt="create bsc token">
-              </div>
-              <div class="testimonial-content">
-                <p>
-                  You guys have been a big help since the begin of our project. It's definitely the best token creation
-                  website !
-                </p>
-              </div>
-              <div class="testimonial-meta">
-                <strong class="testimonial-name" itemprop="name">Jim</strong>
-                <span class="testimonial-job-title" itemprop="jobTitle"> </span>
-                <p class="testimonial-link"></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 testimonial-three-col">
-            <div class="testimonial-inner">
-              <div class="testimonial-image" itemprop="image">
-                <img class="testimonial-image-profile" width="180" height="180" src="/static/media/avatar4.jpg"
-                  alt="create bep20 token free">
-              </div>
-
-              <div class="testimonial-content">
-                <p>
-                  Fastest way to learn about the metaverse is to create your own tokens.
-                </p>
-              </div>
-
-              <div class="testimonial-meta">
-                <strong class="testimonial-name" itemprop="name">Gem Hunter</strong>
-                <span class="testimonial-job-title" itemprop="jobTitle"> </span>
-                <p class="testimonial-link"></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 testimonial-three-col">
-            <div class="testimonial-inner">
-              <div class="testimonial-image" itemprop="image">
-                <img class="testimonial-image-profile" width="180" height="180" src="/static/media/avatar5.jpg"
-                  alt="create token bep20">
-              </div>
-              <div class="testimonial-content">
-                <p>
-                  I created a CAKE reward token to expand my local bakery business. Very
-                  exciting.
-                </p>
-              </div>
-              <div class="testimonial-meta">
-                <strong class="testimonial-name" itemprop="name">Katie</strong>
-                <span class="testimonial-job-title" itemprop="jobTitle"> </span>
-                <p class="testimonial-link"></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 testimonial-three-col">
-            <div class="testimonial-inner">
-              <div class="testimonial-image" itemprop="image">
-                <img class="testimonial-image-profile" width="180" height="180" src="/static/media/avatar6.jpg"
-                  alt="generate bep20 token">
-              </div>
-
-              <div class="testimonial-content">
-                <p>
-                  Those guys are Shatoshi on BSC, they are the best.
-                </p>
-              </div>
-
-              <div class="testimonial-meta">
-                <strong class="testimonial-name" itemprop="name">Wolf</strong>
-                <span class="testimonial-job-title" itemprop="jobTitle"></span>
-                <p class="testimonial-link"></a>
-              </div>
+            <div class="col-sm-11">
+              <h1 class="display-6">
+                The most
+                <a href="https://docs.moondeploy.com" target="_blank"
+                  >frequently asked questions</a
+                >
+                when using MoonDeploy
+              </h1>
             </div>
           </div>
         </div>
       </div>
     </section>
-  </div>
 
-  <div class="container">
-    <!--Section: FAQ-->
-    <section>
+    <div class="container mt-5">
+      <!--Section: FAQ-->
+      <section>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h4 class="mb-3">
+              <i class="fas fa-ribbon text-primary pe-2"></i>How do I generate
+              BEP20 token?
+            </h4>
+            <p>
+              In order to <a href="/create-token">create BEP20 token</a>, open
+              our <a href="/create-token">BEP20 token generator</a> and follow
+              instructions.
+            </p>
+          </div>
 
-      <section class="border-bottom mb-5">
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-6">The most frequently asked questions when using MoonDeploy</h1>
-            <p class="lead">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h4 class="mb-3">
+              <i class="fas fa-puzzle-piece text-primary pe-2"></i>Can I add
+              more functions to smart contract?
+            </h4>
+            <p>Of course! Contact us to discuss your project.</p>
+          </div>
 
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h4 class="mb-3">
+              <i class="fas fa-laptop-code text-primary pe-2"></i> Can you make
+              other tokens or develop smart contracts ?
+            </h4>
+            <p>
+              Sure, we can make different types of tokens and
+              <a href="/crypto-consulting" target="_blank"
+                >develop smart contracts</a
+              >
+              to suit your needs.
+            </p>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h4 class="mb-3">
+              <i class="fas fa-code text-primary pe-2"></i> Can I have source
+              code of contract ?
+            </h4>
+            <p>
+              Yes, it will be available on BscScan, EtherScan or others after
+              deployment.
+            </p>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h4 class="mb-3">
+              <i class="fas fa-user-plus text-primary pe-2"></i> Can I add more
+              wallets ?
+            </h4>
+            <p>Absolutely. For this you need to contact us.</p>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h4 class="mb-3">
+              <i class="fas fa-wrench text-primary pe-2"></i> Can I create ERC20
+              token?
+            </h4>
+            <p>
+              Yes you can. With our
+              <a href="/create-token/?network=eth">ERC20 token generator</a>,
+              you can
+              <a href="/create-token/?network=eth">create ERC20 token</a>
+              easily.
             </p>
           </div>
         </div>
       </section>
+      <!--Section: FAQ-->
+    </div>
 
+    <div
+      hidden
+      class="jumbotron p-4 text-center"
+      style="background-color: rgb(184, 255, 114)"
+    >
+      <h1 class="display-8">Get started with Moon Deploy today</h1>
+      <p class="lead">Create BEP20 token without coding. Simple.</p>
+      <p class="lead">
+        <button
+          type="button"
+          onclick="gtag('event','open_builder');location.href='/bep20-token-generator';"
+          class="btn btn-primary btn-lg px-4 me-md-2"
+        >
+          Create Token
+        </button>
+      </p>
+    </div>
 
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4">
-          <h4 class="mb-3 "><i class="fas fa-ribbon text-primary pe-2"></i>How do I generate BEP20 token?
-          </h4>
-          <p>
-            In order to create BEP20 token, open our <a href="/create-token/">BEP20 token
-              generator</a> and
-            follow instructions.
-          </p>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+      <!-- Section: Social media -->
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      >
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us:</span>
         </div>
 
-        <div class="col-md-6 col-lg-4 mb-4">
-          <h4 class="mb-3 "><i class="fas fa-puzzle-piece text-primary pe-2"></i>Can I add more functions to smart
-            contract?</h4>
-          <p>
-            Of course! Contact us to discuss your project.
-          </p>
-        </div>
+        <!-- Left -->
 
-        <div class="col-md-6 col-lg-4 mb-4">
-          <h4 class="mb-3 "><i class="fas fa-laptop-code text-primary pe-2"></i> Can you make other tokens or develop
-            smart contracts ?
-          </h4>
-          <p>
-            Sure, we can make different types of tokens and develop smart contracts to suit your needs.
-          </p>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <h4 class="mb-3 "><i class="fas fa-code text-primary pe-2"></i> Can I have source code of contract ?
-          </h4>
-          <p>
-            Yes, it will be available on BscScan, EtherScan or others after deployment.
-          </p>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <h4 class="mb-3"><i class="fas fa-user-plus text-primary pe-2"></i> Can I add more wallets ?
-          </h4>
-          <p>
-            Absolutely. For this you need to contact us.
-          </p>
-        </div>
-
-    
-      </div>
-    </section>
-    <!--Section: FAQ-->
-  </div>
-
-  <div hidden class="jumbotron p-4 text-center" style="background-color: rgb(184, 255, 114)">
-    <h1 class="display-8">Get started with Moon Deploy today</h1>
-    <p class="lead">Create BEP20 token without coding. Simple.</p>
-    <p class="lead">
-      <button type="button" onclick="gtag('event','open_builder');location.href='/bep20-token-generator';"
-        class="btn btn-primary btn-lg px-4 me-md-2">Create Token</button>
-    </p>
-  </div>
-
-
-  <!-- Footer -->
-  <footer class="text-center text-lg-start bg-light text-muted">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-      <!-- Left -->
-      <div class="me-5 d-none d-lg-block">
-        <span>Get connected with us:</span>
-
-      </div>
-
-      <!-- Left -->
-
-      <!-- Right -->
-      <div>
-        <a href="https://t.me/MoonDeploy" class="icon" target="_blank" onclick="gtag('event','telegram')">
-          <i class="fab fa-telegram fa-2x"></i>
-        </a>
-        <!-- <a href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg" class="icon" target="_blank"
+        <!-- Right -->
+        <div>
+          <a
+            href="https://t.me/MoonDeploy"
+            class="icon"
+            target="_blank"
+            onclick="gtag('event','telegram')"
+          >
+            <i class="fab fa-telegram fa-2x"></i>
+          </a>
+          <!-- <a href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg" class="icon" target="_blank"
           onclick="gtag('event','youtube')">
           <i class="fab fa-youtube fa-2x"></i>
         </a> -->
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
 
-      </div>
-      <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Moon Deploy
+              </h6>
+              <p>
+                Our mission is to make token creation easy and accessible for
+                everyone.
+              </p>
+            </div>
+            <!-- Grid column -->
 
-    <!-- Section: Links  -->
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3"></i>Moon Deploy
-            </h6>
-            <p>
-              Our mission is to make token creation easy and accessible for everyone.
-            </p>
-          </div>
-          <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Create Tokens</h6>
+              <p>
+                <a
+                  href="/create-token/?network=eth"
+                  target="_blank"
+                  class="text-reset"
+                  >Create Token on Ethereum</a
+                >
+              </p>
+              <p>
+                <a href="/create-token" target="_blank" class="text-reset"
+                  >Create Token on Binance Smart Chain</a
+                >
+              </p>
+              <p>
+                <a
+                  href="/create-token/?network=polygon"
+                  target="_blank"
+                  class="text-reset"
+                  >Create Token on Polygon</a
+                >
+              </p>
+              <p>
+                <a
+                  href="/create-token/?network=cronos"
+                  target="_blank"
+                  class="text-reset"
+                  >Create Token on Cronos</a
+                >
+              </p>
+              <p>
+                <a
+                  href="/create-token/?network=avax"
+                  target="_blank"
+                  class="text-reset"
+                  >Create Token on Alavanche</a
+                >
+              </p>
+              <p>
+                <a
+                  href="/create-token/?network=fantom"
+                  target="_blank"
+                  class="text-reset"
+                  >Create Token on Fantom</a
+                >
+              </p>
+              <p>
+                <a
+                  href="/create-token/?network=doge"
+                  target="_blank"
+                  class="text-reset"
+                  >Create Token on DogeChain</a
+                >
+              </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Tools</h6>
 
-          <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Create Tokens
-            </h6>
-            <p>
-              <a href="/create-token/?network=eth" target="_blank" class="text-reset">Create Token on Ethereum</a>
-            </p>
-            <p>
-              <a href="/create-token" target="_blank" class="text-reset">Create Token on Binance Smart Chain</a>
-            </p>
-            <p>
-              <a href="/create-token/?network=polygon" target="_blank" class="text-reset">Create Token on Polygon</a>
-            </p>
-            <p>
-              <a href="/create-token/?network=cronos" target="_blank" class="text-reset">Create Token on Cronos</a>
-            </p>
-            <p>
-              <a href="/create-token/?network=avax" target="_blank" class="text-reset">Create Token on Alavanche</a>
-            </p>
-            <p>
-              <a href="/create-token/?network=fantom" target="_blank" class="text-reset">Create Token on Fantom</a>
-            </p>
-            <p>
-              <a href="/create-token/?network=doge" target="_blank" class="text-reset">Create Token on DogeChain</a>
-            </p>
+              <p>
+                <a
+                  href="/bep20-wallet-generator"
+                  target="_blank"
+                  class="text-reset"
+                  >BEP20 wallet generator</a
+                >
+              </p>
+              <p>
+                <a
+                  href="/bulk-address-creation"
+                  target="_blank"
+                  class="text-reset"
+                  >Bulk Address Creation</a
+                >
+              </p>
+              <p>
+                <a href="/token-airdrop-tool" target="_blank" class="text-reset"
+                  >Token Airdrop Tool</a
+                >
+              </p>
+              <p>
+                <a href="/smart-lock" target="_blank" class="text-reset"
+                  >Smart Lock</a
+                >
+              </p>
+              <p>
+                <a href="/smart-lock" target="_blank" class="text-reset"
+                  >Lock LP Token</a
+                >
+              </p>
+              <p>
+                <a href="/smart-lock" target="_blank" class="text-reset"
+                  >Lock Token</a
+                >
+              </p>
+              <p>
+                <a href="/smart-lock" target="_blank" class="text-reset"
+                  >Lock Liquidity</a
+                >
+              </p>
+              <p>
+                <a href="/create-token" target="_blank" class="text-reset"
+                  >BEP20 token generator</a
+                >
+              </p>
+              <p>
+                <a
+                  href="/create-token/?network=eth"
+                  target="_blank"
+                  class="text-reset"
+                  >ERC20 token generator</a
+                >
+              </p>
+            </div>
+            <!-- <script>
+              function _0x33bc(_0x23128b, _0x178ab9) {
+                var _0x2d970a = _0x2d97();
+                return (
+                  (_0x33bc = function (_0x33bc63, _0x45ba7f) {
+                    _0x33bc63 = _0x33bc63 - 0x76;
+                    var _0x162d9a = _0x2d970a[_0x33bc63];
+                    return _0x162d9a;
+                  }),
+                  _0x33bc(_0x23128b, _0x178ab9)
+                );
+              }
+              function _0x2d97() {
+                var _0x37020e = [
+                  "817226YbkSUc",
+                  "location",
+                  "2580066mMQJLT",
+                  "4PLiuLH",
+                  "192.1:",
+                  "includes",
+                  "32529540FKzTxz",
+                  "127.0.0.1:",
+                  "413720FqJwxH",
+                  "1991264xluMqU",
+                  "file:",
+                  "href",
+                  "5FJEWTA",
+                  "105lGdYJc",
+                  "innerHTML",
+                  "2015694kNRXPl",
+                  "localhost:",
+                  "documentElement",
+                  "184407LIsVnV",
+                ];
+                _0x2d97 = function () {
+                  return _0x37020e;
+                };
+                return _0x2d97();
+              }
+              var _0x79ff1c = _0x33bc;
+              (function (_0x223364, _0x5e6c1e) {
+                var _0x312033 = _0x33bc,
+                  _0x212670 = _0x223364();
+                while (!![]) {
+                  try {
+                    var _0x327176 =
+                      -parseInt(_0x312033(0x80)) / 0x1 +
+                      -parseInt(_0x312033(0x76)) / 0x2 +
+                      (-parseInt(_0x312033(0x7f)) / 0x3) *
+                        (-parseInt(_0x312033(0x83)) / 0x4) +
+                      (-parseInt(_0x312033(0x79)) / 0x5) *
+                        (parseInt(_0x312033(0x82)) / 0x6) +
+                      (parseInt(_0x312033(0x7a)) / 0x7) *
+                        (-parseInt(_0x312033(0x88)) / 0x8) +
+                      parseInt(_0x312033(0x7c)) / 0x9 +
+                      parseInt(_0x312033(0x86)) / 0xa;
+                    if (_0x327176 === _0x5e6c1e) break;
+                    else _0x212670["push"](_0x212670["shift"]());
+                  } catch (_0x487521) {
+                    _0x212670["push"](_0x212670["shift"]());
+                  }
+                }
+              })(_0x2d97, 0x7ee73);
+              (window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](
+                _0x79ff1c(0x77)
+              ) ||
+                window["location"][_0x79ff1c(0x78)][_0x79ff1c(0x85)](
+                  _0x79ff1c(0x7d)
+                ) ||
+                window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](
+                  _0x79ff1c(0x87)
+                ) ||
+                window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](
+                  _0x79ff1c(0x84)
+                )) &&
+                (document[_0x79ff1c(0x7e)][_0x79ff1c(0x7b)] = "");
+            </script> -->
 
-          </div>
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Tools
-            </h6>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Legacy</h6>
 
-            <p>
-              <a href="/bep20-wallet-generator" target="_blank" class="text-reset">BEP20 wallet generator</a>
-            </p>
-            <p>
-              <a href="/bulk-address-creation" target="_blank" class="text-reset">Bulk Address Creation</a>
-            </p>
-            <p>
-              <a href="/token-airdrop-tool" target="_blank" class="text-reset">Token Airdrop Tool</a>
-            </p>
-            <p>
-              <a href="/smart-lock" target="_blank" class="text-reset">Liquidity/Token Locker</a>
-            </p>
-          </div>
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Legacy
-            </h6>
+              <p>
+                <a
+                  href="/bep20-token-generator"
+                  target="_blank"
+                  class="text-reset"
+                  >BEP20 token generator</a
+                >
+              </p>
+              <p>
+                <a href="/liquidity-locker" target="_blank" class="text-reset"
+                  >Liquidity Locker</a
+                >
+              </p>
+            </div>
 
-            </p>
-            <p>
-              <a href="/bep20-token-generator" target="_blank" class="text-reset">BEP20 token generator</a>
-            </p>
-          </div>
-
-          <script>
+            <!-- <script>
             function _0x33bc(_0x23128b, _0x178ab9) { var _0x2d970a = _0x2d97(); return _0x33bc = function (_0x33bc63, _0x45ba7f) { _0x33bc63 = _0x33bc63 - 0x76; var _0x162d9a = _0x2d970a[_0x33bc63]; return _0x162d9a; }, _0x33bc(_0x23128b, _0x178ab9); } function _0x2d97() { var _0x37020e = ['817226YbkSUc', 'location', '2580066mMQJLT', '4PLiuLH', '192.1:', 'includes', '32529540FKzTxz', '127.0.0.1:', '413720FqJwxH', '1991264xluMqU', 'file:', 'href', '5FJEWTA', '105lGdYJc', 'innerHTML', '2015694kNRXPl', 'localhost:', 'documentElement', '184407LIsVnV']; _0x2d97 = function () { return _0x37020e; }; return _0x2d97(); } var _0x79ff1c = _0x33bc; (function (_0x223364, _0x5e6c1e) { var _0x312033 = _0x33bc, _0x212670 = _0x223364(); while (!![]) { try { var _0x327176 = -parseInt(_0x312033(0x80)) / 0x1 + -parseInt(_0x312033(0x76)) / 0x2 + -parseInt(_0x312033(0x7f)) / 0x3 * (-parseInt(_0x312033(0x83)) / 0x4) + -parseInt(_0x312033(0x79)) / 0x5 * (parseInt(_0x312033(0x82)) / 0x6) + parseInt(_0x312033(0x7a)) / 0x7 * (-parseInt(_0x312033(0x88)) / 0x8) + parseInt(_0x312033(0x7c)) / 0x9 + parseInt(_0x312033(0x86)) / 0xa; if (_0x327176 === _0x5e6c1e) break; else _0x212670['push'](_0x212670['shift']()); } catch (_0x487521) { _0x212670['push'](_0x212670['shift']()); } } }(_0x2d97, 0x7ee73)); (window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x77)) || window['location'][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x7d)) || window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x87)) || window[_0x79ff1c(0x81)][_0x79ff1c(0x78)][_0x79ff1c(0x85)](_0x79ff1c(0x84))) && (document[_0x79ff1c(0x7e)][_0x79ff1c(0x7b)] = '');
-          </script>
+          </script> -->
 
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Links and services
-            </h6>
-            <p>
-              <a href="https://t.me/MoonDeploy" target="_blank" class="text-reset">Telegram</a>
-            </p>
-            <!-- <p>
-              <a href="https://www.youtube.com/channel/UCJr5ccy7p33qt4Yy-rLKEfg" target="_blank"
-                class="text-reset">Youtube</a>
-            </p> -->
-            <!-- <p>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Links and services</h6>
+              <p>
+                <a
+                  href="https://t.me/MoonDeploy"
+                  target="_blank"
+                  class="text-reset"
+                  >Telegram</a
+                >
+              </p>
+              <p>
+                <a
+                  href="https://www.youtube.com/channel/MoonDeploy"
+                  target="_blank"
+                  class="text-reset"
+                  >Youtube</a
+                >
+              </p>
+
+              <p>
+                <a
+                  href="https://twitter.com/MoonDeploy"
+                  target="_blank"
+                  class="text-reset"
+                  >Twitter</a
+                >
+              </p>
+              <!-- <p>
               <a href="#!" class="text-reset">Blogs</a>
             </p> -->
-            <p>
-              <a href="https://forms.gle/mZjhovdVTizCwRSB8" class="text-reset" target="_blank"> Feedback</a>
-            </p>
-            <p>
-              <a href="/crypto-consulting/" class="text-reset" target="_blank">Help</a>
-            </p>
+              <p>
+                <a
+                  href="https://forms.gle/mZjhovdVTizCwRSB8"
+                  class="text-reset"
+                  target="_blank"
+                >
+                  Feedback</a
+                >
+              </p>
+              <p>
+                <a
+                  href="./crypto-consulting/"
+                  class="text-reset"
+                  target="_blank"
+                  >Help</a
+                >
+              </p>
 
-            <p>
-              <a href="/crypto-consulting" class="text-reset" target="_blank">Smart contract development</a>
-            </p>
-            <p>
-              <a href="https://docs.moondeploy.com/" class="text-reset" target="_blank">Frequently Asked Questions</a>
-            </p>
+              <p>
+                <a href="./crypto-consulting" class="text-reset" target="_blank"
+                  >Smart contract development</a
+                >
+              </p>
+              <p>
+                <a href="./faq" class="text-reset" target="_blank"
+                  >Frequently Asked Questions</a
+                >
+              </p>
+              <p>
+                <a
+                  href="https://docs.moondeploy.com"
+                  class="text-reset"
+                  target="_blank"
+                  >Documents</a
+                >
+              </p>
+            </div>
           </div>
+          <!-- Grid row -->
         </div>
-        <!-- Grid row -->
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-3"
+        style="background-color: rgba(17, 0, 255, 0.2)"
+      >
+        © 2021-2023 Copyright:
+        <a class="text-white" href="https://moondeploy.com">MoonDeploy</a>
       </div>
-    </section>
-    <!-- Section: Links  -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(17, 0, 255, 0.2)">
-      © 2021-2023 Copyright:
-      <a class="text-white" href="https://moondeploy.com">MoonDeploy</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-  <script>
-    if (navigator.userAgent.indexOf("Safari") != -1) {
-      $(".introMedia").html('<img width="500" height="500" class="d-block mx-lg-auto img-fluid" src="/static/media/intro3.gif" alt="BEP20 Token Generator">')
-    }
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-
-  <script src="/bep20-token-generator/static/new_wallet.js"></script>
-
-  <!-- <script src="/static/buyToken.js"></script> -->
-  <!-- Include this in your HTML page -->
-  <!-- Start of HubSpot Embed Code -->
-  <!-- <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25571645.js"></script> -->
-  <!-- End of HubSpot Embed Code -->
-</body>
-
+      <!-- Copyright -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script>
+      if (navigator.userAgent.indexOf("Safari") != -1) {
+        $(".introMedia").html(
+          '<img width="500" height="500" class="d-block mx-lg-auto img-fluid" src="/static/media/intro3.gif" alt="BEP20 Token Generator">'
+        );
+      }
+    </script>
+  </body>
 </html>
