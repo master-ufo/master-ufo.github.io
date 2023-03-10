@@ -1461,7 +1461,7 @@ contract MarketingTax is ERC20, Ownable, Ownership {
         uint256 _secondNumberAfterDecimal
     ) public onlyOwner {
         require(
-            _wholeNumber < 100 &&
+            _wholeNumber <= 25 &&
                 _firstNumberAfterDecimal <= 9 &&
                 _secondNumberAfterDecimal <= 9
         );
@@ -1479,7 +1479,7 @@ contract MarketingTax is ERC20, Ownable, Ownership {
         uint256 _secondNumberAfterDecimal
     ) public onlyOwner {
         require(
-            _wholeNumber < 100 &&
+            _wholeNumber <= 25 &&
                 _firstNumberAfterDecimal <= 9 &&
                 _secondNumberAfterDecimal <= 9
         );
