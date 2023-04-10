@@ -1031,6 +1031,13 @@
       $(".nativeToken").text("wDOGE");
     }
 
+    if (network == 42161 || network == 421613) {
+      $("." + token_type + " .rewardContainer").load(
+        "static/views/" + view_folder + "/arbitrum.html"
+      );
+      $(".nativeToken").text("ETH");
+    }
+
     $("." + token_type + " " + ".rewardContainer").on("change", () => {
       if (
         $("." + token_type + " " + ".rewardContainer").val() ==

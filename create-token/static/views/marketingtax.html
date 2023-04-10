@@ -291,6 +291,12 @@
         "static/views/" + view_folder + "/doge.html"
       );
     }
+
+    if (network == 42161 || network == 421613) {
+      $("." + token_type + " .rewardContainer").load(
+        "static/views/" + view_folder + "/arbitrum.html"
+      );
+    }
   }
   setReward();
 
