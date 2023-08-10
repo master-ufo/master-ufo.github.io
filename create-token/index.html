@@ -542,6 +542,49 @@
       </div>
     </div>
 
+    <div
+      class="toast notification-bottom"
+      data-delay="10000"
+      style="z-index: 100"
+    >
+      <div class="toast-header">
+        <!-- <img src="..." class="rounded mr-2" alt="..." /> -->
+        <strong class="mr-auto">✅ <span id="userNetwork"></span></strong>
+        <small>&nbsp;<span id="userTimeAgo"></span></small>
+        <!-- <button
+        type="button"
+        class="ml-2 mb-1 close"
+        data-dismiss="toast"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">x</span>
+      </button> -->
+      </div>
+      <div class="toast-body">
+        🔥 <span id="userAddress" class="fw-bold"></span> created
+        <span id="userTokenType" class="fw-bold"></span>
+        <span class="fw-bold">Token</span> 🚀
+      </div>
+    </div>
+
+    <style>
+      .notification-bottom {
+        position: fixed;
+        width: 95%;
+        bottom: 10px;
+        left: 5px;
+
+        /* Rest of your styling */
+      }
+
+      .notification-close {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        /* This are approximated values, and the rest of your styling goes here */
+      }
+    </style>
+
     <div class="container text-center mt-5">
       <h3>Watch video tutorial</h3>
 
