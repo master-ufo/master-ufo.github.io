@@ -832,17 +832,8 @@ contract contract_name_placeholder is ERC20, Ownable {
         super._transfer(from, to, amount);
     }
 
-    // function mint(address account, uint256 amount) external onlyOwner {
-    //     require(canMint, "the mint function isn't activated");
-    //     _mint(account, amount);
-    // }
-
     mint_placeholder
 
     burn_placeholder
 
-    // function burn(address account, uint256 amount) external onlyOwner {
-    //     require(canBurn, "the burn function isn't activated");
-    //     _burn(account, amount);
-    // }
 }
