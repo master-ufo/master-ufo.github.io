@@ -1,0 +1,9 @@
+    
+    function setDevWallet(address payable _newWallet) external onlyOwner {
+        require(_newWallet != address(0), "ZERO ADDRESS");
+        feeWalletDev = _newWallet;
+    }
+
+    function setDevFeeToken(address feeToken) external onlyOwner {
+        devFeeToken = feeToken;
+    }

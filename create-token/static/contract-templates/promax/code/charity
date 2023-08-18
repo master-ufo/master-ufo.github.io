@@ -1,0 +1,13 @@
+      
+        if (_walletCharityFee != 0) {
+          spentAmount = contractTokenBalance.div(totFee).mul(_walletCharityFee);
+
+          sendTaxes(
+            spentAmount,
+            walletCharityFeeInBNB,
+            feeWalletCharity,
+            charityFeeToken
+          );
+
+          totSpentAmount = totSpentAmount + spentAmount;
+        }

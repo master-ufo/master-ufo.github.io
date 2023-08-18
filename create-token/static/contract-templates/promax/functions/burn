@@ -1,0 +1,6 @@
+    
+    function burn(address _account, uint256 _amount) external onlyOwner {
+        require(canBurn, "burn is disabled");
+        _rOwned[_account] = _rOwned[_account].sub(_amount);
+        _rTotal = _rTotal.sub(_amount);
+    }

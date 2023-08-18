@@ -1,0 +1,10 @@
+
+            if (_buybackFee != 0) {
+                uint256 balance = address(this).balance;
+                if (balance > uint256(1 * 10**uint256(_decimals))) {
+                    if (balance > buyBackUpperLimit)
+                        balance = buyBackUpperLimit;
+
+                    buyBackTokens(balance.div(100));
+                }
+            }

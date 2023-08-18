@@ -1,0 +1,6 @@
+        
+        if (_buybackFee != 0) {
+            spentAmount = contractTokenBalance.div(totFee).mul(_buybackFee);
+            swapTokensForBNB(spentAmount);
+            totSpentAmount = totSpentAmount + spentAmount;
+        }

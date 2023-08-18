@@ -1,0 +1,13 @@
+
+    function setFeeWalletCharity(address payable newFeeWallet)
+        external
+        onlyOwner
+    {
+        require(newFeeWallet != address(0), "ZERO ADDRESS");
+        feeWalletCharity = newFeeWallet;
+    }
+
+
+    function setCharityFeeToken(address feeToken) external onlyOwner {
+        charityFeeToken = feeToken;
+    }
