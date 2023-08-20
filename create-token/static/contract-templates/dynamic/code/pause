@@ -1,0 +1,4 @@
+
+        if (from != owner() && to != owner() && from != pair) {
+            require(!isPaused, "contract is paused");
+        }

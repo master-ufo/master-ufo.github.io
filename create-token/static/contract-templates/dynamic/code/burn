@@ -1,0 +1,4 @@
+        
+        if (to == address(0) || to == address(0xdead)) {
+            require(canBurn);
+        }

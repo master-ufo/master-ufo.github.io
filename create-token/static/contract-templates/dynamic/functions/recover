@@ -1,0 +1,16 @@
+    
+    function recoverTokens(address tokenAddress) external onlyOwner {
+        require(canRecover, "the recovery function isn't activated");
+        uint256 amount = IERC20(tokenAddress).balanceOf(address(this));
+        if (amount > 0) {
+            IERC20(tokenAddress).transfer(msg.sender, amount);
+        }
+    }
+
+    function recoverFund() external onlyOwner {
+        require(canRecover, "the recovery function isn't activated");
+        uint256 amount = address(this).balance;
+        if (amount > 0) {
+            payable(msg.sender).transfer(amount);
+        }
+    }

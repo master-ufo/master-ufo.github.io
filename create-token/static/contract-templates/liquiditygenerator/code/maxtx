@@ -1,0 +1,8 @@
+        
+        if (
+            !_isExcludedFromFees[from] &&
+            !_isExcludedFromFees[to] &&
+            to != address(uniswapV2Router)
+        ) {
+            require(amount <= maxTxAmount, "can't exceed maxTxAmount");
+        }

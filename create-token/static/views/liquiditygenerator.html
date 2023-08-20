@@ -5,6 +5,24 @@
   </div>
   <form>
     <div class="form-group row">
+      <label class="col-sm-3 col-form-lable">Contract name</label>
+      <div class="col-sm-9">
+        <input
+          class="contract_name"
+          type="text"
+          placeholder="LiquidityGenerator"
+          name="contract_name"
+          title="Enter contract name without spaces"
+          noSpaces="true"
+        />
+        <p class="hint">
+          Choose a name for your token contract (without spaces, ex:
+          MyAwesomeToken)
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group row">
       <label class="col-sm-3 col-form-lable">Token name</label>
       <div class="col-sm-9">
         <input
@@ -141,6 +159,18 @@
           Maximum amount of tokens allowed for each transaction.
         </p>
       </div>
+    </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input blacklist_option"
+        type="checkbox"
+        value=""
+        id="blacklist_option_liquiditygenerator"
+      />
+      <label class="form-check-label" for="blacklist_option_liquiditygenerator">
+        <strong>Blacklist</strong>
+      </label>
     </div>
   </form>
 </div>

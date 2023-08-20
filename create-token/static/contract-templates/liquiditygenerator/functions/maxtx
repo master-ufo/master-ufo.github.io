@@ -1,0 +1,4 @@
+    
+    function setMaxTxAmount(uint256 _amount) external onlyOwner {
+        maxTxAmount = _amount;
+    }

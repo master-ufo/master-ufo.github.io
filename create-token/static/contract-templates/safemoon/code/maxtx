@@ -1,0 +1,6 @@
+        
+        if (from != owner() && to != owner())
+            require(
+                amount <= maxTxAmount,
+                "Transfer amount exceeds the maxTxAmount."
+            );

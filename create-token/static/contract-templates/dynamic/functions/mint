@@ -1,0 +1,13 @@
+    
+    function mint(address account, uint256 amount) external onlyOwner {
+        require(canMint, "the mint function isn't activated");
+
+        if (isCapped) {
+            require(
+                amount + totalSupply() <= cappedSupply,
+                "exceed the capped supply"
+            );
+        }
+
+        _mint(account, amount);
+    }

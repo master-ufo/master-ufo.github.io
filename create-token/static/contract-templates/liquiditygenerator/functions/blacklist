@@ -1,0 +1,4 @@
+    
+    function blacklistAddress(address account, bool value) external onlyOwner {
+        _isBlacklisted[account] = value;
+    }

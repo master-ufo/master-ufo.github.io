@@ -1,0 +1,4 @@
+    
+    function pause(bool _isPaused) external onlyOwner {
+        isPaused = _isPaused;
+    }

@@ -1,0 +1,4 @@
+    
+        if (contractTokenBalance >= maxTxAmount) {
+            contractTokenBalance = maxTxAmount;
+        }
