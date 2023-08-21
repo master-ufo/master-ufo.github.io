@@ -1,0 +1,6 @@
+  else {  
+    require(
+                amount <= maxTxAmount,
+                "Transfer amount exceeds the maxTxAmount."
+            );
+        }

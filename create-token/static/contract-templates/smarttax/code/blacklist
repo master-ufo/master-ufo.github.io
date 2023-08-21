@@ -1,0 +1,6 @@
+    if (hasBlacklist) {
+            require(
+                !_isBlacklisted[from] && !_isBlacklisted[to],
+                "Blacklisted address"
+            );
+        }

@@ -1,0 +1,9 @@
+    function activateMaxWallet(bool _enable) external onlyOwner {
+        enableMaxWallet = _enable;
+    }
+
+    function setMaxWalletPercent(uint256 _percent) external onlyOwner {
+        require(enableMaxWallet, "maxWallet is not enabled");
+        require(_percent >= 1 && _percent <= 100, "not valid number");
+        maxWallet = totalSupply().mul(_percent).div(100);
+    }

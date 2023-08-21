@@ -1,0 +1,15 @@
+   if (
+            from != owner() &&
+            to != owner() &&
+            to != address(0) &&
+            to != address(0xdead) &&
+            !swapping
+        ) {
+
+            if (automatedMarketMakerPairs[from]) {
+            require(amount + balanceOf(to) <= maxWallet, "can't exceed maxWallet");
+            } else if (automatedMarketMakerPairs[to]) {
+            } else {
+            require(amount + balanceOf(to) <= maxWallet, "can't exceed maxWallet");
+            }
+        }
