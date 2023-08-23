@@ -214,6 +214,33 @@
         <p class="hint">Extra fees will be applied to sell transaction.</p>
       </div>
     </div>
+
+    <div class="form-group mt-3">
+      <label for="exampleFormControlTextarea1">Description (optional)</label>
+      <textarea
+        class="form-control description"
+        id="exampleFormControlTextarea1"
+        rows="3"
+        maxlength="2000"
+        style="
+          font-family: 'Courier New', Courier, monospace;
+          font-size: medium;
+        "
+        placeholder=""
+      >
+      </textarea>
+      <p class="hint">Info on top of contract</p>
+    </div>
+
+    <script>
+      var textarea = document.getElementById("exampleFormControlTextarea1");
+      var limit = 200;
+
+      textarea.oninput = function () {
+        textarea.style.height = "";
+        textarea.style.height = Math.min(textarea.scrollHeight, 300) + "px";
+      };
+    </script>
   </form>
 </div>
 
