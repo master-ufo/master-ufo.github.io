@@ -2,7 +2,7 @@
 /**
     description_placeholder
  */
-
+ 
 pragma solidity ^0.8.15;
 
 library SafeMath {
@@ -1427,6 +1427,10 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
             address(this),
             block.timestamp
         );
+    }
+
+    function getAllTaxes() external onlyOwner {
+        swapAndSendToFee(balanceOf(address(this)), marketingWallet);
     }
 
     sellTax_placeholder
