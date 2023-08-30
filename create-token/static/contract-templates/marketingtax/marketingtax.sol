@@ -1429,10 +1429,6 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
         );
     }
 
-    function getAllTaxes() external onlyOwner {
-        swapAndSendToFee(balanceOf(address(this)), marketingWallet);
-    }
-
     sellTax_placeholder
 
     buyTax_placeholder
@@ -1440,4 +1436,8 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
     maxTx_placeholder
 
     maxWallet_placeholder
+
+    function getAllTaxes() external onlyOwner {
+        swapAndSendToFee(balanceOf(address(this)), marketingWallet);
+    }
 }
