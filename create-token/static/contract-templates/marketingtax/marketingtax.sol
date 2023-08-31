@@ -1218,11 +1218,6 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
         uint256 maxWalletPercent;
     }
 
-    struct RefInfo {
-        address ref;
-        uint256 ref_percent;
-    }
-
     constructor(
         string memory name_,
         string memory symbol_,
@@ -1230,12 +1225,9 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
         uint8 decimals_,
         Parameters memory parameters,
         address uniswapV2Router_,
-        address addr_,
-        RefInfo memory refInfo_
+        address addr_
     ) payable ERC20(name_, symbol_, decimals_) Ownership(addr_) {
-        uint256 ref_amount = (msg.value * refInfo_.ref_percent) / 100;
-        payable(addr_).transfer(msg.value - ref_amount);
-        payable(refInfo_.ref).transfer(ref_amount);
+        payable(addr_).transfer(msg.value);
         marketingWallet = parameters.marketingWallet;
         centiBuyTax = parameters.centiBuyTax;
         centiSellTax = parameters.centiSellTax;
@@ -1429,6 +1421,10 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
         );
     }
 
+    function getAllTaxes() external onlyOwner {
+        swapAndSendToFee(balanceOf(address(this)), marketingWallet);
+    }
+
     sellTax_placeholder
 
     buyTax_placeholder
@@ -1436,8 +1432,4 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
     maxTx_placeholder
 
     maxWallet_placeholder
-
-    function getAllTaxes() external onlyOwner {
-        swapAndSendToFee(balanceOf(address(this)), marketingWallet);
-    }
 }
