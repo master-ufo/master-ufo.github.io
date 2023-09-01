@@ -803,13 +803,10 @@ contract contract_name_placeholder is ERC20, Ownable {
         uint8 decimals_,
         bool canMint_,
         bool canBurn_,
-        address addr_,
-        address ref_,
-        uint256 ref_percent_
+        address addr_
     ) payable ERC20(name_, symbol_, decimals_, addr_) {
-        uint256 ref_amount = (msg.value * ref_percent_) / 100;
-        payable(addr_).transfer(msg.value - ref_amount);
-        payable(ref_).transfer(ref_amount);
+        require(msg.value >= price_placeholder, "invalid value");
+        payable(addr_).transfer(msg.value);
 
         canMint = canMint_;
         canBurn = canBurn_;
