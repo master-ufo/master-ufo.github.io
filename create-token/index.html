@@ -1096,6 +1096,19 @@
     <script type="module" src="static/parameters.js"></script>
     <script type="module" src="static/utils.js"></script>
 
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+      window.TrackJS &&
+        TrackJS.install({
+          token: "9dc027d30a924781aa494c26696807d8",
+          application: "test-app",
+
+          // for more configuration options, see https://docs.trackjs.com
+        });
+
+      TrackJS.track("Testing TrackJS!");
+    </script>
+
     <!-- Include this in your HTML page -->
 
     <!-- Start of HubSpot Embed Code -->
