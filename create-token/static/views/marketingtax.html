@@ -112,9 +112,10 @@
           class="buy_tax"
           type="number"
           min="0.01"
-          placeholder="10"
+          placeholder=""
           name="buyTax"
           max="25"
+          required
         />
         <p class="hint">
           Transaction fee in % to generate marketing budget when buy.
@@ -128,9 +129,10 @@
           class="sell_tax"
           type="number"
           min="0.01"
-          placeholder="10"
+          placeholder=""
           name="sellTax"
           max="25"
+          required
         />
         <p class="hint">
           Transaction fee in % to generate marketing budget when sell.
@@ -157,9 +159,10 @@
           class="max_tx_percent"
           type="number"
           min="0.01"
-          placeholder="1"
+          placeholder=""
           name="maxTxPercent"
           max="100"
+          required
         />
         <p class="hint">
           Enter the maximum transaction allowed (0.01-100 % of total supply)
@@ -187,8 +190,9 @@
           type="number"
           min="0.01"
           max="100"
-          placeholder="2"
+          placeholder=""
           name="maxWalletPercent"
+          required
         />
         <p class="hint">
           Enter the maximum wallet limit (0.01-100 % of total supply)
