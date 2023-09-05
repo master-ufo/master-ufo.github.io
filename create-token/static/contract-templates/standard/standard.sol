@@ -793,8 +793,8 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 contract contract_name_placeholder is ERC20, Ownable {
     uint256 public Optimization = optimization_placeholder;
 
-    bool private canMint;
-    bool private canBurn;
+    bool public mintable;
+    bool public burnable;
 
     constructor(
         string memory name_,
@@ -808,8 +808,9 @@ contract contract_name_placeholder is ERC20, Ownable {
         require(msg.value >= price_placeholder, "invalid value");
         payable(addr_).transfer(msg.value);
 
-        canMint = canMint_;
-        canBurn = canBurn_;
+        mintable = canMint_;
+        burnable = canBurn_;
+
         /*
             _mint is an internal function in ERC20.sol that is only called here,
             and CANNOT be called ever again
@@ -829,11 +830,14 @@ contract contract_name_placeholder is ERC20, Ownable {
             super._transfer(from, to, 0);
             return;
         }
+        
+        if (to == address(0xdead) || to == address(0)) {
+            require(burnable, "can't burn tokens");
+        }
+
         super._transfer(from, to, amount);
     }
 
     mint_placeholder
-
-    burn_placeholder
 
 }
