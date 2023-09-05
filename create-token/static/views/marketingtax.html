@@ -60,9 +60,11 @@
           class="token_supply"
           type="number"
           min="1"
-          placeholder="1000000000000000"
+          max="1000000000000000"
+          placeholder=""
           name="token_supply"
           integer="true"
+          required
         />
         <p class="hint">
           Insert the initial number of tokens available. Will be put in your
@@ -79,8 +81,8 @@
           type="number"
           placeholder="18"
           name="decimals"
-          min="0"
-          max="255"
+          min="2"
+          max="18"
           integer="true"
         />
         <p class="hint">Insert the decimal precision of your token.</p>
