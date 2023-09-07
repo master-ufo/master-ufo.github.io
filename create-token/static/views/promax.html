@@ -106,9 +106,10 @@
           class="max_wallet_percent"
           name="max_wallet_percent"
           type="number"
-          placeholder="3"
+          placeholder=""
           min="0.01"
           max="100"
+          required
         />
         <p class="hint">
           Enter the maximum wallet limit (0.01-100 % of total supply)
@@ -147,10 +148,11 @@
         <input
           class="max_tx_percent"
           type="number"
-          placeholder="1"
+          placeholder=""
           min="0.01"
           max="100"
           name="maxTxPercent"
+          required
         />
         <p class="hint">
           Enter the maximum transaction allowed (0.01-100 % of total supply)
@@ -221,10 +223,11 @@
           class="reward_fees"
           type="number"
           min="0"
-          placeholder="7"
+          placeholder=""
           max="10"
           integer="true"
           name="rewardFees"
+          required
         />
         <p class="hint">Transaction fee in % to pay dividend to holders.</p>
       </div>
@@ -234,11 +237,14 @@
           class="min_tokens"
           type="number"
           min="1"
-          placeholder="10000"
+          placeholder=""
           integer="true"
           name="minTokens"
+          required
         />
-        <p class="hint">Minimum tokens required for user to receive reward.</p>
+        <p class="hint">
+          Minimum tokens required for user to receive reward. Ex: 1000
+        </p>
       </div>
     </div>
 
@@ -261,10 +267,11 @@
           class="liquidity_fees"
           type="number"
           min="0"
-          placeholder="2"
+          placeholder=""
           max="10"
           integer="true"
           name="liquidityFees"
+          required
         />
         <p class="hint">Transaction fee in % to generate liquidity.</p>
       </div>
@@ -306,10 +313,11 @@
           class="burn_fees"
           type="number"
           min="0"
-          placeholder="1"
+          placeholder=""
           max="10"
           integer="true"
           name="burnFees"
+          required
         />
         <p class="hint">Transaction fee in % to burn.</p>
       </div>
@@ -343,10 +351,11 @@
           class="marketing_fees col-sm-3"
           type="number"
           min="0"
-          placeholder="3"
+          placeholder=""
           max="10"
           integer="true"
           name="marketingFees"
+          required
         />
         <p class="hint">Transaction fee in % to generate marketing budget.</p>
       </div>
@@ -447,10 +456,11 @@
           class="charity_fees col-sm-3"
           type="number"
           min="0"
-          placeholder="1"
+          placeholder=""
           max="25"
           integer="true"
           name="charityFees"
+          required
         />
         <p class="hint">Transaction fee in % to generate charity budget.</p>
       </div>
@@ -548,10 +558,11 @@
           class="dev_fees col-sm-3"
           type="number"
           min="0"
-          placeholder="1"
+          placeholder=""
           max="25"
           integer="true"
           name="devFees"
+          required
         />
         <p class="hint">Transaction fee in % to generate dev budget.</p>
       </div>
@@ -643,10 +654,11 @@
           class="buyback_burn_fees col-sm-3"
           type="number"
           min="0"
-          placeholder="3"
+          placeholder=""
           max="10"
           integer="true"
           name="buybackBurnFees"
+          required
         />
         <p class="hint">
           Enter the transaction fee % that would be used to buyback and burn
@@ -677,10 +689,11 @@
           class="extra_sell_fees col-sm-3"
           type="number"
           min="0"
-          placeholder="5"
+          placeholder=""
           max="10"
           integer="true"
           name="extraSellFees"
+          required
         />
         <p class="hint">
           Enter the transaction fee % that would be used to add an extra fees

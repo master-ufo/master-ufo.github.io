@@ -104,7 +104,7 @@
           class="max_tx_percent"
           type="number"
           min="1"
-          placeholder="1"
+          placeholder=""
           name="maxTxPercent"
           max="25"
           integer="true"
@@ -139,10 +139,11 @@
           class="marketing_fees"
           type="number"
           min="0"
-          placeholder="3"
+          placeholder=""
           name="marketingFees"
           max="25"
           integer="true"
+          required
         />
         <p class="hint">Transaction fee in % to generate marketing budget.</p>
       </div>
@@ -155,10 +156,11 @@
           class="liquidity_fees"
           type="number"
           min="0"
-          placeholder="2"
+          placeholder=""
           name="liquidityFees"
           max="25"
           integer="true"
+          required
         />
         <p class="hint">Transaction fee in % to generate liquidity.</p>
       </div>
@@ -173,10 +175,11 @@
           class="tax_fees_extra"
           type="number"
           min="0"
-          placeholder="1"
+          placeholder=""
           name="taxFees"
           max="25"
           integer="true"
+          required
         />
         <p class="hint">Extra fees will be applied to sell transaction.</p>
       </div>
@@ -202,9 +205,10 @@
           type="number"
           min="1"
           max="100"
-          placeholder="2"
+          placeholder=""
           name="maxWalletPercent"
           integer="true"
+          required
         />
         <p class="hint">
           The maximum percent of total supply a wallet can have.
@@ -231,15 +235,30 @@
           class="max_tx_amount"
           type="number"
           min="1"
-          placeholder="100000000000000"
+          placeholder=""
           name="maxTxAmount"
           integer="true"
+          required
         />
         <p class="hint">
           Maximum amount of tokens allowed for each transaction.
         </p>
       </div>
     </div>
+
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input blacklist_option"
+        type="checkbox"
+        value=""
+        id="blacklist_option_smarttax"
+      />
+
+      <label class="form-check-label" for="blacklist_option_smarttax">
+        <strong>Blacklist</strong>
+      </label>
+    </div>
+
     <div class="form-group mt-3" style="display: none">
       <label for="exampleFormControlTextarea1">Description</label>
       <textarea

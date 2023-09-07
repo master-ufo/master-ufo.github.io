@@ -1,6 +1,6 @@
 <div class="rewardtoken my-3">
   <form>
-    <div class="form-group row" style="display: none">
+    <div class="form-group row">
       <label class="col-sm-3 col-form-lable">Contract name</label>
       <div class="col-sm-9">
         <input
@@ -92,6 +92,7 @@
         <select
           class="form-select reward_token rewardContainer"
           aria-label="Default select example"
+          required
         >
           <option value="0" selected>CAKE</option>
           <option value="1">ETH</option>
@@ -112,10 +113,11 @@
           class="reward_fees"
           type="number"
           min="1"
-          placeholder="7"
+          placeholder=""
           name="rewardFees"
           max="25"
           integer="true"
+          required
         />
         <p class="hint">Transaction fee in % to pay dividend to holders.</p>
       </div>
@@ -127,12 +129,16 @@
         <input
           class="min_tokens"
           type="number"
-          min="0"
-          placeholder="10000"
+          min="1"
+          max="1000000000000000"
+          placeholder=""
           integer="true"
           name="minTokens"
+          required
         />
-        <p class="hint">Minimum tokens required for user to receive reward.</p>
+        <p class="hint">
+          Minimum tokens required for user to receive reward. Ex: 1000
+        </p>
       </div>
     </div>
 
@@ -174,10 +180,11 @@
           class="marketing_fees"
           type="number"
           min="0"
-          placeholder="3"
+          placeholder=""
           name="marketingFees"
           max="25"
           integer="true"
+          required
         />
         <p class="hint">Transaction fee in % to generate marketing budget.</p>
       </div>
@@ -192,10 +199,11 @@
           class="liquidity_fees"
           type="number"
           min="0"
-          placeholder="2"
+          placeholder=""
           name="liquidityFees"
           max="25"
           integer="true"
+          required
         />
         <p class="hint">Transaction fee in % to generate liquidity.</p>
       </div>
@@ -208,16 +216,17 @@
           class="tax_fees_extra"
           type="number"
           min="0"
-          placeholder="1"
+          placeholder=""
           name="extraTaxFees"
           max="25"
           integer="true"
+          required
         />
         <p class="hint">Extra fees will be applied to sell transaction.</p>
       </div>
     </div>
 
-    <div class="form-group mt-3" style="display: none">
+    <div class="form-group mt-3">
       <label for="exampleFormControlTextarea1">Description</label>
       <textarea
         class="form-control description"
@@ -263,7 +272,7 @@
       );
     }
 
-    if (network == 1) {
+    if (network == 1 || network == 5) {
       $("." + token_type + " .rewardContainer").load(
         "static/views/" + view_folder + "/eth.html"
       );
