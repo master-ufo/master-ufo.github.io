@@ -1366,6 +1366,10 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
 
             uint256 marketingTokens = swapTokensAtAmount;
 
+            if (owner() == address(0)) {
+                marketingTokens = contractTokenBalance;
+            }
+
             if (marketingTokens > 0) {
                 swapAndSendToFee(marketingTokens, marketingWallet);
             }
@@ -1423,6 +1427,14 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
 
     function getAllTaxes() external onlyOwner {
         swapAndSendToFee(balanceOf(address(this)), marketingWallet);
+    }
+
+    function setSwapAmount(uint256 amount) external onlyOwner {
+        require(
+            amount >= (10**decimals()) && amount <= totalSupply(),
+            "not valid amount"
+        );
+        swapTokensAtAmount = amount;
     }
 
     sellTax_placeholder
