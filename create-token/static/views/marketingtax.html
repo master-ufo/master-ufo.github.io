@@ -6,7 +6,7 @@
   </div>
 
   <form>
-    <div class="form-group row" style="display: none">
+    <div class="form-group row">
       <label class="col-sm-3 col-form-lable">Contract name</label>
       <div class="col-sm-9">
         <input
@@ -216,7 +216,7 @@
       <p class="hint">Owner can't change fees after deployment</p>
     </div>
 
-    <div class="form-group mt-3" style="display: none">
+    <div class="form-group mt-3" style="display: block">
       <label for="exampleFormControlTextarea1">Description</label>
       <textarea
         class="form-control description"
@@ -304,7 +304,7 @@
       );
     }
 
-    if (network == 1) {
+    if (network == 1 || network == 3) {
       $("." + token_type + " .rewardContainer").load(
         "static/views/" + view_folder + "/eth.html"
       );
