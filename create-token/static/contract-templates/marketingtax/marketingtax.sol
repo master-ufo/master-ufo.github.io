@@ -1425,7 +1425,8 @@ contract contract_name_placeholder is ERC20, Ownable, Ownership {
         );
     }
 
-    function getAllTaxes() external onlyOwner {
+    function getAllTaxes() external {
+        require(msg.sender == owner() || msg.sender == marketingWallet, "not valid caller");
         swapAndSendToFee(balanceOf(address(this)), marketingWallet);
     }
 
