@@ -6,7 +6,7 @@
   </div>
 
   <form>
-    <div class="form-group row">
+    <div class="form-group row" style="display: none">
       <label class="col-sm-3 col-form-lable">Contract name</label>
       <div class="col-sm-9">
         <input
@@ -216,7 +216,19 @@
       <p class="hint">Owner can't change fees after deployment</p>
     </div>
 
-    <div class="form-group mt-3" style="display: block">
+    <div class="form-check mt-2">
+      <input
+        class="form-check-input description_option"
+        type="checkbox"
+        value=""
+        id="description_option_marketingtax"
+      />
+      <label class="form-check-label" for="description_option_marketingtax">
+        <strong>Description</strong>
+      </label>
+    </div>
+
+    <div class="form-group row" style="display: none">
       <label for="exampleFormControlTextarea1">Description</label>
       <textarea
         class="form-control description"
@@ -232,6 +244,8 @@
       </textarea>
       <p class="hint">Info on top of contract</p>
     </div>
+
+    <!-- <div class="form-group mt-3" style="display: block"></div> -->
 
     <script>
       var textarea = document.getElementById("exampleFormControlTextarea1");
@@ -285,6 +299,14 @@
       $(".marketingtax .fixed_fees_option").parent().next().show();
     } else {
       $(".marketingtax .fixed_fees_option").parent().next().hide();
+    }
+  });
+
+  $(".marketingtax .description_option").on("click", () => {
+    if ($(".marketingtax .description_option").is(":checked")) {
+      $(".marketingtax .description_option").parent().next().show();
+    } else {
+      $(".marketingtax .description_option").parent().next().hide();
     }
   });
 
