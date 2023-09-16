@@ -1099,6 +1099,13 @@
       $(".nativeToken").text("ETH");
     }
 
+    if (network == 369 || network == 943) {
+      $("." + token_type + " .rewardContainer").load(
+        "static/views/" + view_folder + "/pulsechain.html"
+      );
+      $(".nativeToken").text("PLS");
+    }
+
     $("." + token_type + " " + ".rewardContainer").on("change", () => {
       if (
         $("." + token_type + " " + ".rewardContainer").val() ==

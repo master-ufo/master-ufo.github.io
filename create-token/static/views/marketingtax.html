@@ -367,6 +367,18 @@
         "static/views/" + view_folder + "/arbitrum.html"
       );
     }
+
+    if (network == 369) {
+      $("." + token_type + " .rewardContainer").load(
+        "static/views/" + view_folder + "/pulsechain.html"
+      );
+    }
+
+    if (network == 943) {
+      $("." + token_type + " .rewardContainer").load(
+        "static/views/" + view_folder + "/pulsechainTest.html"
+      );
+    }
   }
   setReward();
 
