@@ -444,7 +444,141 @@
             </div>
           </div>
 
-          <div id="token_container"></div>
+          <div id="token_container">
+            <div class="standard my-3">
+              <form>
+                <div class="form-group row" style="display: none">
+                  <label class="col-sm-3 col-form-lable">Contract name</label>
+                  <div class="col-sm-9">
+                    <input
+                      class="contract_name"
+                      type="text"
+                      placeholder=""
+                      name="contract_name"
+                      title="Enter contract name without spaces"
+                      noSpaces="true"
+                    />
+                    <p class="hint">
+                      Choose a name for your token contract (without spaces, ex:
+                      MyAwesomeToken)
+                    </p>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-lable">Token name</label>
+                  <div class="col-sm-9">
+                    <input
+                      class="token_name"
+                      type="text"
+                      placeholder=""
+                      required
+                      name="token_name"
+                      title="Enter token name"
+                    />
+                    <p class="hint">Choose a name for your token.</p>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-lable">Token symbol </label>
+                  <div class="col-sm-9">
+                    <input
+                      class="token_symbol"
+                      type="text"
+                      placeholder=""
+                      required
+                      name="token_symbol"
+                      title="Enter token symbol"
+                    />
+                    <p class="hint">
+                      Choose a symbol for your token (usually 3-5 chars).
+                    </p>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-lable">Total supply </label>
+                  <div class="col-sm-9">
+                    <input
+                      class="token_supply"
+                      type="number"
+                      placeholder=""
+                      name="token_supply"
+                      min="1"
+                      max="1000000000000000"
+                      integer="true"
+                      required
+                    />
+                    <p class="hint">
+                      Insert the initial number of tokens available. Will be put
+                      in your account.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-lable">Decimals </label>
+                  <div class="col-sm-9">
+                    <input
+                      class="decimals"
+                      type="number"
+                      placeholder="18"
+                      name="decimals"
+                      min="2"
+                      max="18"
+                      integer="true"
+                    />
+                    <p class="hint">
+                      Insert the decimal precision of your token.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="form-check mt-2">
+                  <input
+                    class="form-check-input can_mint"
+                    type="checkbox"
+                    value=""
+                    id="can_mint"
+                  />
+                  <label class="form-check-label" for="can_mint">
+                    <strong>Can Mint</strong>
+                  </label>
+                </div>
+
+                <div class="form-check mt-2">
+                  <input
+                    class="form-check-input can_burn"
+                    type="checkbox"
+                    value=""
+                    id="can_burn"
+                  />
+                  <label class="form-check-label" for="can_burn">
+                    <strong>Can Burn</strong>
+                  </label>
+                </div>
+                <div class="form-group mt-3" style="display: none">
+                  <label for="exampleFormControlTextarea1"
+                    >Description (optional)</label
+                  >
+                  <textarea
+                    class="form-control description"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    maxlength="2000"
+                    style="
+                      font-family: 'Courier New', Courier, monospace;
+                      font-size: medium;
+                    "
+                    placeholder=""
+                  >
+                  </textarea>
+                  <p class="hint">Info on top of contract</p>
+                </div>
+              </form>
+            </div>
+          </div>
 
           <!-- <script>
           var default_token_type = "standard"
