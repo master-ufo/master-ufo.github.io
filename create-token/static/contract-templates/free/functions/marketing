@@ -1,0 +1,9 @@
+    
+    function setFeeWallet(address payable newFeeWallet) external onlyOwner {
+        require(newFeeWallet != address(0), "ZERO ADDRESS");
+        feeWallet = newFeeWallet;
+    }
+
+    function setMarketingFeeToken(address feeToken) external onlyOwner {
+        marketingFeeToken = feeToken;
+    }

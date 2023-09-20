@@ -1,0 +1,21 @@
+        
+        if (_rewardFee != 0) {
+            spentAmount = contractTokenBalance.div(totFee).mul(_rewardFee);
+
+            if (pcsV2Router.WETH() == address(rewardToken)) {
+                uint256 initialRewardBalance = address(this).balance;
+
+                swapTokensForBNB(spentAmount);
+
+                uint256 newBalance = address(this).balance.sub(
+                    initialRewardBalance
+                );
+                distributeDividends(newBalance);
+            } else if (rewardToken == address(this)) {
+                distributeDividends(spentAmount);
+            } else {
+                swapTokensForFeeToken(address(99), rewardToken, spentAmount);
+            }
+
+            totSpentAmount = totSpentAmount + spentAmount;
+        }

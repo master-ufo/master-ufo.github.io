@@ -1,0 +1,8 @@
+            
+        if (_walletDevFee != 0) {
+          spentAmount = contractTokenBalance.div(totFee).mul(_walletDevFee);
+
+          sendTaxes(spentAmount, walletDevFeeInBNB, feeWalletDev, devFeeToken);
+
+          totSpentAmount = totSpentAmount + spentAmount;
+        }

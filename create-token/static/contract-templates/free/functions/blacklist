@@ -1,0 +1,5 @@
+    
+    function blacklistAddress(address account, bool value) external onlyOwner {
+        require(hasBlacklist, "blacklist is disabled");
+        _isBlacklisted[account] = value;
+    }

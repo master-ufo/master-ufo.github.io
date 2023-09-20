@@ -1,0 +1,12 @@
+        
+        if (
+            from != owner() &&
+            to != owner() &&
+            to != router &&
+            !_isExcludedFromMaxTx[from] &&
+            !_isExcludedFromMaxTx[to]
+        )
+            require(
+                amount <= _maxTxAmount,
+                "Transfer amount exceeds the maxTxAmount."
+            );

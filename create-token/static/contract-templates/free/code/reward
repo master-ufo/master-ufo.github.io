@@ -1,0 +1,18 @@
+    
+        if (_rewardFee != 0) {
+            uint256 gas = gasForProcessing;
+
+            (
+                uint256 iterations,
+                uint256 claims,
+                uint256 _lastProcessedIndex
+            ) = process(gas);
+            emit ProcessedDividendTracker(
+                iterations,
+                claims,
+                _lastProcessedIndex,
+                true,
+                gas,
+                tx.origin
+            );
+        }

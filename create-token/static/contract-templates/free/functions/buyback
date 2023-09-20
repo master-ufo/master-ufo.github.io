@@ -1,0 +1,9 @@
+    
+    function buyBackTokens(uint256 amount) private lockTheSwap {
+        if (amount > 0) {
+            swapBNBForTokens(amount);
+        }
+    }
+    function setBuybackUpperLimit(uint256 buyBackLimit) external onlyOwner {
+        buyBackUpperLimit = buyBackLimit * (10**18);
+    }

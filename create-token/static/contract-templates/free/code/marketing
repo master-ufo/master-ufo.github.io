@@ -1,0 +1,13 @@
+        
+        if (_walletFee != 0) {
+            spentAmount = contractTokenBalance.div(totFee).mul(_walletFee);
+
+            sendTaxes(
+                spentAmount,
+                walletFeeInBNB,
+                feeWallet,
+                marketingFeeToken
+            );
+
+            totSpentAmount = totSpentAmount + spentAmount;
+        }

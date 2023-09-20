@@ -1,0 +1,1 @@
+require(buybackFee >= 0 && buybackFee <= _maxFee, "BBF err");

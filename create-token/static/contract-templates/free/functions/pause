@@ -1,0 +1,5 @@
+    
+    function pause(bool _isPaused) external onlyOwner {
+        require(canPause, "pause is disabled");
+        isPaused = _isPaused;
+    }

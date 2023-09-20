@@ -1,0 +1,4 @@
+        
+        require(rewardFee >= 0 && rewardFee <= _maxFee, "RF err");
+        //both tax fee and reward fee cannot be set
+        require(rewardFee == 0 || taxFee == 0, "RT fee err");

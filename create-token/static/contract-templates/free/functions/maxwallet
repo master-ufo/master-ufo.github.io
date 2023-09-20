@@ -1,0 +1,15 @@
+    
+    function setMaxWalletPercent(uint256 maxWalletPercent) external onlyOwner {
+        require(
+            maxWalletPercent >= minMxWalletPercentage && maxWalletPercent <= 10000,
+            "err"
+        );
+        _maxWalletAmount = _tTotal.mul(maxWalletPercent).div(10**4);
+    }
+
+    function excludeFromMaxWallet(address account, bool isExcluded)
+        public
+        onlyOwner
+    {
+        _isExcludedFromMaxWallet[account] = isExcluded;
+    }

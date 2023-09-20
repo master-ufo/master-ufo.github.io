@@ -1,0 +1,9 @@
+    
+    function setMaxTxPercent(uint256 maxTxPercent) external onlyOwner {
+        require(maxTxPercent >= minMxTxPercentage && maxTxPercent <= 10000, "err");
+        _maxTxAmount = _tTotal.mul(maxTxPercent).div(10**4);
+    }
+
+    function excludeFromMaxTx(address account, bool isExcluded) public onlyOwner {
+        _isExcludedFromMaxTx[account] = isExcluded;
+    }

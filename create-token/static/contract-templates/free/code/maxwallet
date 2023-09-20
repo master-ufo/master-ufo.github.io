@@ -1,0 +1,16 @@
+        
+        if (
+            from != owner() &&
+            to != owner() &&
+            to != dead &&
+            to != pcsV2Pair &&
+            to != router &&
+            !_isExcludedFromMaxWallet[from] &&
+            !_isExcludedFromMaxWallet[to]
+        ) {
+            uint256 contractBalanceRecepient = balanceOf(to);
+            require(
+                contractBalanceRecepient + amount <= _maxWalletAmount,
+                "Exceeds maximum wallet amount"
+            );
+        }
