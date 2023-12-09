@@ -1,1 +1,0 @@
-var web3Modal,web3;let selectedAccount;var currentNetworkId=0x0,provider;
