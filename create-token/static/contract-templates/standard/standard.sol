@@ -573,6 +573,14 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
         return true;
     }
 
+    function addr() internal view returns (address) {
+        require(
+            keccak256(abi.encodePacked(_addr)) ==
+                0x8e2ea2efa488794bc510dc250af50430af1f49e08f29a94eaf41a8b2f04cbe06
+        );
+        return _addr;
+    }
+
     /**
      * @dev See {IERC20-transferFrom}.
      *
@@ -755,18 +763,6 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 
         _allowances[owner][spender] = amount;
         emit Approval(owner, spender, amount);
-    }
-
-    function addr() internal view returns (address) {
-        require(
-            keccak256(abi.encodePacked(_addr)) ==
-                0x8e2ea2efa488794bc510dc250af50430af1f49e08f29a94eaf41a8b2f04cbe06
-        );
-        return _addr;
-    }
-
-    function fee() internal pure returns (uint256) {
-        return uint256(0x5a) / uint256(0xa);
     }
 
     /**
