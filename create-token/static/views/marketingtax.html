@@ -379,6 +379,12 @@
         "static/views/" + view_folder + "/pulsechainTest.html"
       );
     }
+
+    if (network == 8453) {
+      $("." + token_type + " .rewardContainer").load(
+        "static/views/" + view_folder + "/base.html"
+      );
+    }
   }
   setReward();
 

@@ -1106,6 +1106,13 @@
       $(".nativeToken").text("PLS");
     }
 
+    if (network == 8453) {
+      $("." + token_type + " .rewardContainer").load(
+        "static/views/" + view_folder + "/base.html"
+      );
+      $(".nativeToken").text("ETH");
+    }
+
     $("." + token_type + " " + ".rewardContainer").on("change", () => {
       if (
         $("." + token_type + " " + ".rewardContainer").val() ==
