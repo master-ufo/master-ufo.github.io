@@ -597,3 +597,11 @@ p a:hover {
   margin-top: 10px;
   margin-right: 5px;
 }
+
+.optimized-text-primary {
+  color: #024dbb;
+}
+
+.footer-text {
+  color: #4e565a;
+}
