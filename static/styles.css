@@ -605,3 +605,7 @@ p a:hover {
 .footer-text {
   color: #4e565a;
 }
+
+.language-text a {
+  margin-right: 10px;
+}
