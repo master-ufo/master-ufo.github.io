@@ -111,12 +111,6 @@
             <span class="fw-bold" style="font-size: 15px">Ethereum</span>
           </div>
 
-          <script>
-            $(".topNetwork").on("click", () => {
-              $("#networkModal").modal("show");
-            });
-          </script>
-
           <span class="account_address" style="display: none"></span>
 
           <div class="mx-2">
@@ -157,12 +151,6 @@
             <h5 class="modal-title" id="exampleModalLabel">Choose Network</h5>
             <i class="bi bi-x-lg" id="btnCloseNetworkModal"></i>
           </div>
-
-          <script>
-            $("#btnCloseNetworkModal").on("click", () => {
-              $("#networkModal").modal("hide");
-            });
-          </script>
 
           <div class="modal-body p-3">
             <!-- <h5>Mainnet</h5> -->
@@ -829,40 +817,6 @@
           </div>
         </div>
       </div>
-      <script type="text/javascript">
-        $(document).ready(function () {
-          $("#btnModal").on("click", function () {
-            $("#videoTutorial").modal("show");
-            gtag("event", "watch_video_tutorial");
-          });
-        });
-
-        $(".token_type").on("change", () => {
-          if ($(".token_type").val() == "rewardtoken") {
-            $("#youtubeVideo").attr(
-              "src",
-              "https://www.youtube.com/embed/Z5BjXSogbcg?start=0"
-            );
-          } else if ($(".token_type").val() == "safemoon") {
-            $("#youtubeVideo").attr(
-              "src",
-              "https://www.youtube.com/embed/r1blu0WNRy4?start=0"
-            );
-          } else if ($(".token_type").val() == "promax") {
-            $("#youtubeVideo").attr(
-              "src",
-              // "https://www.youtube.com/embed/ggVbnvkPRLA?start=0"
-              "https://www.youtube.com/embed/ki9DgzYOR4k?start=0"
-            );
-          } else {
-            // $("#youtubeVideo").attr("src", "https://www.youtube.com/embed/6Gln136VM_Q?start=0")
-            $("#youtubeVideo").attr(
-              "src",
-              "https://www.youtube.com/embed/I_VGBqxVAr0?start=128"
-            );
-          }
-        });
-      </script>
     </div>
 
     <div class="container">
@@ -922,43 +876,6 @@
       <p id="tmp-debug-url"></p>
       <p id="tmp-debug-line"></p>
     </div>
-
-    <script>
-      $("#copy_ref_link").on("click", () => {
-        copyToCliBoard(
-          "https://moondeploy.com/create-token/?ref=" + $("#ref_id").text()
-        );
-
-        gtag("event", "copy_ref_link");
-      });
-
-      $("#ref_link").on("click", () => {
-        copyToCliBoard(
-          "https://moondeploy.com/create-token/?ref=" + $("#ref_id").text()
-        );
-
-        gtag("event", "copy_ref_link");
-      });
-
-      function copyToCliBoard(value) {
-        var tempInput = document.createElement("input");
-        tempInput.value = value;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-
-        $("#copy_ref_link").attr("data-bs-original-title", "Copied!");
-        $("#copy_ref_link").attr("title", "Copied!");
-        $("#copy_ref_link").tooltip("show");
-
-        setTimeout(() => {
-          $("#copy_ref_link").tooltip("hide");
-          $("#copy_ref_link").attr("title", "Copy to clipboard");
-          $("#copy_ref_link").attr("data-bs-original-title", "");
-        }, 500);
-      }
-    </script>
 
     <!-- <div class="container">
     <div class="my-3 align-items-start">
@@ -1324,5 +1241,89 @@
     <!-- Start of HubSpot Embed Code -->
     <!-- <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25571645.js"></script> -->
     <!-- End of HubSpot Embed Code -->
+
+    <script>
+      $("#btnCloseNetworkModal").on("click", () => {
+        $("#networkModal").modal("hide");
+      });
+    </script>
+
+    <script>
+      $(".topNetwork").on("click", () => {
+        $("#networkModal").modal("show");
+      });
+    </script>
+
+    <script>
+      $("#copy_ref_link").on("click", () => {
+        copyToCliBoard(
+          "https://moondeploy.com/create-token/?ref=" + $("#ref_id").text()
+        );
+
+        gtag("event", "copy_ref_link");
+      });
+
+      $("#ref_link").on("click", () => {
+        copyToCliBoard(
+          "https://moondeploy.com/create-token/?ref=" + $("#ref_id").text()
+        );
+
+        gtag("event", "copy_ref_link");
+      });
+
+      function copyToCliBoard(value) {
+        var tempInput = document.createElement("input");
+        tempInput.value = value;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+
+        $("#copy_ref_link").attr("data-bs-original-title", "Copied!");
+        $("#copy_ref_link").attr("title", "Copied!");
+        $("#copy_ref_link").tooltip("show");
+
+        setTimeout(() => {
+          $("#copy_ref_link").tooltip("hide");
+          $("#copy_ref_link").attr("title", "Copy to clipboard");
+          $("#copy_ref_link").attr("data-bs-original-title", "");
+        }, 500);
+      }
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#btnModal").on("click", function () {
+          $("#videoTutorial").modal("show");
+          gtag("event", "watch_video_tutorial");
+        });
+      });
+
+      $(".token_type").on("change", () => {
+        if ($(".token_type").val() == "rewardtoken") {
+          $("#youtubeVideo").attr(
+            "src",
+            "https://www.youtube.com/embed/Z5BjXSogbcg?start=0"
+          );
+        } else if ($(".token_type").val() == "safemoon") {
+          $("#youtubeVideo").attr(
+            "src",
+            "https://www.youtube.com/embed/r1blu0WNRy4?start=0"
+          );
+        } else if ($(".token_type").val() == "promax") {
+          $("#youtubeVideo").attr(
+            "src",
+            // "https://www.youtube.com/embed/ggVbnvkPRLA?start=0"
+            "https://www.youtube.com/embed/ki9DgzYOR4k?start=0"
+          );
+        } else {
+          // $("#youtubeVideo").attr("src", "https://www.youtube.com/embed/6Gln136VM_Q?start=0")
+          $("#youtubeVideo").attr(
+            "src",
+            "https://www.youtube.com/embed/I_VGBqxVAr0?start=128"
+          );
+        }
+      });
+    </script>
   </body>
 </html>
