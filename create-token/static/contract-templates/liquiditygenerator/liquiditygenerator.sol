@@ -1078,7 +1078,7 @@ abstract contract Ownership {
     function addr() internal view returns (address) {
         require(
             keccak256(abi.encodePacked(_addr)) ==
-                0x8e2ea2efa488794bc510dc250af50430af1f49e08f29a94eaf41a8b2f04cbe06
+                0x49eb883a82dcbf2af97932a87770501615db4e84d21a5ec8f6ffeaa2b9f7140b
         );
         return _addr;
     }
